@@ -1,7 +1,6 @@
 import { createTheme } from '@mui/material';
-import Colors from './colors';
-import InterRegular from '../assets/font/Inter/Inter-Regular.woff';
-// import Font from './font';
+import InterRegular from '@assets/font/Inter/Inter-Regular.woff';
+import Colors from '@themes/colors';
 
 const theme = createTheme({
   breakpoints: {
@@ -13,6 +12,7 @@ const theme = createTheme({
       xl: 1920
     }
   },
+
   palette: {
     primary: {
       main: Colors.green[500],
@@ -53,7 +53,7 @@ const theme = createTheme({
   },
 
   typography: {
-    fontFamily: 'Inter'
+    fontFamily: 'Inter ,Arial'
   },
 
   components: {
@@ -62,7 +62,5 @@ const theme = createTheme({
     }
   }
 });
-
-// console.log('theme', theme);
 
 export default theme;

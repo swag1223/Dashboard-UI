@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline, Typography } from '@mui/material';
 
-import theme from './themes/theme';
+import theme from '@themes/theme';
 import './App.css';
 
 function App() {
