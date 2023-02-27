@@ -7,17 +7,21 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .js,.jsx",
-    "lint:fix": "eslint . --ext .js,.jsx --fix",
+    "lint": "eslint src/**/*.js[x]",
+    "lint:fix": "eslint src/**/*.js[x] --fix",
     "prepare": "husky install"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.6.0",
@@ -29,11 +33,13 @@
     "husky": "^8.0.0",
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
-    "vite": "^4.1.0",
-    "@vitejs/plugin-react": "^3.1.0"
+    "sass": "^1.58.3",
+    "vite": "^4.1.0"
   },
   "lint-staged": {
-    "*.js": "eslint",
-    "*.jsx": "eslint"
+    "src/**/*.(js|jsx)": [
+      "eslint --fix",
+      "eslint"
+    ]
   }
 }
