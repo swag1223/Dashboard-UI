@@ -1,7 +1,7 @@
-import InterRegular from '../assets/font/Inter/Inter-Regular.woff2';
-import InterMedium from '../assets/font/Inter/Inter-Medium.woff2';
-import InterSemiBold from '../assets/font/Inter/Inter-SemiBold.woff2';
-import InterBold from '../assets/font/Inter/Inter-Bold.woff2';
+import InterRegular from '@assets/fonts/Inter/Inter-Regular.woff2';
+import InterMedium from '@assets/fonts/Inter/Inter-Medium.woff2';
+import InterSemiBold from '@assets/fonts/Inter/Inter-SemiBold.woff2';
+import InterBold from '@assets/fonts/Inter/Inter-Bold.woff2';
 
 const Font = `@font-face {
     font-family: 'Inter',

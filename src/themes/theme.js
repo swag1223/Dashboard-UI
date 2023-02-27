@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material';
-import InterRegular from '@assets/font/Inter/Inter-Regular.woff';
+import InterRegular from '@assets/fonts/Inter/Inter-Regular.woff';
 import Colors from '@themes/colors';
 
 const theme = createTheme({
