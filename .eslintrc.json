@@ -18,6 +18,8 @@
     "react/react-in-jsx-scope": "off",
     "no-shadow": "off",
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-    "import/no-unresolved": "off"
+    "default-param-last": "off",
+    "import/no-unresolved": "off",
+    "import/extensions": "off"
   }
 }
