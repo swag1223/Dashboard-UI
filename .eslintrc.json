@@ -18,6 +18,23 @@
     "react/react-in-jsx-scope": "off",
     "no-shadow": "off",
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-    "import/no-unresolved": "off"
+    "default-param-last": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      },
+      "alias": {
+        "map": [
+          ["@", "./src"],
+          ["@assets", "./src/assets"],
+          ["@components", "./src/components"],
+          ["@container", "./src/container"],
+          ["@theme", "./src/theme"]
+        ],
+        "extensions": [".js", ".jsx"]
+      }
+    }
   }
 }

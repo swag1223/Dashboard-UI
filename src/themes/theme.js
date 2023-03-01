@@ -1,6 +1,7 @@
 import { createTheme } from '@mui/material';
-import InterRegular from '@assets/fonts/Inter/Inter-Regular.woff';
-import Colors from '@themes/colors';
+// import InterRegular from '@assets/fonts/Inter/Inter-Regular.woff';
+import Colors from './colors';
+import font from './font';
 
 const theme = createTheme({
   breakpoints: {
@@ -53,12 +54,13 @@ const theme = createTheme({
   },
 
   typography: {
-    fontFamily: 'Inter ,Arial'
+    fontFamily: 'Inter'
   },
 
   components: {
     MuiCssBaseline: {
-      styleOverrides: `@font-face { font-family: 'Inter'; font-weight: 400; src: url(${InterRegular}) format('woff');}`
+      styleOverrides: font
+      // styleOverrides: `@font-face { font-family: 'Inter'; font-weight: 400; src: url(${InterRegular}) format('woff');}`
     }
   }
 });
