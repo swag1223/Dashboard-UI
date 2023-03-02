@@ -1,5 +1,8 @@
 {
   "name": "react-assignment",
+  "description": "Assignment-2 is a static website made with the help of React, JS and Vite.",
+  "author": "swaijot",
+  "license": "MIT",
   "private": true,
   "version": "0.0.0",
   "type": "module",
