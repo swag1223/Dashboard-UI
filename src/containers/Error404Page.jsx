@@ -1,7 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function ErrorPage() {
-  return <h1>404 Notfound</h1>;
+function Error404Page() {
+  return (
+    <>
+      <h1>404 Page Not Found</h1>
+      <Link className="links" to="/">
+        Go To Home
+      </Link>
+    </>
+  );
 }
 
-export default ErrorPage;
+export default Error404Page;

@@ -1,5 +1,6 @@
+import { decrementCounter, incrementCounter } from '@store/counter/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { decrementCounter, incrementCounter } from '@/store/counter/actions';
+
 import Footer from './Footer';
 
 function MainContent() {
