@@ -35,7 +35,7 @@ const theme = createTheme({
 
   palette: {
     primary: {
-      main: createTheme().palette.primary.main,
+      main: Colors.green[500],
       light: Colors.green[100],
       dark: Colors.green[800]
     },
