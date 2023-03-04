@@ -1,8 +1,8 @@
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { legacy_createStore as createStore, combineReducers } from 'redux';
-import CounterReducer from './counter';
+import productsReducer from './products';
 
-const allReducer = combineReducers({ counter: CounterReducer });
+const allReducer = combineReducers({ products: productsReducer });
 
 const store = createStore(allReducer, composeWithDevTools());
 

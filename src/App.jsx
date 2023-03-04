@@ -6,7 +6,8 @@ import Error500Page from '@containers/error500/Error500Page';
 import Error404Page from '@containers/error404/Error404Page';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import PrimarySearchAppBar from '@containers/MUINavbar';
-import Navbar from '@containers/Navbar';
+// import Navbar from '@containers/Navbar';
+
 import finalTheme from './theme';
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
     <ThemeProvider theme={finalTheme}>
       <CssBaseline />
       <PrimarySearchAppBar />
-      <Navbar />
+      {/* <Navbar /> */}
+
       <Routes>
         <Route path={URL.DASHBOARD} element={<MainContent />} />
         <Route path={URL.AUTH} element={<Error500Page />} />

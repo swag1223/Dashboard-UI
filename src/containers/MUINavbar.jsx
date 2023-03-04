@@ -5,13 +5,15 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import FontIcon from '@components/FontIcon';
+import FontIcon from '@components/fontIcon/FontIcon';
 import { Avatar } from '@mui/material';
 import { Link } from 'react-router-dom';
+import SearchInput from '@components/input/SearchInput';
+import { useDispatch, useSelector } from 'react-redux';
+import requestProducts from '@store/products/actions';
+import products from '@mockData/products.json';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -19,8 +21,10 @@ const Search = styled('div')(({ theme }) => ({
   backgroundColor: alpha(theme.palette.secondary.light, 0.15),
   marginRight: theme.spacing(2),
   marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
+  display: 'none',
+  // width: '100%',
+  [theme.breakpoints.up('md')]: {
+    display: 'block',
     marginLeft: theme.spacing(3),
     width: 'auto'
   }
@@ -36,42 +40,29 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   justifyContent: 'center'
 }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch'
-    }
-  }
-}));
-
 export default function PrimarySearchAppBar() {
+  const { productsData, isLoading } = useSelector((state) => state);
+
+  console.log(productsData);
+  console.log(isLoading);
+  const dispatch = useDispatch();
+
+  const onFocus = () => {
+    dispatch(requestProducts(products));
+  };
+  // console.log(productsData);
+  // console.log(isLoading);
+
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
   const handleMenuClose = () => {
     setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
   };
 
   const menuId = 'primary-search-account-menu';
@@ -95,55 +86,6 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right'
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right'
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}>
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            {/* <MailIcon /> */}
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit">
-          <Badge badgeContent={17} color="error">
-            {/* <NotificationsIcon /> */}
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit">
-          {/* <AccountCircle /> */}
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -158,11 +100,12 @@ export default function PrimarySearchAppBar() {
             logo
           </Typography>
           <Search>
-            <SearchIconWrapper>{/* <SearchIcon /> */}</SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
+            <SearchIconWrapper>
+              <FontIcon name="icon-search" />
+            </SearchIconWrapper>
+            {productsData && (
+              <SearchInput onFocus={onFocus} products={productsData} />
+            )}
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
@@ -171,7 +114,7 @@ export default function PrimarySearchAppBar() {
               aria-label="show new notifications"
               color="inherit">
               <Link to="*">
-                <FontIcon />
+                <FontIcon name="icon-Vector" />
               </Link>
             </IconButton>
             <IconButton
@@ -185,20 +128,9 @@ export default function PrimarySearchAppBar() {
               <Avatar alt="John Doe" src="src/assets/images/Avatar.svg" />
             </IconButton>
           </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit">
-              {/* <MoreIcon /> */}
-            </IconButton>
-          </Box>
         </Toolbar>
       </AppBar>
-      {renderMobileMenu}
+
       {renderMenu}
     </Box>
   );
