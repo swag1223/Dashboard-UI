@@ -1,7 +1,7 @@
 import { decrementCounter, incrementCounter } from '@store/counter/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Footer from './Footer';
+import Footer from '../footer/Footer';
 
 function MainContent() {
   const count = useSelector((state) => {

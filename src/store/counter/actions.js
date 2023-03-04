@@ -1,13 +1,15 @@
+import COUNTER from '@constants/actionConstants';
+
 export const incrementCounter = (payload) => {
   return {
-    type: 'increment',
+    type: COUNTER.INCERMENT,
     payload
   };
 };
 
 export const decrementCounter = (payload) => {
   return {
-    type: 'decrement',
+    type: COUNTER.DECREMENT,
     payload
   };
 };

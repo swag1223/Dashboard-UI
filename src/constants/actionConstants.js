@@ -1,0 +1,6 @@
+const COUNTER = {
+  INCERMENT: 'INCREMENT',
+  DECREMENT: 'DECREMENT'
+};
+
+export default COUNTER;

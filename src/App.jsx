@@ -1,11 +1,12 @@
-import Error404Page from '@containers/Error404Page';
-import Error500Page from '@containers/Error500Page';
-import MainContent from '@containers/MainContent';
-import Navbar from '@containers/Navbar';
-import '@styles/App.scss';
+import MainContent from '@containers/mainContent/MainContent';
+import '@styles/app.scss';
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
+import URL from '@constants/routesConstants';
+import Navbar from '@containers/navbar/Navbar';
+import Error500Page from '@containers/error500/Error500Page';
+import Error404Page from '@containers/error404/Error404Page';
 import finalTheme from './theme';
 
 function App() {
@@ -14,9 +15,9 @@ function App() {
       <CssBaseline />
       <Navbar />
       <Routes>
-        <Route path="/" element={<MainContent />} />
-        <Route path="/auth" element={<Error500Page />} />
-        <Route path="*" element={<Error404Page />} />
+        <Route path={URL.DASHBOARD} element={<MainContent />} />
+        <Route path={URL.AUTH} element={<Error500Page />} />
+        <Route path={URL.NOT_FOUND} element={<Error404Page />} />
       </Routes>
     </ThemeProvider>
   );

@@ -49,7 +49,7 @@ const fonts = `
         text-transform: none;
       }
 
-      .icon-Vector:before {
+      .icon-bell:before {
         content: "\\e900";
       }`;
 

@@ -1,26 +1,6 @@
 import { createTheme } from '@mui/material';
+import { COLORS, FONT_WEIGHTS } from '@constants/themeConstants';
 import fonts from './font';
-
-const Colors = {
-  gray: {
-    400: '#9CA3AF',
-    500: '#6B7280',
-    900: '#111827'
-  },
-  red: {
-    200: '#FBD5D5',
-    800: '#9B1C1C'
-  },
-  green: {
-    100: '#DEF7EC',
-    500: '#0E9F6E',
-    800: '#03543F'
-  },
-  blue: {
-    100: '#E1EFFE',
-    800: '#1E429F'
-  }
-};
 
 const theme = createTheme({
   breakpoints: {
@@ -35,36 +15,36 @@ const theme = createTheme({
 
   palette: {
     primary: {
-      main: Colors.green[500],
-      light: Colors.green[100],
-      dark: Colors.green[800]
+      main: COLORS.GREEN[500],
+      light: COLORS.GREEN[100],
+      dark: COLORS.GREEN[800]
     },
 
     secondary: {
-      main: Colors.gray[500],
-      light: Colors.gray[400],
-      dark: Colors.gray[900]
+      main: COLORS.GRAY[500],
+      light: COLORS.GRAY[400],
+      dark: COLORS.GRAY[900]
     },
 
     error: {
-      main: Colors.red[200],
-      contrastText: Colors.red[800]
+      main: COLORS.RED[200],
+      contrastText: COLORS.RED[800]
     },
 
     info: {
-      main: Colors.blue[100],
-      contrastText: Colors.blue[800]
+      main: COLORS.BLUE[100],
+      contrastText: COLORS.BLUE[800]
     },
 
     text: {
-      primary: Colors.gray[900],
-      secondary: Colors.gray[500],
-      disabled: Colors.gray[400]
+      primary: COLORS.GRAY[900],
+      secondary: COLORS.GRAY[500],
+      disabled: COLORS.GRAY[400]
     },
 
     action: {
-      active: Colors.green[500],
-      hover: Colors.green[500]
+      active: COLORS.GREEN[500],
+      hover: COLORS.GREEN[500]
     }
   },
 
@@ -84,7 +64,7 @@ const finalTheme = createTheme({
   typography: {
     fontFamily: 'Inter',
     h1: {
-      fontWeight: 700,
+      fontWeight: FONT_WEIGHTS.BOLD,
       fontSize: theme.typography.pxToRem(30),
       lineHeight: theme.typography.pxToRem(45),
       [theme.breakpoints.up('sm')]: {
@@ -94,31 +74,31 @@ const finalTheme = createTheme({
     },
 
     h2: {
-      fontWeight: 700,
+      fontWeight: FONT_WEIGHTS.BOLD,
       fontSize: theme.typography.pxToRem(20),
       lineHeight: theme.typography.pxToRem(30)
     },
 
     h3: {
-      fontWeight: 600,
+      fontWeight: FONT_WEIGHTS.SEMIBOLD,
       fontSize: theme.typography.pxToRem(20),
       lineHeight: theme.typography.pxToRem(30)
     },
 
     h4: {
-      fontWeight: 600,
+      fontWeight: FONT_WEIGHTS.SEMIBOLD,
       fontSize: theme.typography.pxToRem(16),
       lineHeight: theme.typography.pxToRem(24)
     },
 
     body1: {
-      fontWeight: 400,
+      fontWeight: FONT_WEIGHTS.REGULAR,
       fontSize: theme.typography.pxToRem(16),
       lineHeight: theme.typography.pxToRem(24)
     },
 
     body2: {
-      fontWeight: 400,
+      fontWeight: FONT_WEIGHTS.REGULAR,
       fontSize: theme.typography.pxToRem(12),
       lineHeight: theme.typography.pxToRem(18)
     }

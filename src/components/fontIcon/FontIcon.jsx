@@ -4,7 +4,7 @@ import React from 'react';
 function FontIcon() {
   return (
     <Box
-      className="icon-Vector"
+      className="icon-bell"
       sx={{
         width: 20,
         height: 20
