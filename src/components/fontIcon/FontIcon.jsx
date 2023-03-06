@@ -1,15 +1,8 @@
-import { Box } from '@mui/material';
-import React from 'react';
+import { Box, styled } from '@mui/material';
 
-function FontIcon({ name }) {
-  return (
-    <Box
-      className={name}
-      sx={{
-        fontSize: 20
-      }}
-    />
-  );
-}
+const FontIcon = styled(Box)(({ theme, size, fontcolor }) => ({
+  fontSize: theme.typography.pxToRem(size),
+  color: theme.palette.secondary[fontcolor]
+}));
 
 export default FontIcon;

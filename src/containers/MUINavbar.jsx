@@ -1,36 +1,37 @@
 import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
+import { styled } from '@mui/material/styles';
+import {
+  AppBar,
+  Avatar,
+  Box,
+  IconButton,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Typography
+} from '@mui/material';
+
+import Input from '@components/input/Input';
 import FontIcon from '@components/fontIcon/FontIcon';
-import { Avatar } from '@mui/material';
-import { Link } from 'react-router-dom';
-import SearchInput from '@components/input/SearchInput';
 import { useDispatch, useSelector } from 'react-redux';
 import requestProducts from '@store/products/actions';
 import products from '@mockData/products.json';
+import { Link } from 'react-router-dom';
 
-const Search = styled('div')(({ theme }) => ({
+const StyledInputWrapper = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.secondary.light, 0.15),
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
   display: 'none',
-  // width: '100%',
-  [theme.breakpoints.up('md')]: {
-    display: 'block',
-    marginLeft: theme.spacing(3),
-    width: 'auto'
+  boxShadow:
+    '0px 10px 15px -3px rgba(0, 0, 0, 0.1),  0px 4px 6px -2px rgba(0, 0, 0, 0.05)',
+
+  [theme.breakpoints.up('sm')]: {
+    width: 'auto',
+    display: 'block'
   }
 }));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
+const StyledSearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: '100%',
   position: 'absolute',
@@ -40,98 +41,122 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   justifyContent: 'center'
 }));
 
-export default function PrimarySearchAppBar() {
-  const { productsData, isLoading } = useSelector((state) => state);
+const StyledMenu = styled(Menu)(({ theme }) => ({
+  '& .MuiPaper-root': {
+    borderRadius: 8,
+    marginTop: theme.spacing(1),
+    minWidth: 200,
+    boxShadow:
+      'rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px'
+  }
+}));
 
-  console.log(productsData);
-  console.log(isLoading);
+function NavBar() {
+  // const theme = useTheme();
+  // console.log(theme);
+  const { productsData } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
-  const onFocus = () => {
+  const getProducts = () => {
     dispatch(requestProducts(products));
   };
   // console.log(productsData);
-  // console.log(isLoading);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const isMenuOpen = Boolean(anchorEl);
-
-  const handleProfileMenuOpen = (event) => {
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
-  const handleMenuClose = () => {
+  const handleClose = () => {
     setAnchorEl(null);
   };
 
-  const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right'
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right'
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}>
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
-
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar
-        position="static"
-        sx={{ backgroundColor: 'white', color: 'primary.main' }}>
-        <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}>
-            logo
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <FontIcon name="icon-search" />
-            </SearchIconWrapper>
-            {productsData && (
-              <SearchInput onFocus={onFocus} products={productsData} />
-            )}
-          </Search>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton
-              size="large"
-              aria-label="show new notifications"
-              color="inherit">
-              <Link to="*">
-                <FontIcon name="icon-Vector" />
-              </Link>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit">
-              <Avatar alt="John Doe" src="src/assets/images/Avatar.svg" />
-            </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
+    <AppBar
+      position="static"
+      elevation={1}
+      sx={{ backgroundColor: 'white', color: 'primary.main' }}>
+      <Toolbar>
+        <IconButton
+          size="large"
+          edge="start"
+          color="inherit"
+          aria-label="brand-logo"
+          sx={{ mr: 2 }}>
+          <img alt="Brand logo" src="src/assets/images/Logo.png" />
+        </IconButton>
 
-      {renderMenu}
-    </Box>
+        <StyledInputWrapper>
+          <StyledSearchIconWrapper>
+            <FontIcon className="icon-search" size={16} fontcolor="light" />
+          </StyledSearchIconWrapper>
+          <Input
+            getProducts={getProducts}
+            productsData={productsData}
+            inputSx={{ width: 402 }}
+          />
+        </StyledInputWrapper>
+
+        <Box sx={{ flexGrow: 1 }} />
+
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}>
+          <Link to="*">
+            <FontIcon className="icon-bell" size={20} fontcolor="dark" />
+          </Link>
+
+          <IconButton
+            size="large"
+            edge="end"
+            aria-label="account of current user"
+            // aria-controls={menuId}
+            aria-haspopup="true"
+            onClick={handleClick}
+            color="inherit">
+            <Avatar alt="John Doe" src="src/assets/images/Avatar.png" />
+          </IconButton>
+        </Box>
+
+        <StyledMenu
+          // id="demo-customized-menu"
+          elevation={0}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right'
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right'
+          }}
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}>
+          <MenuItem
+            onClick={handleClose}
+            disableRipple
+            sx={{ display: 'flex', flexDirection: 'column' }}>
+            {/* <FontIcon className="icon-user" size={20} fontcolor="dark"/> */}
+            John Doe
+            <Typography variant="body2">email@example.com</Typography>
+          </MenuItem>
+          <MenuItem onClick={handleClose} disableRipple>
+            Account
+          </MenuItem>
+
+          <MenuItem onClick={handleClose} disableRipple>
+            {/* <FontIcon className="icon-settings" size={20} fontcolor="dark" /> */}
+            Settings
+          </MenuItem>
+          <MenuItem onClick={handleClose} disableRipple>
+            Log Out
+          </MenuItem>
+        </StyledMenu>
+      </Toolbar>
+    </AppBar>
   );
 }
+export default NavBar;
