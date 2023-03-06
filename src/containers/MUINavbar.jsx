@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import {
   AppBar,
   Avatar,
@@ -22,8 +22,7 @@ const StyledInputWrapper = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
   display: 'none',
-  boxShadow:
-    '0px 10px 15px -3px rgba(0, 0, 0, 0.1),  0px 4px 6px -2px rgba(0, 0, 0, 0.05)',
+  boxShadow: theme.shadows[1],
 
   [theme.breakpoints.up('sm')]: {
     width: 'auto',
@@ -52,7 +51,7 @@ const StyledMenu = styled(Menu)(({ theme }) => ({
 }));
 
 function NavBar() {
-  // const theme = useTheme();
+  const theme = useTheme();
   // console.log(theme);
   const { productsData } = useSelector((state) => state.products);
   const dispatch = useDispatch();
@@ -60,7 +59,7 @@ function NavBar() {
   const getProducts = () => {
     dispatch(requestProducts(products));
   };
-  // console.log(productsData);
+  console.log(productsData);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -74,16 +73,29 @@ function NavBar() {
   return (
     <AppBar
       position="static"
-      elevation={1}
+      elevation={0}
+      variant="outlined"
       sx={{ backgroundColor: 'white', color: 'primary.main' }}>
       <Toolbar>
         <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="brand-logo"
-          sx={{ mr: 2 }}>
-          <img alt="Brand logo" src="src/assets/images/Logo.png" />
+          sx={{
+            mr: 2,
+            display: 'none',
+            [theme.breakpoints.up('sm')]: {
+              display: 'flex'
+            }
+          }}>
+          <img alt="Brand logo" src="src/assets/images/Logo.svg" />
+        </IconButton>
+
+        <IconButton
+          sx={{
+            mr: 2,
+            [theme.breakpoints.up('sm')]: {
+              display: 'none'
+            }
+          }}>
+          <img alt="Brand logo" src="src/assets/images/Menu.svg" />
         </IconButton>
 
         <StyledInputWrapper>
@@ -105,9 +117,17 @@ function NavBar() {
             justifyContent: 'center',
             alignItems: 'center'
           }}>
-          <Link to="*">
-            <FontIcon className="icon-bell" size={20} fontcolor="dark" />
-          </Link>
+          <IconButton>
+            <Link to="*">
+              <FontIcon
+                className="icon-bell"
+                size={20}
+                fontcolor="dark"
+                shadow={4}
+                padding={9}
+              />
+            </Link>
+          </IconButton>
 
           <IconButton
             size="large"
@@ -117,7 +137,11 @@ function NavBar() {
             aria-haspopup="true"
             onClick={handleClick}
             color="inherit">
-            <Avatar alt="John Doe" src="src/assets/images/Avatar.png" />
+            <Avatar
+              alt="John Doe"
+              src="src/assets/images/Avatar.png"
+              sx={{ boxShadow: `${theme.shadows[4]}` }}
+            />
           </IconButton>
         </Box>
 
