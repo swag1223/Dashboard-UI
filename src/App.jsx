@@ -1,5 +1,5 @@
 import MainContent from '@containers/mainContent/MainContent';
-import '@styles/app.scss';
+import '@styles/main.scss';
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';

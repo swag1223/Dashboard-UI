@@ -4,10 +4,9 @@ import React from 'react';
 function FontIcon() {
   return (
     <Box
-      className="icon-bell"
+      className="icon-settings"
       sx={{
-        width: 20,
-        height: 20
+        fontSize: 20
       }}
     />
   );
