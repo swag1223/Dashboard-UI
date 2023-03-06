@@ -1,8 +1,22 @@
 import { useState, useMemo } from 'react';
 import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-import { Box, Typography } from '@mui/material';
 
+import Autocomplete from '@mui/material/Autocomplete';
+import { Box, InputAdornment, styled, Typography } from '@mui/material';
+import FontIcon from '@components/fontIcon/FontIcon';
+
+const StyledTextField = styled(TextField)(({ theme }) => ({
+  display: 'none',
+  [theme.breakpoints.up('sm')]: {
+    display: 'block'
+  },
+
+  '& .MuiInputBase-root': {
+    width: theme.typography.pxToRem(402),
+    boxShadow: theme.shadows[2],
+    padding: `${theme.typography.pxToRem(5)} ${theme.typography.pxToRem(15)}}`
+  }
+}));
 const debounce = (f, delay) => {
   let timer;
 
@@ -14,7 +28,7 @@ const debounce = (f, delay) => {
   };
 };
 
-export default function Input({ getProducts, productsData, inputSx = {} }) {
+export default function AutocompleteInput({ getProducts, productsData }) {
   const [inputValue, setInputValue] = useState('');
   const handleInputChange = () => {
     getProducts();
@@ -57,7 +71,18 @@ export default function Input({ getProducts, productsData, inputSx = {} }) {
         </Box>
       )}
       renderInput={(params) => (
-        <TextField {...params} placeholder="Search" sx={inputSx} />
+        <StyledTextField
+          {...params}
+          placeholder="Search"
+          InputProps={{
+            ...params.InputProps,
+            startAdornment: (
+              <InputAdornment position="start">
+                <FontIcon className="icon-search" size={20} fontcolor="main" />
+              </InputAdornment>
+            )
+          }}
+        />
       )}
     />
   );

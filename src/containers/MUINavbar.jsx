@@ -11,34 +11,12 @@ import {
   Typography
 } from '@mui/material';
 
-import Input from '@components/input/Input';
 import FontIcon from '@components/fontIcon/FontIcon';
 import { useDispatch, useSelector } from 'react-redux';
 import requestProducts from '@store/products/actions';
 import products from '@mockData/products.json';
 import { Link } from 'react-router-dom';
-
-const StyledInputWrapper = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  display: 'none',
-  boxShadow: theme.shadows[1],
-
-  [theme.breakpoints.up('sm')]: {
-    width: 'auto',
-    display: 'block'
-  }
-}));
-
-const StyledSearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center'
-}));
+import AutocompleteInput from '@components/autocomplete/AutocompleteInput';
 
 const StyledMenu = styled(Menu)(({ theme }) => ({
   '& .MuiPaper-root': {
@@ -59,7 +37,6 @@ function NavBar() {
   const getProducts = () => {
     dispatch(requestProducts(products));
   };
-  console.log(productsData);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -75,11 +52,11 @@ function NavBar() {
       position="static"
       elevation={0}
       variant="outlined"
-      sx={{ backgroundColor: 'white', color: 'primary.main' }}>
+      sx={{ backgroundColor: 'common.white', width: '100vw' }}>
       <Toolbar>
         <IconButton
           sx={{
-            mr: 2,
+            mr: 3,
             display: 'none',
             [theme.breakpoints.up('sm')]: {
               display: 'flex'
@@ -90,24 +67,18 @@ function NavBar() {
 
         <IconButton
           sx={{
-            mr: 2,
+            mr: 3,
             [theme.breakpoints.up('sm')]: {
               display: 'none'
             }
           }}>
-          <img alt="Brand logo" src="src/assets/images/Menu.svg" />
+          <FontIcon className="icon-menu" size={30} fontcolor="dark" />
         </IconButton>
 
-        <StyledInputWrapper>
-          <StyledSearchIconWrapper>
-            <FontIcon className="icon-search" size={16} fontcolor="light" />
-          </StyledSearchIconWrapper>
-          <Input
-            getProducts={getProducts}
-            productsData={productsData}
-            inputSx={{ width: 402 }}
-          />
-        </StyledInputWrapper>
+        <AutocompleteInput
+          getProducts={getProducts}
+          productsData={productsData}
+        />
 
         <Box sx={{ flexGrow: 1 }} />
 
@@ -133,7 +104,6 @@ function NavBar() {
             size="large"
             edge="end"
             aria-label="account of current user"
-            // aria-controls={menuId}
             aria-haspopup="true"
             onClick={handleClick}
             color="inherit">
@@ -146,7 +116,6 @@ function NavBar() {
         </Box>
 
         <StyledMenu
-          // id="demo-customized-menu"
           elevation={0}
           anchorOrigin={{
             vertical: 'bottom',
@@ -162,20 +131,28 @@ function NavBar() {
           <MenuItem
             onClick={handleClose}
             disableRipple
-            sx={{ display: 'flex', flexDirection: 'column' }}>
-            {/* <FontIcon className="icon-user" size={20} fontcolor="dark"/> */}
-            John Doe
-            <Typography variant="body2">email@example.com</Typography>
-          </MenuItem>
-          <MenuItem onClick={handleClose} disableRipple>
-            Account
+            sx={{ display: 'flex', gap: 2 }}>
+            <FontIcon className="icon-user" size={20} fontcolor="main" />
+            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+              <Typography variant="h4">John Doe</Typography>
+              <Typography variant="body2" color="text.secondary">
+                email@example.com
+              </Typography>
+            </Box>
           </MenuItem>
 
-          <MenuItem onClick={handleClose} disableRipple>
-            {/* <FontIcon className="icon-settings" size={20} fontcolor="dark" /> */}
+          <MenuItem
+            onClick={handleClose}
+            disableRipple
+            sx={{ display: 'flex', gap: 2 }}>
+            <FontIcon className="icon-settings" size={20} fontcolor="main" />
             Settings
           </MenuItem>
-          <MenuItem onClick={handleClose} disableRipple>
+          <MenuItem
+            onClick={handleClose}
+            disableRipple
+            sx={{ display: 'flex', gap: 2 }}>
+            <FontIcon className="icon-logout" size={20} fontcolor="main" />
             Log Out
           </MenuItem>
         </StyledMenu>

@@ -1,6 +1,9 @@
-const COUNTER = {
-  INCERMENT: 'INCREMENT',
-  DECREMENT: 'DECREMENT'
-};
+// export const COUNTER = {
+//   INCERMENT: 'INCREMENT',
+//   DECREMENT: 'DECREMENT'
+// };
 
-export default COUNTER;
+const PRODUCTS = {
+  LOAD: 'LOAD_PRODUCTS_DATA'
+};
+export default PRODUCTS;
