@@ -5,15 +5,14 @@ import { Routes, Route } from 'react-router-dom';
 import URL from '@constants/routesConstants';
 import Error500Page from '@containers/error500/Error500Page';
 import Error404Page from '@containers/error404/Error404Page';
-import PrimarySearchAppBar from '@containers/MUINavbar';
-
+import NavBar from '@containers/MUINavbar';
 import finalTheme from './theme';
 
 function App() {
   return (
     <ThemeProvider theme={finalTheme}>
       <CssBaseline />
-      <PrimarySearchAppBar />
+      <NavBar />
       <Routes>
         <Route path={URL.DASHBOARD} element={<MainContent />} />
         <Route path={URL.AUTH} element={<Error500Page />} />
