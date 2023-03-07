@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import URL from '@constants/routesConstants';
 import Error500Page from '@containers/error500/Error500Page';
 import Error404Page from '@containers/error404/Error404Page';
-import NavBar from '@containers/MUINavbar';
+import NavBar from '@containers/navbar/Navbar';
 import finalTheme from './theme';
 
 function App() {

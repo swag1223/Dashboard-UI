@@ -1,9 +1,19 @@
 import { useState, useMemo } from 'react';
 import TextField from '@mui/material/TextField';
-
 import Autocomplete from '@mui/material/Autocomplete';
 import { Box, InputAdornment, styled, Typography } from '@mui/material';
 import FontIcon from '@components/fontIcon/FontIcon';
+
+const debounce = (f, delay) => {
+  let timer;
+
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      f(...args);
+    }, delay);
+  };
+};
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
   display: 'none',
@@ -17,16 +27,6 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
     padding: `${theme.typography.pxToRem(5)} ${theme.typography.pxToRem(15)}}`
   }
 }));
-const debounce = (f, delay) => {
-  let timer;
-
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      f(...args);
-    }, delay);
-  };
-};
 
 export default function AutocompleteInput({ getProducts, productsData }) {
   const [inputValue, setInputValue] = useState('');
@@ -34,7 +34,6 @@ export default function AutocompleteInput({ getProducts, productsData }) {
     getProducts();
   };
 
-  // const debouncedHandleInputChange = useRef(debounce(handleInputChange, 1000));
   const debouncedHandleInputChange = useMemo(
     () => debounce(handleInputChange, 1000),
     []
@@ -45,7 +44,6 @@ export default function AutocompleteInput({ getProducts, productsData }) {
       inputValue={inputValue}
       onInputChange={(e) => {
         setInputValue(e.target.value);
-        // debouncedHandleInputChange.current();
         debouncedHandleInputChange();
       }}
       freeSolo
