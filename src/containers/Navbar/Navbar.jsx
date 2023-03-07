@@ -1,4 +1,4 @@
-import FontIcon from '@components/fontIcon/FontIcon';
+import FontIcon from '@components/FontIcon/FontIcon';
 import URL from '@constants/routesConstants';
 import { Box, Typography } from '@mui/material';
 import React from 'react';

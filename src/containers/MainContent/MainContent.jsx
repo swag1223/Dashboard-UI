@@ -1,4 +1,4 @@
-import Footer from '../footer/Footer';
+import Footer from '../Footer/Footer';
 
 import { decrementCounter, incrementCounter } from '@store/counter/actions';
 import { useDispatch, useSelector } from 'react-redux';

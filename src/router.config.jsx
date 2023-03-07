@@ -1,8 +1,8 @@
 import URL from '@constants/routesConstants';
-import Error404Page from '@containers/error404/Error404Page';
-import Error500Page from '@containers/error500/Error500Page';
+import Error404Page from '@containers/Error404Page/Error404Page';
+import Error500Page from '@containers/Error500Page/Error500Page';
 import Layout from '@containers/Layout/Layout';
-import MainContent from '@containers/mainContent/MainContent';
+import MainContent from '@containers/MainContent/MainContent';
 import { createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
