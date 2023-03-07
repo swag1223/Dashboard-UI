@@ -1,7 +1,7 @@
 import COUNTER from '@constants/actionConstants';
 
 const initialState = {
-  count: 0
+  count: 0,
 };
 
 const CounterReducer = (state = initialState, action) => {

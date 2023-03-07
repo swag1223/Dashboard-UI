@@ -1,11 +1,11 @@
+import Footer from '../footer/Footer';
+
 import { decrementCounter, incrementCounter } from '@store/counter/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Footer from '../footer/Footer';
-
-function MainContent() {
-  const count = useSelector((state) => {
-    return state.count;
+const MainContent = () => {
+  const { count } = useSelector((state) => {
+    return state.counter;
   });
 
   const dispatch = useDispatch();
@@ -21,16 +21,16 @@ function MainContent() {
   return (
     <>
       <h1>Main Overview</h1>
-      <button type="button" onClick={handleIncrement}>
+      <button type='button' onClick={handleIncrement}>
         +
       </button>
       <span>{count}</span>
-      <button type="button" onClick={handleDecrement}>
+      <button type='button' onClick={handleDecrement}>
         -
       </button>
       <Footer />
     </>
   );
-}
+};
 
 export default MainContent;

@@ -1,6 +1,6 @@
 const COUNTER = {
   INCERMENT: 'INCREMENT',
-  DECREMENT: 'DECREMENT'
+  DECREMENT: 'DECREMENT',
 };
 
 export default COUNTER;

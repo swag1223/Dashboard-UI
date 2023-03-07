@@ -1,27 +1,29 @@
+import FontIcon from '@components/fontIcon/FontIcon';
+import URL from '@constants/routesConstants';
+import { Box, Typography } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Typography } from '@mui/material';
-import URL from '@constants/routesConstants';
-import FontIcon from '@components/fontIcon/FontIcon';
 
-function Navbar() {
+const Navbar = () => {
   return (
-    <Box backgroundColor="PapayaWhip">
-      <Typography variant="h3">Navbar</Typography>
-      <Link className="links" to={URL.NOT_FOUND}>
+    <Box backgroundColor='PapayaWhip'>
+      <Typography variant='h3' color='text.tertiary'>
+        Navbar BAR
+      </Typography>
+      <Link to={URL.NOT_FOUND} className='links'>
         <FontIcon />
       </Link>
-      <Link className="links" to={URL.DASHBOARD}>
+      <Link to={URL.DASHBOARD} className='links'>
         Overview
       </Link>
-      <Link className="links" to={URL.NOT_FOUND}>
+      <Link to={URL.NOT_FOUND} className='links'>
         Tile2
       </Link>
-      <Link className="links" to={URL.AUTH}>
+      <Link to={URL.AUTH} className='links'>
         Authentication
       </Link>
     </Box>
   );
-}
+};
 
 export default Navbar;

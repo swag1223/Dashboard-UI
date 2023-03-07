@@ -73,5 +73,5 @@ yarn run build
 **lint:fix** : Run ESLint and Automatically Fix Errors Resolvable By ESLint
 
 ```
- yarn lint-fix
+ yarn lint:fix
 ```

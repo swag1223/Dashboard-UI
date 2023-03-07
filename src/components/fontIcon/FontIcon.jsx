@@ -1,15 +1,15 @@
 import { Box } from '@mui/material';
 import React from 'react';
 
-function FontIcon() {
+const FontIcon = () => {
   return (
     <Box
-      className="icon-settings"
+      className='icon-settings'
       sx={{
-        fontSize: 20
+        fontSize: 20,
       }}
     />
   );
-}
+};
 
 export default FontIcon;

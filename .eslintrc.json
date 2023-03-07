@@ -16,10 +16,28 @@
   "plugins": ["react"],
   "rules": {
     "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": "off",
     "no-shadow": "off",
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "default-param-last": "off",
     "import/no-unresolved": "off",
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "index",
+          "sibling",
+          "parent",
+          "internal",
+          "external",
+          "builtin",
+          "object",
+          "type"
+        ],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ]
   }
 }

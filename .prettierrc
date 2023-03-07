@@ -3,12 +3,10 @@
   "bracketSameLine": true,
   "bracketSpacing": true,
   "endOfLine": "lf",
-  "jsxSingleQuote": false,
-  "printWidth": 80,
+  "jsxSingleQuote": true,
   "proseWrap": "preserve",
   "semi": true,
   "singleQuote": true,
-  "tabWidth": 2,
-  "trailingComma": "none",
-  "useTabs": false
+  "useTabs": false,
+  "trailingComma": "es5"
 }
