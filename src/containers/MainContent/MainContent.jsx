@@ -1,4 +1,4 @@
-import Footer from '../footer/Footer';
+import Footer from '@containers/Footer/Footer';
 
 function MainContent() {
   return (

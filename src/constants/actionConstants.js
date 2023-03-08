@@ -4,6 +4,6 @@
 // };
 
 const PRODUCTS = {
-  LOAD: 'LOAD_PRODUCTS_DATA'
+  LOAD: 'LOAD_PRODUCTS_DATA',
 };
 export default PRODUCTS;

@@ -1,8 +1,9 @@
-import { useState, useMemo } from 'react';
-import TextField from '@mui/material/TextField';
+import FontIcon from '@components/FontIcon/FontIcon';
+import { StyledTextField } from '@components/Styled/Styled';
+import { Box, InputAdornment, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
-import { Box, InputAdornment, styled, Typography } from '@mui/material';
-import FontIcon from '@components/fontIcon/FontIcon';
+// import TextField from '@mui/material/TextField';
+import { useState, useMemo } from 'react';
 
 const debounce = (f, delay) => {
   let timer;
@@ -14,19 +15,6 @@ const debounce = (f, delay) => {
     }, delay);
   };
 };
-
-const StyledTextField = styled(TextField)(({ theme }) => ({
-  display: 'none',
-  [theme.breakpoints.up('sm')]: {
-    display: 'block'
-  },
-
-  '& .MuiInputBase-root': {
-    width: theme.typography.pxToRem(402),
-    boxShadow: theme.shadows[2],
-    padding: `${theme.typography.pxToRem(5)} ${theme.typography.pxToRem(15)}}`
-  }
-}));
 
 export default function AutocompleteInput({ getProducts, productsData }) {
   const [inputValue, setInputValue] = useState('');
@@ -49,36 +37,37 @@ export default function AutocompleteInput({ getProducts, productsData }) {
       freeSolo
       options={productsData}
       renderOption={(props, option) => (
+        // TODO: this list will be replaced by top products list component later
         <Box
           {...props}
           key={option.id}
           sx={{
             width: '100%',
             display: 'flex',
-            justifyContent: 'space-between !important'
+            justifyContent: 'space-between !important',
           }}>
           <Box
             sx={{
               display: 'flex',
-              flexDirection: 'column'
+              flexDirection: 'column',
             }}>
-            <Typography variant="h4">{option.label}</Typography>
-            <Typography variant="body2">{option.description}</Typography>
+            <Typography variant='h4'>{option.label}</Typography>
+            <Typography variant='body2'>{option.description}</Typography>
           </Box>
-          <Typography variant="body1">{option.sales} sales</Typography>
+          <Typography variant='body1'>{option.sales} sales</Typography>
         </Box>
       )}
       renderInput={(params) => (
         <StyledTextField
           {...params}
-          placeholder="Search"
+          placeholder='Search'
           InputProps={{
             ...params.InputProps,
             startAdornment: (
-              <InputAdornment position="start">
-                <FontIcon className="icon-search" size={20} fontcolor="main" />
+              <InputAdornment position='start'>
+                <FontIcon className='icon-search' size={20} fontcolor='main' />
               </InputAdornment>
-            )
+            ),
           }}
         />
       )}

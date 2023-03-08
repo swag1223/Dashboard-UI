@@ -6,7 +6,7 @@ const FontIcon = styled(Box)(
     color: theme.palette.secondary[fontcolor],
     boxShadow: theme.shadows[shadow],
     borderRadius: '50%',
-    padding: theme.typography.pxToRem(padding)
+    padding: theme.typography.pxToRem(padding),
   })
 );
 
