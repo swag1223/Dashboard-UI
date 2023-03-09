@@ -35,7 +35,7 @@ export default function AutocompleteInput({ getProducts, productsData }) {
         debouncedHandleInputChange();
       }}
       freeSolo
-      options={productsData}
+      options={inputValue ? productsData : []}
       renderOption={(props, option) => (
         // TODO: this list will be replaced by top products list component later
         <Box

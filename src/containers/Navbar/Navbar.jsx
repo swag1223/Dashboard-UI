@@ -22,6 +22,9 @@ function Navbar() {
   // HOOKS
   const theme = useTheme();
   const { productsData } = useSelector((state) => state.products);
+
+  // const [datalist, setDataList] = useState([]);
+
   const [anchorEl, setAnchorEl] = useState(null);
   const dispatch = useDispatch();
 
