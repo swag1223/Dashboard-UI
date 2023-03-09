@@ -14,16 +14,21 @@ import {
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import requestProducts from '@store/products/actions';
+import toggleSidebar from '@store/sidebar/actions';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-function Navbar() {
+const Navbar = () => {
   // HOOKS
   const theme = useTheme();
   const { productsData } = useSelector((state) => state.products);
   const [anchorEl, setAnchorEl] = useState(null);
   const dispatch = useDispatch();
+
+  const handleSidebarToggle = () => {
+    dispatch(toggleSidebar());
+  };
 
   const open = Boolean(anchorEl);
 
@@ -43,8 +48,11 @@ function Navbar() {
     <AppBar
       position='static'
       elevation={0}
-      variant='outlined'
-      sx={{ backgroundColor: 'common.white', width: '100vw' }}>
+      // variant='outlined'
+      sx={{
+        backgroundColor: 'common.white',
+        borderBottom: `1px solid ${theme.palette.grey[200]}`,
+      }}>
       <Toolbar>
         <IconButton
           sx={{
@@ -58,6 +66,7 @@ function Navbar() {
         </IconButton>
 
         <IconButton
+          onClick={handleSidebarToggle}
           sx={{
             mr: 3,
             [theme.breakpoints.up('sm')]: {
@@ -145,5 +154,5 @@ function Navbar() {
       </Toolbar>
     </AppBar>
   );
-}
+};
 export default Navbar;

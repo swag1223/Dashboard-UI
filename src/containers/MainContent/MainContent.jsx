@@ -1,12 +1,12 @@
 import Footer from '@containers/Footer/Footer';
+import Sidebar from '@containers/Sidebar';
 
 function MainContent() {
   return (
-    <>
-      <h1>Main Overview</h1>
-
+    <div style={{ position: 'relative', height: '100vh' }}>
+      <Sidebar />
       <Footer />
-    </>
+    </div>
   );
 }
 

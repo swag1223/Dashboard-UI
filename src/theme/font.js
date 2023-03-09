@@ -52,23 +52,56 @@ const fonts = `
     -moz-osx-font-smoothing: grayscale;
   }
   
+  .icon-chevron-up-converted:before {
+    content: "\\e909";
+  }
+  .icon-chevron-down-converted:before {
+    content: "\\e908";
+  }
+  .icon-support:before {
+    content: "\\e90a";
+  }
+  .icon-collection:before {
+    content: "\\e90b";
+  }
+  .icon-clipboard-list:before {
+    content: "\\e90c";
+  }
+  .icon-lock-closed:before {
+    content: "\\e90d";
+  }
+  .icon-inbox-in:before {
+    content: "\\e90e";
+  }
+  .icon-shopping-bag:before {
+    content: "\\e90f";
+  }
+  .icon-document-report:before {
+    content: "\\e910";
+  }
+  .icon-chart-pie:before {
+    content: "\\e907";
+  }
   .icon-logout:before {
-    content: '\\e906';
+    content: "\\e906";
+  }
+  .icon-Vector:before {
+    content: "\\e905";
   }
   .icon-settings:before {
-    content: '\\e904';
+    content: "\\e904";
   }
   .icon-user:before {
-    content: '\\e903';
+    content: "\\e903";
   }
   .icon-search:before {
-    content: '\\e902';
+    content: "\\e902";
   }
   .icon-menu:before {
-    content: '\\e901';
+    content: "\\e901";
   }
   .icon-bell:before {
-    content: '\\e900';
+    content: "\\e900";
   }`;
 
 export default fonts;

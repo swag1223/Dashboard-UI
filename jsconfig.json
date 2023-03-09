@@ -10,7 +10,8 @@
       "@mockData/*": ["mockData/*"],
       "@store/*": ["store/*"],
       "@styles/*": ["styles/*"],
-      "@theme/*": ["theme/*"]
+      "@theme/*": ["theme/*"],
+      "@hooks/*": ["hooks/*"]
     }
   }
 }

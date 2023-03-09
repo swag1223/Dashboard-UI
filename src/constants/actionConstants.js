@@ -3,7 +3,10 @@
 //   DECREMENT: 'DECREMENT'
 // };
 
-const PRODUCTS = {
+export const PRODUCTS = {
   LOAD: 'LOAD_PRODUCTS_DATA',
 };
-export default PRODUCTS;
+
+export const SIDEBAR = {
+  TOGGLE_SIDEBAR: 'TOGGLE_SIDEBAR',
+};

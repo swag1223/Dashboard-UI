@@ -1,8 +1,8 @@
-import PRODUCTS from '@constants/actionConstants';
+import { PRODUCTS } from '@constants/actionConstants';
 
 export const requestProducts = (products) => ({
   type: PRODUCTS.LOAD,
-  payload: products
+  payload: products,
 });
 
 export default requestProducts;

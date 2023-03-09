@@ -2,8 +2,7 @@ import router from './router.config';
 import store from './store';
 import finalTheme from './theme';
 
-import { ThemeProvider } from '@emotion/react';
-import { CssBaseline } from '@mui/material';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 import '@styles/main.scss';

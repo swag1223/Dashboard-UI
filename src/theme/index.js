@@ -25,6 +25,7 @@ const theme = createTheme({
       main: GRAY[500],
       light: GRAY[400],
       dark: GRAY[900],
+      border: GRAY[200],
     },
     error: {
       main: RED[200],
@@ -39,6 +40,10 @@ const theme = createTheme({
       secondary: GRAY[500],
       tertiary: GRAY[400],
     },
+    grey: {
+      200: '#E5E7EB',
+    },
+
     // action: {
     //   active: GREEN[500],
     //   hover: GREEN[500],

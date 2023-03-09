@@ -30,8 +30,8 @@ export default function AutocompleteInput({ getProducts, productsData }) {
   return (
     <Autocomplete
       inputValue={inputValue}
-      onInputChange={(e) => {
-        setInputValue(e.target.value);
+      onInputChange={(e, newValue) => {
+        setInputValue(newValue);
         debouncedHandleInputChange();
       }}
       freeSolo
