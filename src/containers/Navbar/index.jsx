@@ -1,14 +1,21 @@
-import FontIcon from '@components/FontIcon/FontIcon';
-import URL from '@constants/routesConstants';
-import { Box, Typography } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Box, Typography } from '@mui/material';
+import FontIcon from '@components/FontIcon/FontIcon';
+import URL from '@constants/routes';
 
 const Navbar = () => {
   return (
-    <Box backgroundColor='PapayaWhip'>
-      <Typography variant='h3' color='text.tertiary'>
-        Navbar BAR
+    <Box
+      backgroundColor='PapayaWhip'
+      sx={{
+        display: 'flex',
+        justifyContent: 'flex-start',
+        gap: 20,
+        alignItems: 'center',
+      }}>
+      <Typography variant='h1' color='text.tertiary'>
+        Navbar
       </Typography>
       <Link to={URL.NOT_FOUND} className='links'>
         <FontIcon />

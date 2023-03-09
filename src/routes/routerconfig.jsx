@@ -1,13 +1,14 @@
-import URL from '@constants/routesConstants';
-import Error404Page from '@containers/Error404Page/Error404Page';
-import Error500Page from '@containers/Error500Page/Error500Page';
-import Layout from '@containers/Layout/Layout';
-import MainContent from '@containers/MainContent/MainContent';
 import { createBrowserRouter } from 'react-router-dom';
+import URL from '@constants/routes';
+import Error404Page from '@containers/Error404Page';
+import Error500Page from '@containers/Error500Page';
+import MainContent from '@containers/MainContent';
+import Layout from '@layout';
+import Sidebar from '@containers/Sidebar';
 
 const router = createBrowserRouter([
   {
-    element: <Layout />,
+    element: <Layout component={<Sidebar />} />,
     children: [
       {
         path: URL.DASHBOARD,

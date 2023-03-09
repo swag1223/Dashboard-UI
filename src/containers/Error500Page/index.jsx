@@ -1,6 +1,6 @@
-import URL from '@constants/routesConstants';
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import URL from '@constants/routes';
 
 const Error500Page = () => {
   return (

@@ -1,11 +1,9 @@
-import router from './router.config';
-import store from './store';
-import finalTheme from './theme';
-
-import { ThemeProvider } from '@emotion/react';
-import { CssBaseline } from '@mui/material';
-import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import router from '@routes/routerconfig';
+import store from '@store';
+import finalTheme from '@theme';
+import { Provider } from 'react-redux';
 import '@styles/main.scss';
 
 const App = () => {

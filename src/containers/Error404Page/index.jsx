@@ -1,6 +1,7 @@
-import URL from '@constants/routesConstants';
+// import URL from '@constants/routesConstants';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import URL from '@constants/routes';
 
 const Error404Page = () => {
   return (

@@ -22,21 +22,25 @@
     "default-param-last": "off",
     "import/no-unresolved": "off",
     "import/extensions": "off",
+
     "import/order": [
       "error",
       {
         "groups": [
-          "index",
-          "sibling",
-          "parent",
-          "internal",
           "external",
           "builtin",
-          "object",
-          "type"
+          "internal",
+          "parent",
+          "sibling",
+          "index"
         ],
-        "newlines-between": "always",
-        "alphabetize": { "order": "asc", "caseInsensitive": true }
+        "pathGroups": [
+          {
+            "pattern": "@(src|assets|components|constants|layouts|store|routes|theme)/**",
+            "group": "internal"
+          }
+        ],
+        "newlines-between": "always"
       }
     ]
   }
