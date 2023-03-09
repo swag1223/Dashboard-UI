@@ -1,7 +1,7 @@
 import AutocompleteInput from '@components/AutocompleteInput/AutocompleteInput';
 import FontIcon from '@components/FontIcon/FontIcon';
 import { StyledMenu } from '@components/Styled/Styled';
-import URL from '@constants/routesConstants';
+import { NOT_FOUND } from '@constants/routesConstants';
 import products from '@mockData/products.json';
 import {
   AppBar,
@@ -46,7 +46,7 @@ const Navbar = () => {
 
   return (
     <AppBar
-      position='static'
+      position='fixed'
       elevation={0}
       // variant='outlined'
       sx={{
@@ -90,7 +90,7 @@ const Navbar = () => {
             alignItems: 'center',
           }}>
           <IconButton>
-            <Link className='links' to={URL.NOT_FOUND}>
+            <Link className='links' to={NOT_FOUND}>
               <FontIcon
                 className='icon-bell'
                 size={20}

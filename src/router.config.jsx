@@ -1,4 +1,4 @@
-import URL from '@constants/routesConstants';
+import { URL, NOT_FOUND } from '@constants/routesConstants';
 import Error404Page from '@containers/Error404Page/Error404Page';
 import Error500Page from '@containers/Error500Page/Error500Page';
 import Layout from '@containers/Layout/Layout';
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
         element: <Error500Page />,
       },
       {
-        path: URL.NOT_FOUND,
+        path: NOT_FOUND,
         element: <Error404Page />,
       },
     ],

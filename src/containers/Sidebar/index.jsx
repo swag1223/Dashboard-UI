@@ -1,10 +1,11 @@
 import SidebarCollapse from './SidebarCollapse';
+import SidebarFooter from './SidebarFooter';
 import SidebarListItem from './SidebarListItem';
 
 import FontIcon from '@components/FontIcon/FontIcon';
-import URL from '@constants/routesConstants';
+import { URL, NOT_FOUND } from '@constants/routesConstants';
 import useIsMobile from '@hooks/useIsMobile';
-import { Divider, Drawer } from '@mui/material';
+import { Divider, Drawer, Box } from '@mui/material';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -13,15 +14,15 @@ import toggleSidebar from '@store/sidebar/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 const collapseSalesOptions = [
-  { to: URL.NOT_FOUND, title: 'Product List' },
-  { to: URL.NOT_FOUND, title: 'Billing' },
-  { to: URL.NOT_FOUND, title: 'Invoice' },
+  { to: NOT_FOUND, title: 'Product List' },
+  { to: NOT_FOUND, title: 'Billing' },
+  { to: NOT_FOUND, title: 'Invoice' },
 ];
 
 const collapsePagesOptions = [
-  { to: URL.NOT_FOUND, title: 'Home' },
-  { to: URL.NOT_FOUND, title: 'About Us' },
-  { to: URL.NOT_FOUND, title: 'Contact Us' },
+  { to: NOT_FOUND, title: 'Home' },
+  { to: NOT_FOUND, title: 'About Us' },
+  { to: NOT_FOUND, title: 'Contact Us' },
 ];
 
 const collapseAuthenticationOptions = [
@@ -50,9 +51,11 @@ const Sidebar = () => {
       sx={{
         '& .MuiDrawer-root': {
           position: 'absolute',
+          top: '65px',
         },
         '& .MuiPaper-root': {
           position: 'absolute',
+          top: '65px',
           // overflow: 'hidden',
         },
       }}>
@@ -100,13 +103,16 @@ const Sidebar = () => {
         <SidebarListItem to={URL.AUTH} title='Docs' iconName='clipboard-list' />
 
         <SidebarListItem
-          to={URL.NOT_FOUND}
+          to={NOT_FOUND}
           title='Components'
           iconName='collection'
         />
 
-        <SidebarListItem to={URL.NOT_FOUND} title='Help' iconName='support' />
+        <SidebarListItem to={NOT_FOUND} title='Help' iconName='support' />
       </List>
+
+      <Box sx={{ flexGrow: 1 }} />
+      <SidebarFooter />
     </Drawer>
   );
 };

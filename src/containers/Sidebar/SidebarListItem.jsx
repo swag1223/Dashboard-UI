@@ -1,7 +1,7 @@
 import FontIcon from '@components/FontIcon/FontIcon';
 import { ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const SidebarListItem = ({ title, iconName, to }) => {
   return (
@@ -9,9 +9,14 @@ const SidebarListItem = ({ title, iconName, to }) => {
       <ListItemIcon>
         <FontIcon className={`icon-${iconName}`} size={20} fontcolor='dark' />
       </ListItemIcon>
-      <Link to={to}>
-        <ListItemText primary={title} />
-      </Link>
+      <NavLink to={to}>
+        {({ isActive }) => (
+          <ListItemText
+            primary={title}
+            sx={{ color: isActive ? 'green' : 'black' }}
+          />
+        )}
+      </NavLink>
     </ListItemButton>
   );
 };

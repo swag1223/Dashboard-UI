@@ -1,4 +1,4 @@
-import URL from '@constants/routesConstants';
+import { URL } from '@constants/routesConstants';
 import React from 'react';
 import { Link } from 'react-router-dom';
 

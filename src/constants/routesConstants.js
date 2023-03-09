@@ -1,7 +1,6 @@
-const URL = {
+export const URL = {
   DASHBOARD: '/',
-  AUTH: 'auth',
-  NOT_FOUND: '*',
+  AUTH: '/auth',
 };
 
-export default URL;
+export const NOT_FOUND = '*';
