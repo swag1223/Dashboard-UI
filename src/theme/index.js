@@ -39,10 +39,6 @@ const theme = createTheme({
       secondary: GRAY[500],
       tertiary: GRAY[400],
     },
-    // action: {
-    //   active: GREEN[500],
-    //   hover: GREEN[500],
-    // },
   },
   shape: {
     borderRadius: 12,
