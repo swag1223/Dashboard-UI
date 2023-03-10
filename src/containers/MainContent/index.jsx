@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { decrementCounter, incrementCounter } from '@store/counter/actions';
 import { Box } from '@mui/material';
+import { decrementCounter, incrementCounter } from '@store/counter/actions';
 
 import Footer from '../Footer';
 

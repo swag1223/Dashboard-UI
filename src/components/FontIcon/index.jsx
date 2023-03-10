@@ -1,7 +1,8 @@
-import { Box } from '@mui/material';
 import React from 'react';
+import { Box } from '@mui/material';
 
 const FontIcon = () => {
+  // TODO: will be prop based from next PR onwards
   return (
     <Box
       className='icon-settings'

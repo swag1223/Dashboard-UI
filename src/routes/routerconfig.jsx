@@ -3,8 +3,8 @@ import URL from '@constants/routes';
 import Error404Page from '@containers/Error404Page';
 import Error500Page from '@containers/Error500Page';
 import MainContent from '@containers/MainContent';
-import Layout from '@layout';
 import Sidebar from '@containers/Sidebar';
+import Layout from '@layout';
 
 const router = createBrowserRouter([
   {

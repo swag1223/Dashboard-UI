@@ -1,5 +1,5 @@
-import { COLORS, FONT_WEIGHTS } from '@constants/theme';
 import { createTheme } from '@mui/material';
+import { COLORS, FONT_WEIGHTS } from '@constants/theme';
 
 import fonts from './font';
 

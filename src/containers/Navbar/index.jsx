@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
-import FontIcon from '@components/FontIcon/FontIcon';
 import URL from '@constants/routes';
+import FontIcon from '@components/FontIcon';
 
 const Navbar = () => {
   return (
