@@ -1,8 +1,7 @@
-import FontIcon from '@components/FontIcon/FontIcon';
-import { StyledTextField } from '@components/Styled/Styled';
-import { Box, InputAdornment, Typography } from '@mui/material';
-import Autocomplete from '@mui/material/Autocomplete';
-// import TextField from '@mui/material/TextField';
+import StyledTextField from './style';
+
+import FontIcon from '@components/FontIcon/style';
+import { Autocomplete, Box, InputAdornment, Typography } from '@mui/material';
 import { useState, useMemo } from 'react';
 
 const debounce = (f, delay) => {
@@ -16,7 +15,7 @@ const debounce = (f, delay) => {
   };
 };
 
-export default function AutocompleteInput({ getProducts, productsData }) {
+const AutocompleteInput = ({ getProducts, productsData }) => {
   const [inputValue, setInputValue] = useState('');
   const handleInputChange = () => {
     getProducts();
@@ -73,4 +72,5 @@ export default function AutocompleteInput({ getProducts, productsData }) {
       )}
     />
   );
-}
+};
+export default AutocompleteInput;

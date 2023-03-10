@@ -1,88 +1,78 @@
-import AutocompleteInput from '@components/AutocompleteInput/AutocompleteInput';
-import FontIcon from '@components/FontIcon/FontIcon';
-import { StyledMenu } from '@components/Styled/Styled';
+import AutocompleteInput from '@components/AutocompleteInput';
+import FontIcon from '@components/FontIcon/style';
+import NavbarMenu from '@components/NavbarMenu';
 import URL from '@constants/routesConstants';
 import products from '@mockData/products.json';
-import {
-  AppBar,
-  Avatar,
-  Box,
-  IconButton,
-  MenuItem,
-  Toolbar,
-  Typography,
-} from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import { AppBar, Avatar, Box, IconButton, Toolbar } from '@mui/material';
+import { styled, useTheme } from '@mui/material/styles';
 import requestProducts from '@store/products/actions';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-function Navbar() {
+const NavItemsWrapper = styled(Box)(({ theme, gap }) => ({
+  display: 'flex',
+  gap: theme.typography.pxToRem(gap),
+}));
+
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  backgroundColor: theme.palette.common.white,
+  borderBottom: `1px solid ${theme.palette.secondary.border}`,
+}));
+
+const Navbar = () => {
   // HOOKS
   const theme = useTheme();
-  const { productsData } = useSelector((state) => state.products);
-
-  // const [datalist, setDataList] = useState([]);
-
   const [anchorEl, setAnchorEl] = useState(null);
   const dispatch = useDispatch();
+  const { productsData } = useSelector((state) => state.products);
 
+  // VARIABLES
   const open = Boolean(anchorEl);
 
   // HANDLERS
   const getProducts = () => {
     dispatch(requestProducts(products));
   };
-
   const handleClick = (e) => {
     setAnchorEl(e.currentTarget);
   };
-  const handleClose = () => {
+  const handleMenuClose = () => {
     setAnchorEl(null);
   };
 
   return (
-    <AppBar
-      position='static'
-      elevation={0}
-      variant='outlined'
-      sx={{ backgroundColor: 'common.white', width: '100vw' }}>
+    <StyledAppBar position='fixed' elevation={0}>
       <Toolbar>
-        <IconButton
-          sx={{
-            mr: 3,
-            display: 'none',
-            [theme.breakpoints.up('sm')]: {
-              display: 'flex',
-            },
-          }}>
-          <img alt='Brand logo' src='src/assets/images/Logo.svg' />
-        </IconButton>
-
-        <IconButton
-          sx={{
-            mr: 3,
-            [theme.breakpoints.up('sm')]: {
+        <NavItemsWrapper gap={25}>
+          <IconButton
+            sx={{
               display: 'none',
-            },
-          }}>
-          <FontIcon className='icon-menu' size={30} fontcolor='dark' />
-        </IconButton>
+              [theme.breakpoints.up('sm')]: {
+                display: 'flex',
+              },
+            }}>
+            <img alt='Brand logo' src='src/assets/images/Logo.svg' />
+          </IconButton>
 
-        <AutocompleteInput
-          getProducts={getProducts}
-          productsData={productsData}
-        />
+          <IconButton
+            sx={{
+              [theme.breakpoints.up('sm')]: {
+                display: 'none',
+              },
+            }}>
+            <FontIcon className='icon-menu' size={30} fontcolor='dark' />
+          </IconButton>
+
+          <AutocompleteInput
+            getProducts={getProducts}
+            productsData={productsData}
+          />
+        </NavItemsWrapper>
 
         <Box sx={{ flexGrow: 1 }} />
 
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
+        <NavItemsWrapper gap={5}>
           <IconButton>
             <Link className='links' to={URL.NOT_FOUND}>
               <FontIcon
@@ -102,51 +92,15 @@ function Navbar() {
               sx={{ boxShadow: `${theme.shadows[4]}` }}
             />
           </IconButton>
-        </Box>
+        </NavItemsWrapper>
 
-        <StyledMenu
-          elevation={0}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
+        <NavbarMenu
           anchorEl={anchorEl}
           open={open}
-          onClose={handleClose}>
-          <MenuItem
-            onClick={handleClose}
-            disableRipple
-            sx={{ display: 'flex', gap: 2 }}>
-            <FontIcon className='icon-user' size={20} fontcolor='main' />
-            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-              <Typography variant='h4'>John Doe</Typography>
-              <Typography variant='body2' color='text.secondary'>
-                email@example.com
-              </Typography>
-            </Box>
-          </MenuItem>
-
-          <MenuItem
-            onClick={handleClose}
-            disableRipple
-            sx={{ display: 'flex', gap: 2 }}>
-            <FontIcon className='icon-settings' size={20} fontcolor='main' />
-            Settings
-          </MenuItem>
-          <MenuItem
-            onClick={handleClose}
-            disableRipple
-            sx={{ display: 'flex', gap: 2 }}>
-            <FontIcon className='icon-logout' size={20} fontcolor='main' />
-            Log Out
-          </MenuItem>
-        </StyledMenu>
+          handleMenuClose={handleMenuClose}
+        />
       </Toolbar>
-    </AppBar>
+    </StyledAppBar>
   );
-}
+};
 export default Navbar;
