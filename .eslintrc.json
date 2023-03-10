@@ -38,7 +38,7 @@
         ],
         "pathGroups": [
           {
-            "pattern": "@(src|assets|components|constants|layouts|store|routes|theme)/**",
+            "pattern": "@(src|assets|constants|components|containers|layout|routes|store|theme)/**",
             "group": "internal"
           }
         ],
