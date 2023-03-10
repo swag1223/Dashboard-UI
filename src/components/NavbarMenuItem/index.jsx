@@ -1,7 +1,7 @@
-import { StyledNavbarMenuItem, StyledNavbarMenuContent } from './style';
-
 import FontIcon from '@components/FontIcon/style';
 import { Typography } from '@mui/material';
+
+import { StyledNavbarMenuItem, StyledNavbarMenuContent } from './style';
 
 const NavbarMenuItem = ({ closeMenuHandler, iconName, title, subtitle }) => {
   return (

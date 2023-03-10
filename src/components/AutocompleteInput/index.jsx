@@ -1,8 +1,8 @@
-import StyledTextField from './style';
-
 import FontIcon from '@components/FontIcon/style';
 import { Autocomplete, Box, InputAdornment, Typography } from '@mui/material';
 import { useState, useMemo } from 'react';
+
+import StyledTextField from './style';
 
 const debounce = (f, delay) => {
   let timer;

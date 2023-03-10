@@ -1,14 +1,14 @@
-import AutocompleteInput from '@components/AutocompleteInput';
-import FontIcon from '@components/FontIcon/style';
-import NavbarMenu from '@components/NavbarMenu';
-import URL from '@constants/routesConstants';
-import products from '@mockData/products.json';
-import { AppBar, Avatar, Box, IconButton, Toolbar } from '@mui/material';
-import { styled, useTheme } from '@mui/material/styles';
-import requestProducts from '@store/products/actions';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { AppBar, Avatar, Box, IconButton, Toolbar } from '@mui/material';
+import { styled, useTheme } from '@mui/material/styles';
+import AutocompleteInput from '@components/AutocompleteInput';
+import FontIcon from '@components/FontIcon/style';
+import NavbarMenu from '@components/NavbarMenu';
+import products from '@mockData/products.json';
+import requestProducts from '@store/products/actions';
+import URL from '@constants/routes';
 
 const NavItemsWrapper = styled(Box)(({ theme, gap }) => ({
   display: 'flex',

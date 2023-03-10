@@ -1,7 +1,7 @@
-import fonts from './font';
-
-import { COLORS, FONT_WEIGHTS } from '@constants/themeConstants';
 import { createTheme } from '@mui/material';
+import { COLORS, FONT_WEIGHTS } from '@constants/theme';
+
+import fonts from './font';
 
 const { GRAY, RED, GREEN, BLUE } = COLORS;
 

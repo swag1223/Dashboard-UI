@@ -1,7 +1,7 @@
-import PRODUCTS from '@constants/actionConstants';
+import PRODUCTS from '@constants/actions';
 
 const initialState = {
-  productsData: []
+  productsData: [],
 };
 
 const productsReducer = (state = initialState, action) => {
@@ -10,7 +10,7 @@ const productsReducer = (state = initialState, action) => {
     case PRODUCTS.LOAD:
       return {
         ...state,
-        productsData: payload
+        productsData: payload,
       };
     default:
       return state;

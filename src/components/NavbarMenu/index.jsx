@@ -1,7 +1,7 @@
+import NavbarMenuList from '@components/NavbarMenuItem';
+
 import navBarMenuItems from './navMenu.config';
 import StyledNavbarMenu from './style';
-
-import NavbarMenuList from '@components/NavbarMenuItem';
 
 const NavbarMenu = ({ anchorEl, open, handleMenuClose }) => (
   <StyledNavbarMenu

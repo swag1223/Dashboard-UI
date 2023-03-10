@@ -1,8 +1,8 @@
-import COUNTER from '@constants/actionConstants';
+import COUNTER from '@constants/actions';
 
 export const incrementCounter = (payload) => {
   return {
-    type: COUNTER.INCERMENT,
+    type: COUNTER.INCREMENT,
     payload,
   };
 };

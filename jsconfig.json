@@ -8,6 +8,8 @@
       "@components/*": ["components/*"],
       "@containers/*": ["containers/*"],
       "@mockData/*": ["mockData/*"],
+      "@layout/*": ["layout/*"],
+      "@routes/*": ["routes/*"],
       "@store/*": ["store/*"],
       "@styles/*": ["styles/*"],
       "@theme/*": ["theme/*"]
