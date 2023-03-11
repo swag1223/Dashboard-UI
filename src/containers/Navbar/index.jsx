@@ -44,6 +44,8 @@ const Navbar = () => {
       <Toolbar>
         <NavItemsWrapper gap={25}>
           <IconButton
+            component={Link}
+            to={URL.DASHBOARD}
             sx={{
               display: 'none',
               [theme.breakpoints.up('sm')]: {
