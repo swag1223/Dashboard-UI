@@ -4,21 +4,22 @@ import { useState, useMemo } from 'react';
 
 import StyledTextField from './style';
 
-const debounce = (f, delay) => {
+const debounce = (func, delay) => {
   let timer;
 
   return (...args) => {
     clearTimeout(timer);
     timer = setTimeout(() => {
-      f(...args);
+      func(...args);
     }, delay);
   };
 };
 
 const AutocompleteInput = ({ getProducts, productsData }) => {
   const [inputValue, setInputValue] = useState('');
-  const handleInputChange = () => {
-    getProducts();
+
+  const handleInputChange = (value) => {
+    getProducts(value);
   };
 
   const debouncedHandleInputChange = useMemo(
@@ -31,10 +32,10 @@ const AutocompleteInput = ({ getProducts, productsData }) => {
       inputValue={inputValue}
       onInputChange={(e, newValue) => {
         setInputValue(newValue);
-        debouncedHandleInputChange();
+        debouncedHandleInputChange(newValue);
       }}
       freeSolo
-      options={inputValue ? productsData : []}
+      options={productsData}
       renderOption={(props, option) => (
         // TODO: this list will be replaced by top products list component later
         <Box

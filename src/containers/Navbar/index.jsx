@@ -6,7 +6,6 @@ import { styled, useTheme } from '@mui/material/styles';
 import AutocompleteInput from '@components/AutocompleteInput';
 import FontIcon from '@components/FontIcon/style';
 import NavbarMenu from '@components/NavbarMenu';
-import products from '@mockData/products.json';
 import requestProducts from '@store/products/actions';
 import URL from '@constants/routes';
 
@@ -26,13 +25,12 @@ const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const dispatch = useDispatch();
   const { productsData } = useSelector((state) => state.products);
-
   // VARIABLES
   const open = Boolean(anchorEl);
 
   // HANDLERS
-  const getProducts = () => {
-    dispatch(requestProducts(products));
+  const getProducts = (value) => {
+    dispatch(requestProducts(value));
   };
   const handleClick = (e) => {
     setAnchorEl(e.currentTarget);
@@ -73,7 +71,7 @@ const Navbar = () => {
         <Box sx={{ flexGrow: 1 }} />
 
         <NavItemsWrapper gap={5}>
-          <IconButton>
+          <IconButton tabIndex={-1}>
             <Link className='links' to={URL.NOT_FOUND}>
               <FontIcon
                 className='icon-bell'

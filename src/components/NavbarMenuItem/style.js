@@ -1,8 +1,8 @@
 import { Box, MenuItem, styled } from '@mui/material';
 
-export const StyledNavbarMenuItem = styled(MenuItem)(() => ({
+export const StyledNavbarMenuItem = styled(MenuItem)(({ theme }) => ({
   display: 'flex',
-  gap: 2,
+  gap: theme.typography.pxToRem(10),
 }));
 
 export const StyledNavbarMenuContent = styled(Box)(() => ({
