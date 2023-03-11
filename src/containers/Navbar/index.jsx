@@ -71,16 +71,14 @@ const Navbar = () => {
         <Box sx={{ flexGrow: 1 }} />
 
         <NavItemsWrapper gap={5}>
-          <IconButton tabIndex={-1}>
-            <Link className='links' to={URL.NOT_FOUND}>
-              <FontIcon
-                className='icon-bell'
-                size={20}
-                fontcolor='dark'
-                shadow={4}
-                padding={9}
-              />
-            </Link>
+          <IconButton component={Link} to={URL.NOT_FOUND}>
+            <FontIcon
+              className='icon-bell'
+              size={20}
+              fontcolor='dark'
+              shadow={4}
+              padding={9}
+            />
           </IconButton>
 
           <IconButton onClick={handleClick}>

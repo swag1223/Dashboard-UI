@@ -30,9 +30,14 @@ const AutocompleteInput = ({ getProducts, productsData }) => {
   return (
     <Autocomplete
       inputValue={inputValue}
-      onInputChange={(e, newValue) => {
+      onInputChange={(e, newValue, reason) => {
         setInputValue(newValue);
-        debouncedHandleInputChange(newValue);
+
+        if (reason === 'clear') {
+          handleInputChange(newValue);
+        } else {
+          debouncedHandleInputChange(newValue);
+        }
       }}
       freeSolo
       options={productsData}

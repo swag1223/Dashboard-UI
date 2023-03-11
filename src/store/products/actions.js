@@ -1,6 +1,13 @@
 import PRODUCTS from '@constants/actions';
 import products from '@mockData/products.json';
 
+const productLoader = (result) => {
+  return {
+    type: PRODUCTS.LOAD,
+    payload: result,
+  };
+};
+
 export const requestProducts = (input) => (dispatch) => {
   const productsMock = products;
   const result = input
@@ -8,13 +15,7 @@ export const requestProducts = (input) => (dispatch) => {
         product.label.toLowerCase().includes(input.toLowerCase())
       )
     : [];
-
-  // console.log(input);
-  // console.log(result);
-  dispatch({
-    type: PRODUCTS.LOAD,
-    payload: result,
-  });
+  dispatch(productLoader(result));
 };
 
 export default requestProducts;

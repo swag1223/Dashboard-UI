@@ -1,11 +1,22 @@
 import FontIcon from '@components/FontIcon/style';
 import { Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 import { StyledNavbarMenuItem, StyledNavbarMenuContent } from './style';
 
-const NavbarMenuItem = ({ closeMenuHandler, iconName, title, subtitle }) => {
+const NavbarMenuItem = ({
+  closeMenuHandler,
+  to,
+  iconName,
+  title,
+  subtitle,
+}) => {
   return (
-    <StyledNavbarMenuItem onClick={closeMenuHandler}>
+    <StyledNavbarMenuItem
+      onClick={closeMenuHandler}
+      component={Link}
+      to={to}
+      disableRipple>
       <FontIcon className={`icon-${iconName}`} size={20} fontcolor='main' />
 
       <StyledNavbarMenuContent>

@@ -22,6 +22,7 @@ const NavbarMenu = ({ anchorEl, open, handleMenuClose }) => (
         key={item.title}
         closeMenuHandler={handleMenuClose}
         iconName={item.iconName}
+        to={item.to}
         title={item.title}
         subtitle={item.subtitle}
       />

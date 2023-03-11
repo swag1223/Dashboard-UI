@@ -18,6 +18,18 @@ const router = createBrowserRouter([
         element: <Error500Page />,
       },
       {
+        path: URL.PROFILE,
+        element: <Error500Page />,
+      },
+      {
+        path: URL.SETTINGS,
+        element: <Error500Page />,
+      },
+      {
+        path: URL.LOGOUT,
+        element: <Error500Page />,
+      },
+      {
         path: URL.NOT_FOUND,
         element: <Error404Page />,
       },
