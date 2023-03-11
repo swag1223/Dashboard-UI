@@ -40,7 +40,7 @@ const Navbar = () => {
   };
 
   return (
-    <StyledAppBar position='fixed' elevation={0}>
+    <StyledAppBar position='sticky' elevation={0}>
       <Toolbar>
         <NavItemsWrapper gap={25}>
           <IconButton

@@ -7,6 +7,7 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
   },
 
   '& .MuiInputBase-root': {
+    backgroundColor: theme.palette.secondary.extralight,
     width: theme.typography.pxToRem(402),
     boxShadow: theme.shadows[2],
     padding: `${theme.typography.pxToRem(5)} ${theme.typography.pxToRem(15)}}`,

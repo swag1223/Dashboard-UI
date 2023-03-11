@@ -25,6 +25,7 @@ const theme = createTheme({
       main: GRAY[500],
       light: GRAY[400],
       dark: GRAY[900],
+      extralight: GRAY[50],
       border: GRAY[200],
     },
     error: {
