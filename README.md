@@ -12,7 +12,6 @@ REACT DASHBOARD
 - [Screenshots](#screenshots)
 - [Technologies](#technologies)
 - [Setup](#setup)
-- [Approach](#approach)
 
 ## About The Project
 
@@ -75,3 +74,6 @@ yarn run build
 ```
  yarn lint:fix
 ```
+
+**When adding new aliases** :
+define in both `vite.config.js` and in `jsconfig.json` for intellisense.

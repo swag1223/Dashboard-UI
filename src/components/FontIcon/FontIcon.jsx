@@ -1,13 +1,16 @@
-import { Box, styled } from '@mui/material';
+// import React from 'react';
+// import { Box } from '@mui/material';
 
-const FontIcon = styled(Box)(
-  ({ theme, size, fontcolor, padding = 0, shadow = 0 }) => ({
-    fontSize: theme.typography.pxToRem(size),
-    color: theme.palette.secondary[fontcolor],
-    boxShadow: theme.shadows[shadow],
-    borderRadius: '50%',
-    padding: theme.typography.pxToRem(padding),
-  })
-);
+// const FontIcon = () => {
+//   // TODO: will be prop based from next PR onwards
+//   return (
+//     <Box
+//       className='icon-settings'
+//       sx={{
+//         fontSize: 20,
+//       }}
+//     />
+//   );
+// };
 
-export default FontIcon;
+// export default FontIcon;

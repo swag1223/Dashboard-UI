@@ -1,4 +1,4 @@
-import FontIcon from '@components/FontIcon/FontIcon';
+import FontIcon from '@components/FontIcon/style';
 import { ListItemIcon } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';

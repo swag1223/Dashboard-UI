@@ -1,4 +1,4 @@
-import { SIDEBAR } from '@constants/actionConstants';
+import { SIDEBAR } from '@constants/actions';
 
 const initialState = {
   isSidebarVisible: false,

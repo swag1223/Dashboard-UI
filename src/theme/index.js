@@ -1,7 +1,7 @@
-import fonts from './font';
-
-import { COLORS, FONT_WEIGHTS } from '@constants/themeConstants';
 import { createTheme } from '@mui/material';
+import { COLORS, FONT_WEIGHTS } from '@constants/theme';
+
+import fonts from './font';
 
 const { GRAY, RED, GREEN, BLUE } = COLORS;
 
@@ -25,6 +25,7 @@ const theme = createTheme({
       main: GRAY[500],
       light: GRAY[400],
       dark: GRAY[900],
+      extralight: GRAY[50],
       border: GRAY[200],
     },
     error: {
@@ -40,14 +41,6 @@ const theme = createTheme({
       secondary: GRAY[500],
       tertiary: GRAY[400],
     },
-    grey: {
-      200: '#E5E7EB',
-    },
-
-    // action: {
-    //   active: GREEN[500],
-    //   hover: GREEN[500],
-    // },
   },
   shape: {
     borderRadius: 16,
@@ -99,6 +92,9 @@ const finalTheme = createTheme({
       fontSize: theme.typography.pxToRem(12),
       lineHeight: theme.typography.pxToRem(18),
     },
+  },
+  zIndex: {
+    appBar: 1201,
   },
 });
 

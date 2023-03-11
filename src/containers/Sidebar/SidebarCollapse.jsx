@@ -1,4 +1,4 @@
-import FontIcon from '@components/FontIcon/FontIcon';
+import FontIcon from '@components/FontIcon/style';
 import {
   Collapse,
   List,

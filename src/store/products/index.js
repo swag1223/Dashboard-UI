@@ -1,4 +1,4 @@
-import { PRODUCTS } from '@constants/actionConstants';
+import { PRODUCTS } from '@constants/actions';
 
 const initialState = {
   productsData: [],

@@ -24,21 +24,27 @@
     "import/extensions": "off",
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "off",
+
     "import/order": [
       "error",
       {
         "groups": [
-          "index",
-          "sibling",
-          "parent",
-          "internal",
           "external",
           "builtin",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
           "object",
           "type"
         ],
-        "newlines-between": "always",
-        "alphabetize": { "order": "asc", "caseInsensitive": true }
+        "pathGroups": [
+          {
+            "pattern": "@(src|assets|constants|components|containers|layout|routes|store|theme)/**",
+            "group": "internal"
+          }
+        ],
+        "newlines-between": "always"
       }
     ]
   }

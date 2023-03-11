@@ -1,4 +1,4 @@
-import FontIcon from '@components/FontIcon/FontIcon';
+import FontIcon from '@components/FontIcon/style';
 import { ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import React from 'react';
 import { NavLink } from 'react-router-dom';

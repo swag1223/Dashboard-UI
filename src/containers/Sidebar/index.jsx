@@ -1,9 +1,5 @@
-import SidebarCollapse from './SidebarCollapse';
-import SidebarFooter from './SidebarFooter';
-import SidebarListItem from './SidebarListItem';
-
-import FontIcon from '@components/FontIcon/FontIcon';
-import { URL, NOT_FOUND } from '@constants/routesConstants';
+import FontIcon from '@components/FontIcon/style';
+import { URL, NOT_FOUND } from '@constants/routes';
 import useIsMobile from '@hooks/useIsMobile';
 import { Divider, Drawer, Box } from '@mui/material';
 import List from '@mui/material/List';
@@ -12,6 +8,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import toggleSidebar from '@store/sidebar/actions';
 import { useDispatch, useSelector } from 'react-redux';
+
+import SidebarListItem from './SidebarListItem';
+import SidebarFooter from './SidebarFooter';
+import SidebarCollapse from './SidebarCollapse';
 
 const collapseSalesOptions = [
   { to: NOT_FOUND, title: 'Product List' },
@@ -51,11 +51,11 @@ const Sidebar = () => {
       sx={{
         '& .MuiDrawer-root': {
           position: 'absolute',
-          top: '65px',
+          // top: '65px',
         },
         '& .MuiPaper-root': {
           position: 'absolute',
-          top: '65px',
+          // top: '65px',
           // overflow: 'hidden',
         },
       }}>

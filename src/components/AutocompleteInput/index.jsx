@@ -1,25 +1,25 @@
-import FontIcon from '@components/FontIcon/FontIcon';
-import { StyledTextField } from '@components/Styled/Styled';
-import { Box, InputAdornment, Typography } from '@mui/material';
-import Autocomplete from '@mui/material/Autocomplete';
-// import TextField from '@mui/material/TextField';
+import FontIcon from '@components/FontIcon/style';
+import { Autocomplete, Box, InputAdornment, Typography } from '@mui/material';
 import { useState, useMemo } from 'react';
 
-const debounce = (f, delay) => {
+import StyledTextField from './style';
+
+const debounce = (func, delay) => {
   let timer;
 
   return (...args) => {
     clearTimeout(timer);
     timer = setTimeout(() => {
-      f(...args);
+      func(...args);
     }, delay);
   };
 };
 
-export default function AutocompleteInput({ getProducts, productsData }) {
+const AutocompleteInput = ({ getProducts, productsData }) => {
   const [inputValue, setInputValue] = useState('');
-  const handleInputChange = () => {
-    getProducts();
+
+  const handleInputChange = (value) => {
+    getProducts(value);
   };
 
   const debouncedHandleInputChange = useMemo(
@@ -30,9 +30,14 @@ export default function AutocompleteInput({ getProducts, productsData }) {
   return (
     <Autocomplete
       inputValue={inputValue}
-      onInputChange={(e, newValue) => {
+      onInputChange={(e, newValue, reason) => {
         setInputValue(newValue);
-        debouncedHandleInputChange();
+
+        if (reason === 'clear') {
+          handleInputChange(newValue);
+        } else {
+          debouncedHandleInputChange(newValue);
+        }
       }}
       freeSolo
       options={productsData}
@@ -73,4 +78,5 @@ export default function AutocompleteInput({ getProducts, productsData }) {
       )}
     />
   );
-}
+};
+export default AutocompleteInput;
