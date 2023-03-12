@@ -1,0 +1,5 @@
+const MEASUREMENT = {
+  NAVBAR_HEIGHT_MOBILE: '56px',
+  NAVBAR_HEIGHT_DESKTOP: '65px',
+};
+export default MEASUREMENT;

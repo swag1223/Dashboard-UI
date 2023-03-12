@@ -82,7 +82,7 @@ const fonts = `
 .icon-clipboard-list:before {
   content: "\\e90a";
 }
-.icon-cog:before {
+.icon-settings:before {
   content: "\\e90b";
 }
 .icon-shopping-bag:before {

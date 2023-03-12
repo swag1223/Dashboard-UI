@@ -1,75 +1,38 @@
-import FontIcon from '@components/FontIcon/style';
-import { URL, NOT_FOUND } from '@constants/routes';
-import useIsMobile from '@hooks/useIsMobile';
-import { Divider, Drawer, Box } from '@mui/material';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import toggleSidebar from '@store/sidebar/actions';
 import { useDispatch, useSelector } from 'react-redux';
+import { Box, useMediaQuery, useTheme, Divider } from '@mui/material';
+import { URL } from '@constants/routes';
+import toggleSidebar from '@store/sidebar/actions';
+import SidebarListItem from '@components/SidebarListItem';
+import StyledSidebarFooterList from '@components/SidebarFooter/style';
+import SidebarFooter from '@components/SidebarFooter';
+import SidebarCollapse from '@components/SidebarCollapse';
 
-import SidebarListItem from './SidebarListItem';
-import SidebarFooter from './SidebarFooter';
-import SidebarCollapse from './SidebarCollapse';
-
-const collapseSalesOptions = [
-  { to: NOT_FOUND, title: 'Product List' },
-  { to: NOT_FOUND, title: 'Billing' },
-  { to: NOT_FOUND, title: 'Invoice' },
-];
-
-const collapsePagesOptions = [
-  { to: NOT_FOUND, title: 'Home' },
-  { to: NOT_FOUND, title: 'About Us' },
-  { to: NOT_FOUND, title: 'Contact Us' },
-];
-
-const collapseAuthenticationOptions = [
-  { to: URL.AUTH, title: 'Profile' },
-  { to: URL.AUTH, title: 'Log In' },
-  { to: URL.AUTH, title: 'Sign In' },
-];
+import {
+  collapseAuthenticationOptions,
+  collapsePagesOptions,
+  collapseSalesOptions,
+} from './sidebarconfig';
+import { StyledDrawer, StyledSidebarMainList } from './style';
 
 const Sidebar = () => {
-  const isMobile = useIsMobile();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const dispatch = useDispatch();
   const isSidebarVisible = useSelector(
     (state) => state.sidebar.isSidebarVisible
   );
-  // console.log(isMobile);
 
-  const handleDrawerToggle = () => {
+  const handleSiderbarToggle = () => {
     dispatch(toggleSidebar());
   };
 
   return (
-    <Drawer
+    <StyledDrawer
+      ismobile={isMobile}
       variant={isMobile ? 'temporary' : 'permanent'}
       open={isSidebarVisible}
-      onClose={handleDrawerToggle}
-      sx={{
-        '& .MuiDrawer-root': {
-          position: 'absolute',
-          top: '65px',
-          maxWidth: '250px',
-        },
-        '& .MuiPaper-root': {
-          position: 'absolute',
-          top: `${isMobile ? '56px' : 0}`,
-          maxWidth: '250px',
-          // overflow: 'hidden',
-        },
-      }}>
-      <List
-        sx={{
-          // width: '100%',
-          // maxWidth: 300,
-          bgcolor: 'background.paper',
-        }}
-        // component='nav'
-        // aria-labelledby='nested-list-subheader'
-      >
+      onClose={handleSiderbarToggle}>
+      <StyledSidebarMainList>
         <SidebarListItem
           to={URL.DASHBOARD}
           title='Overview'
@@ -87,12 +50,12 @@ const Sidebar = () => {
           collapseItems={collapseSalesOptions}
         />
 
-        <ListItemButton>
-          <ListItemIcon>
-            <FontIcon className='icon-inbox-in' size={20} fontcolor='dark' />
-          </ListItemIcon>
-          <ListItemText primary='Messages' />
-        </ListItemButton>
+        <SidebarListItem
+          to={URL.MESSAGES}
+          title='Messages'
+          iconName='inbox-in'
+          isBadge
+        />
 
         <SidebarCollapse
           title='Authentication'
@@ -100,22 +63,25 @@ const Sidebar = () => {
           collapseItems={collapseAuthenticationOptions}
         />
 
-        <Divider />
-
-        <SidebarListItem to={URL.AUTH} title='Docs' iconName='clipboard-list' />
+        <Divider sx={{ width: '100%' }} />
+        <SidebarListItem to={URL.DOCS} title='Docs' iconName='clipboard-list' />
 
         <SidebarListItem
-          to={NOT_FOUND}
+          to={URL.COMPONENTS}
           title='Components'
           iconName='collection'
         />
 
-        <SidebarListItem to={NOT_FOUND} title='Help' iconName='support' />
-      </List>
+        <SidebarListItem to={URL.HELP} title='Help' iconName='support' />
+      </StyledSidebarMainList>
 
       <Box sx={{ flexGrow: 1 }} />
-      <SidebarFooter iconName='adjustments-converted' to='/adjustments' />
-    </Drawer>
+      <StyledSidebarFooterList>
+        <SidebarFooter iconName='adjustments-converted' to={URL.ADJUSTMENTS} />
+        <SidebarFooter iconName='globe-converted' to={URL.GLOBE} />
+        <SidebarFooter iconName='cog--converted' to={URL.COG} />
+      </StyledSidebarFooterList>
+    </StyledDrawer>
   );
 };
 export default Sidebar;

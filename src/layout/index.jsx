@@ -23,7 +23,7 @@ const Layout = () => {
       <Box
         sx={{
           position: 'relative',
-          height: '100vh',
+          // height: '100vh',
           display: 'flex',
           width: '100%',
         }}>
