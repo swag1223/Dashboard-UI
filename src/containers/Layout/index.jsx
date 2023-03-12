@@ -30,7 +30,7 @@ const Layout = () => {
         {!isErrorPage && <Sidebar />}
         <Box
           sx={{
-            marginLeft: shouldApplyMarginLeft ? '300px' : 0,
+            marginLeft: shouldApplyMarginLeft ? '250px' : 0,
             marginTop: '64px',
           }}
         />

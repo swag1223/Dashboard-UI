@@ -51,18 +51,20 @@ const Sidebar = () => {
       sx={{
         '& .MuiDrawer-root': {
           position: 'absolute',
-          // top: '65px',
+          top: '65px',
+          maxWidth: '250px',
         },
         '& .MuiPaper-root': {
           position: 'absolute',
-          // top: '65px',
+          top: `${isMobile ? '56px' : 0}`,
+          maxWidth: '250px',
           // overflow: 'hidden',
         },
       }}>
       <List
         sx={{
-          width: '100%',
-          maxWidth: 300,
+          // width: '100%',
+          // maxWidth: 300,
           bgcolor: 'background.paper',
         }}
         // component='nav'
@@ -112,7 +114,7 @@ const Sidebar = () => {
       </List>
 
       <Box sx={{ flexGrow: 1 }} />
-      <SidebarFooter />
+      <SidebarFooter iconName='adjustments-converted' to='/adjustments' />
     </Drawer>
   );
 };
