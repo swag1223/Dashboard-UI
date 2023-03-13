@@ -7,7 +7,6 @@ export const collapseSalesOptions = [
 ];
 
 export const collapsePagesOptions = [
-  { to: URL.HOME, title: 'Home' },
   { to: URL.ABOUT_US, title: 'About Us' },
   { to: URL.CONTACT_US, title: 'Contact Us' },
 ];

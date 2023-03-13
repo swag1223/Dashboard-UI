@@ -1,12 +1,18 @@
 import FontIcon from '@components/FontIcon/style';
-import StyledSidebarListItem from '@components/SidebarListItem/style';
+import {
+  StyledListItemText,
+  StyledSidebarListItemButton,
+} from '@components/SidebarListItem/style';
 import { Collapse, List, ListItemText } from '@mui/material';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import StyledCollapseListItemButton from './style';
 
-const SidebarCollapse = ({ title, iconName, collapseItems }) => {
+const SidebarCollapse = ({ title, iconName, collapseItems, onClick }) => {
+  const location = useLocation();
+  const currentRoute = location.pathname;
+
   const [collapseMenuOpen, setCollapseMenuOpen] = useState(false);
 
   const handleCollapseMenuClick = () => {
@@ -14,7 +20,7 @@ const SidebarCollapse = ({ title, iconName, collapseItems }) => {
   };
   return (
     <>
-      <StyledSidebarListItem onClick={handleCollapseMenuClick}>
+      <StyledSidebarListItemButton onClick={handleCollapseMenuClick}>
         <FontIcon className={`icon-${iconName}`} size={20} fontcolor='dark' />
         <ListItemText primary={title} />
         {collapseMenuOpen ? (
@@ -30,16 +36,18 @@ const SidebarCollapse = ({ title, iconName, collapseItems }) => {
             fontcolor='dark'
           />
         )}
-      </StyledSidebarListItem>
+      </StyledSidebarListItemButton>
       <Collapse in={collapseMenuOpen} timeout='auto' unmountOnExit>
         <List disablePadding>
           {collapseItems.map((item) => {
+            const isActive = currentRoute === item.to;
             return (
               <StyledCollapseListItemButton
                 key={item.title}
                 component={Link}
-                to={item.to}>
-                {item.title}
+                to={item.to}
+                onClick={onClick}>
+                <StyledListItemText primary={item.title} isActive={isActive} />
               </StyledCollapseListItemButton>
             );
           })}

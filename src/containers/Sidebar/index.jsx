@@ -28,7 +28,7 @@ const Sidebar = () => {
 
   return (
     <StyledDrawer
-      ismobile={isMobile}
+      isMobile={isMobile}
       variant={isMobile ? 'temporary' : 'permanent'}
       open={isSidebarVisible}
       onClose={handleSiderbarToggle}>
@@ -37,17 +37,20 @@ const Sidebar = () => {
           to={URL.DASHBOARD}
           title='Overview'
           iconName='chart-pie'
+          onClick={handleSiderbarToggle}
         />
 
         <SidebarCollapse
           title='Pages'
           iconName='document-report'
           collapseItems={collapsePagesOptions}
+          onClick={handleSiderbarToggle}
         />
         <SidebarCollapse
           title='Sales'
           iconName='shopping-bag'
           collapseItems={collapseSalesOptions}
+          onClick={handleSiderbarToggle}
         />
 
         <SidebarListItem
@@ -55,16 +58,23 @@ const Sidebar = () => {
           title='Messages'
           iconName='inbox-in'
           isBadge
+          onClick={handleSiderbarToggle}
         />
 
         <SidebarCollapse
           title='Authentication'
           iconName='lock-closed'
           collapseItems={collapseAuthenticationOptions}
+          onClick={handleSiderbarToggle}
         />
 
         <Divider sx={{ width: '100%' }} />
-        <SidebarListItem to={URL.DOCS} title='Docs' iconName='clipboard-list' />
+        <SidebarListItem
+          to={URL.DOCS}
+          title='Docs'
+          iconName='clipboard-list'
+          onClick={handleSiderbarToggle}
+        />
 
         <SidebarListItem
           to={URL.COMPONENTS}
@@ -72,14 +82,31 @@ const Sidebar = () => {
           iconName='collection'
         />
 
-        <SidebarListItem to={URL.HELP} title='Help' iconName='support' />
+        <SidebarListItem
+          to={URL.HELP}
+          title='Help'
+          iconName='support'
+          onClick={handleSiderbarToggle}
+        />
       </StyledSidebarMainList>
 
       <Box sx={{ flexGrow: 1 }} />
       <StyledSidebarFooterList>
-        <SidebarFooter iconName='adjustments-converted' to={URL.ADJUSTMENTS} />
-        <SidebarFooter iconName='globe-converted' to={URL.GLOBE} />
-        <SidebarFooter iconName='cog--converted' to={URL.COG} />
+        <SidebarFooter
+          iconName='adjustments-converted'
+          to={URL.ADJUSTMENTS}
+          onClick={handleSiderbarToggle}
+        />
+        <SidebarFooter
+          iconName='globe-converted'
+          to={URL.GLOBE}
+          onClick={handleSiderbarToggle}
+        />
+        <SidebarFooter
+          iconName='cog--converted'
+          to={URL.COG}
+          onClick={handleSiderbarToggle}
+        />
       </StyledSidebarFooterList>
     </StyledDrawer>
   );
