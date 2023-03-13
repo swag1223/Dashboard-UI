@@ -27,12 +27,10 @@ const Navbar = () => {
   const { searchResults } = useSelector((state) => state.searchResults);
 
   // VARIABLES
-
   // If true, the popup component is shown.
   const open = Boolean(anchorEl);
 
   // HANDLERS
-
   /**
    * Handler function to set the anchor element for the popup menu on click of avatar
    * @param {Event} e - The click event object
