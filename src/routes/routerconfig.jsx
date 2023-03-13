@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import URL from '@constants/routes';
+import URLS from '@constants/routes';
 import Error404Page from '@containers/Error404Page';
 import Error500Page from '@containers/Error500Page';
 import MainContent from '@containers/MainContent';
@@ -10,27 +10,27 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: URL.DASHBOARD,
+        path: URLS.DASHBOARD,
         element: <MainContent />,
       },
       {
-        path: URL.AUTH,
+        path: URLS.AUTH,
         element: <Error500Page />,
       },
       {
-        path: URL.PROFILE,
+        path: URLS.PROFILE,
         element: <Error500Page />,
       },
       {
-        path: URL.SETTINGS,
+        path: URLS.SETTINGS,
         element: <Error500Page />,
       },
       {
-        path: URL.LOGOUT,
+        path: URLS.LOGOUT,
         element: <Error500Page />,
       },
       {
-        path: URL.NOT_FOUND,
+        path: URLS.NOT_FOUND,
         element: <Error404Page />,
       },
     ],

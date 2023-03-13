@@ -1,19 +1,19 @@
-import URL from '@constants/routes';
+import URLS from '@constants/routes';
 
 const NavbarMenuList = [
   {
-    to: URL.PROFILE,
+    to: URLS.PROFILE,
     iconName: 'user',
     title: 'John Doe',
     subtitle: 'email@example.com',
   },
   {
-    to: URL.SETTINGS,
+    to: URLS.SETTINGS,
     iconName: 'settings',
     title: 'Settings',
   },
   {
-    to: URL.LOGOUT,
+    to: URLS.LOGOUT,
     iconName: 'logout',
     title: 'Log Out',
   },

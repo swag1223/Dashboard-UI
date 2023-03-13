@@ -1,7 +1,8 @@
-import FontIcon from '@components/FontIcon/style';
+import FontIcon from '@components/styledComponents/FontIcon';
 import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
+import PropTypes from 'prop-types';
 import { StyledNavbarMenuItem, StyledNavbarMenuContent } from './style';
 
 const NavbarMenuItem = ({
@@ -21,16 +22,25 @@ const NavbarMenuItem = ({
 
       <StyledNavbarMenuContent>
         <Typography variant='h4'>{title}</Typography>
-        {subtitle ? (
+        {subtitle && (
           <Typography variant='body2' color='text.secondary'>
             {subtitle}
           </Typography>
-        ) : (
-          ''
         )}
       </StyledNavbarMenuContent>
     </StyledNavbarMenuItem>
   );
 };
 
+NavbarMenuItem.propTypes = {
+  closeMenuHandler: PropTypes.func.isRequired,
+  to: PropTypes.string.isRequired,
+  iconName: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+};
+
+NavbarMenuItem.defaultProps = {
+  subtitle: '',
+};
 export default NavbarMenuItem;

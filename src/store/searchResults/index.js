@@ -1,20 +1,20 @@
 import PRODUCTS from '@constants/actions';
 
 const initialState = {
-  productsData: [],
+  searchResults: [],
 };
 
-const productsReducer = (state = initialState, action) => {
+const searchResultsReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case PRODUCTS.LOAD:
       return {
         ...state,
-        productsData: payload,
+        searchResults: payload,
       };
     default:
       return state;
   }
 };
 
-export default productsReducer;
+export default searchResultsReducer;

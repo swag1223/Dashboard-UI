@@ -1,18 +1,10 @@
 import { composeWithDevTools } from 'redux-devtools-extension';
-import {
-  legacy_createStore as createStore,
-  combineReducers,
-  applyMiddleware,
-} from 'redux';
-import thunk from 'redux-thunk';
+import { legacy_createStore as createStore, combineReducers } from 'redux';
 
-import productsReducer from './products';
+import searchResultsReducer from './searchResults';
 
-const allReducer = combineReducers({ products: productsReducer });
+const allReducer = combineReducers({ searchResults: searchResultsReducer });
 
-const store = createStore(
-  allReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+const store = createStore(allReducer, composeWithDevTools());
 
 export default store;

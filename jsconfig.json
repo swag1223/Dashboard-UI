@@ -12,7 +12,8 @@
       "@routes/*": ["routes/*"],
       "@store/*": ["store/*"],
       "@styles/*": ["styles/*"],
-      "@theme/*": ["theme/*"]
+      "@theme/*": ["theme/*"],
+      "@utils/*": ["utils/*"]
     }
   }
 }

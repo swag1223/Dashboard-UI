@@ -1,4 +1,4 @@
-const URL = {
+const URLS = {
   DASHBOARD: '/',
   PROFILE: 'profile',
   SETTINGS: 'settings',
@@ -7,4 +7,4 @@ const URL = {
   NOT_FOUND: '*',
 };
 
-export default URL;
+export default URLS;
