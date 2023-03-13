@@ -8,7 +8,6 @@ const StyledSearchResultItem = styled(Box)(
   }) => ({
     padding: `${pxToRem(4)} ${pxToRem(16)}`,
     width: '100%',
-    // border: '1px solid red',
     display: 'flex',
     justifyContent: 'space-between !important',
   })

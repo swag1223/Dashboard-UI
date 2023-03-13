@@ -1,8 +1,10 @@
 import { Box, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
+
 import StyledSearchResultItem from './style';
 
 const SearchResultItem = (props) => {
-  const { option } = { ...props };
+  const { option } = props;
   return (
     <StyledSearchResultItem key={option.id} {...props}>
       <Box
@@ -16,5 +18,16 @@ const SearchResultItem = (props) => {
       <Typography variant='body1'>{option.sales} sales</Typography>
     </StyledSearchResultItem>
   );
+};
+
+const optionPropTypes = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  sales: PropTypes.number.isRequired,
+});
+
+SearchResultItem.propTypes = {
+  option: optionPropTypes.isRequired,
 };
 export default SearchResultItem;

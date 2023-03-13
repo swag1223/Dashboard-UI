@@ -3,7 +3,7 @@ export const COUNTER = {
   DECREMENT: 'DECREMENT',
 };
 
-const PRODUCTS = {
+const SEARCH_RESULTS = {
   LOAD: 'LOAD_PRODUCTS_DATA',
 };
-export default PRODUCTS;
+export default SEARCH_RESULTS;

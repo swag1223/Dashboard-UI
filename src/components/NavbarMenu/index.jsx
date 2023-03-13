@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
+
 import NavbarMenuList from '@components/NavbarMenuItem';
-import PropTypes, { element } from 'prop-types';
 import navBarMenuItems from './navMenu.config';
 import StyledNavbarMenu from './style';
 
@@ -24,6 +25,7 @@ const NavbarMenu = (props) => {
           key={item.title}
           closeMenuHandler={handleMenuClose}
           iconName={item.iconName}
+          iconColor={item.iconColor}
           to={item.to}
           title={item.title}
           subtitle={item.subtitle}
@@ -34,7 +36,7 @@ const NavbarMenu = (props) => {
 };
 
 NavbarMenu.propTypes = {
-  anchorEl: PropTypes.instanceOf(element),
+  anchorEl: PropTypes.instanceOf(Element),
   open: PropTypes.bool.isRequired,
   handleMenuClose: PropTypes.func.isRequired,
 };

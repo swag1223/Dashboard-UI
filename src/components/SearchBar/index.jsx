@@ -1,6 +1,7 @@
 import { Autocomplete, InputAdornment } from '@mui/material';
-import FontIcon from '@components/styledComponents/FontIcon';
 import PropTypes from 'prop-types';
+
+import FontIcon from '@components/styledComponents/FontIcon';
 import StyledTextField from './style';
 
 const SearchBar = (props) => {
@@ -11,6 +12,7 @@ const SearchBar = (props) => {
     onInputChange,
     placeholder,
     iconName,
+    iconColor,
   } = props;
 
   return (
@@ -35,7 +37,7 @@ const SearchBar = (props) => {
                 <FontIcon
                   className={`icon-${iconName}`}
                   size={20}
-                  fontcolor='main'
+                  fontcolor={iconColor}
                 />
               </InputAdornment>
             ),
@@ -45,6 +47,7 @@ const SearchBar = (props) => {
     />
   );
 };
+
 SearchBar.propTypes = {
   inputValue: PropTypes.string.isRequired,
   searchResults: PropTypes.arrayOf(
@@ -59,6 +62,7 @@ SearchBar.propTypes = {
   onInputChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   iconName: PropTypes.string,
+  iconColor: PropTypes.string.isRequired,
 };
 
 // the default values for props:
