@@ -1,22 +1,14 @@
 import { composeWithDevTools } from 'redux-devtools-extension';
-import {
-  legacy_createStore as createStore,
-  combineReducers,
-  applyMiddleware,
-} from 'redux';
-import thunk from 'redux-thunk';
+import { legacy_createStore as createStore, combineReducers } from 'redux';
 
-import productsReducer from './products';
 import sideBarReducer from './sidebar';
+import searchResultsReducer from './searchResults';
 
 const allReducer = combineReducers({
-  products: productsReducer,
+  searchResults: searchResultsReducer,
   sidebar: sideBarReducer,
 });
 
-const store = createStore(
-  allReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+const store = createStore(allReducer, composeWithDevTools());
 
 export default store;

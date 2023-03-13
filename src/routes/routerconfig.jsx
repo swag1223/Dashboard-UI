@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { NOT_FOUND, URL } from '@constants/routes';
+import { NOT_FOUND, URLS } from '@constants/routes';
 import Error404Page from '@containers/Error404Page';
 import Error500Page from '@containers/Error500Page';
 import MainContent from '@containers/MainContent';
@@ -10,87 +10,87 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: URL.DASHBOARD,
+        path: URLS.DASHBOARD,
         element: <MainContent />,
       },
       {
-        path: URL.AUTH,
+        path: URLS.AUTH,
         element: <Error500Page />,
       },
       {
-        path: URL.PROFILE,
+        path: URLS.PROFILE,
         element: <Error500Page />,
       },
       {
-        path: URL.SETTINGS,
+        path: URLS.SETTINGS,
         element: <Error500Page />,
       },
       {
-        path: URL.LOGOUT,
+        path: URLS.LOGOUT,
         element: <Error500Page />,
       },
       {
-        path: URL.HOME,
+        path: URLS.HOME,
         element: <Error500Page />,
       },
       {
-        path: URL.ABOUT_US,
+        path: URLS.ABOUT_US,
         element: <Error500Page />,
       },
       {
-        path: URL.CONTACT_US,
+        path: URLS.CONTACT_US,
         element: <Error500Page />,
       },
       {
-        path: URL.PRODUCT_LIST,
+        path: URLS.PRODUCT_LIST,
         element: <Error500Page />,
       },
       {
-        path: URL.BILLING,
+        path: URLS.BILLING,
         element: <Error500Page />,
       },
       {
-        path: URL.INVOICE,
+        path: URLS.INVOICE,
         element: <Error500Page />,
       },
       {
-        path: URL.MESSAGES,
+        path: URLS.MESSAGES,
         element: <Error500Page />,
       },
       {
-        path: URL.ACCOUNT,
+        path: URLS.ACCOUNT,
         element: <Error500Page />,
       },
       {
-        path: URL.LOGIN,
+        path: URLS.LOGIN,
         element: <Error500Page />,
       },
       {
-        path: URL.SIGNIN,
+        path: URLS.SIGNIN,
         element: <Error500Page />,
       },
       {
-        path: URL.DOCS,
+        path: URLS.DOCS,
         element: <Error500Page />,
       },
       {
-        path: URL.COMPONENTS,
+        path: URLS.COMPONENTS,
         element: <Error500Page />,
       },
       {
-        path: URL.HELP,
+        path: URLS.HELP,
         element: <Error500Page />,
       },
       {
-        path: URL.ADJUSTMENTS,
+        path: URLS.ADJUSTMENTS,
         element: <Error500Page />,
       },
       {
-        path: URL.GLOBE,
+        path: URLS.GLOBE,
         element: <Error500Page />,
       },
       {
-        path: URL.COG,
+        path: URLS.COG,
         element: <Error500Page />,
       },
 

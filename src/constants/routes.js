@@ -1,4 +1,4 @@
-export const URL = {
+export const URLS = {
   DASHBOARD: '/',
   AUTH: '/auth',
   PROFILE: '/profile',

@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 
-import Footer from '../Footer';
+import Footer from '@containers/Footer';
 
 const MainContent = () => {
   return (

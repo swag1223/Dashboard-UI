@@ -13,7 +13,8 @@
       "@store/*": ["store/*"],
       "@styles/*": ["styles/*"],
       "@theme/*": ["theme/*"],
-      "@hooks/*": ["hooks/*"]
+      "@hooks/*": ["hooks/*"],
+      "@utils/*": ["utils/*"]
     }
   }
 }

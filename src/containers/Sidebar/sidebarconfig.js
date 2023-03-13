@@ -1,18 +1,18 @@
-import { URL } from '@constants/routes';
+import { URLS } from '@constants/routes';
 
 export const collapseSalesOptions = [
-  { to: URL.PRODUCT_LIST, title: 'Product List' },
-  { to: URL.BILLING, title: 'Billing' },
-  { to: URL.INVOICE, title: 'Invoice' },
+  { to: URLS.PRODUCT_LIST, title: 'Product List' },
+  { to: URLS.BILLING, title: 'Billing' },
+  { to: URLS.INVOICE, title: 'Invoice' },
 ];
 
 export const collapsePagesOptions = [
-  { to: URL.ABOUT_US, title: 'About Us' },
-  { to: URL.CONTACT_US, title: 'Contact Us' },
+  { to: URLS.ABOUT_US, title: 'About Us' },
+  { to: URLS.CONTACT_US, title: 'Contact Us' },
 ];
 
 export const collapseAuthenticationOptions = [
-  { to: URL.ACCOUNT, title: 'Account' },
-  { to: URL.LOGIN, title: 'Log In' },
-  { to: URL.SIGNIN, title: 'Sign In' },
+  { to: URLS.ACCOUNT, title: 'Account' },
+  { to: URLS.LOGIN, title: 'Log In' },
+  { to: URLS.SIGNIN, title: 'Sign In' },
 ];

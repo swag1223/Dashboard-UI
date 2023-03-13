@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, useMediaQuery, useTheme, Divider } from '@mui/material';
-import { URL } from '@constants/routes';
+import { URLS } from '@constants/routes';
 import toggleSidebar from '@store/sidebar/actions';
 import SidebarListItem from '@components/SidebarListItem';
 import StyledSidebarFooterList from '@components/SidebarFooter/style';
@@ -34,7 +34,7 @@ const Sidebar = () => {
       onClose={handleSiderbarToggle}>
       <StyledSidebarMainList>
         <SidebarListItem
-          to={URL.DASHBOARD}
+          to={URLS.DASHBOARD}
           title='Overview'
           iconName='chart-pie'
           onClick={handleSiderbarToggle}
@@ -54,7 +54,7 @@ const Sidebar = () => {
         />
 
         <SidebarListItem
-          to={URL.MESSAGES}
+          to={URLS.MESSAGES}
           title='Messages'
           iconName='inbox-in'
           isBadge
@@ -70,20 +70,20 @@ const Sidebar = () => {
 
         <Divider sx={{ width: '100%' }} />
         <SidebarListItem
-          to={URL.DOCS}
+          to={URLS.DOCS}
           title='Docs'
           iconName='clipboard-list'
           onClick={handleSiderbarToggle}
         />
 
         <SidebarListItem
-          to={URL.COMPONENTS}
+          to={URLS.COMPONENTS}
           title='Components'
           iconName='collection'
         />
 
         <SidebarListItem
-          to={URL.HELP}
+          to={URLS.HELP}
           title='Help'
           iconName='support'
           onClick={handleSiderbarToggle}
@@ -94,17 +94,17 @@ const Sidebar = () => {
       <StyledSidebarFooterList>
         <SidebarFooter
           iconName='adjustments-converted'
-          to={URL.ADJUSTMENTS}
+          to={URLS.ADJUSTMENTS}
           onClick={handleSiderbarToggle}
         />
         <SidebarFooter
           iconName='globe-converted'
-          to={URL.GLOBE}
+          to={URLS.GLOBE}
           onClick={handleSiderbarToggle}
         />
         <SidebarFooter
           iconName='cog--converted'
-          to={URL.COG}
+          to={URLS.COG}
           onClick={handleSiderbarToggle}
         />
       </StyledSidebarFooterList>

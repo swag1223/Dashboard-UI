@@ -1,4 +1,4 @@
-import { URL } from '@constants/routes';
+import { URLS } from '@constants/routes';
 import Navbar from '@containers/Navbar';
 import Sidebar from '@containers/Sidebar';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
@@ -13,7 +13,7 @@ const Layout = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   // console.log(isMobile);
 
-  const isErrorPage = !Object.values(URL).includes(currentRoute);
+  const isErrorPage = !Object.values(URLS).includes(currentRoute);
   // console.log(isErrorPage);
 
   const shouldApplyMarginLeft = !isMobile && !isErrorPage;
