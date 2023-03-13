@@ -25,7 +25,6 @@ const NavbarMenuItem = ({
         size={20}
         fontcolor={iconColor}
       />
-
       <StyledNavbarMenuContent>
         <Typography variant='h4'>{title}</Typography>
         {subtitle && (
