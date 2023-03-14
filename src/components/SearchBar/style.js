@@ -5,7 +5,9 @@ const StyledTextField = styled(TextField)(
     theme: {
       typography: { pxToRem },
       breakpoints,
-      palette: { secondary },
+      palette: {
+        secondary: { extraLight },
+      },
       shadows,
     },
   }) => ({
@@ -15,7 +17,7 @@ const StyledTextField = styled(TextField)(
     },
 
     '& .MuiInputBase-root': {
-      backgroundColor: secondary.extralight,
+      backgroundColor: extraLight,
       width: pxToRem(402),
       boxShadow: shadows[2],
       padding: `${pxToRem(5)} ${pxToRem(15)}}`,

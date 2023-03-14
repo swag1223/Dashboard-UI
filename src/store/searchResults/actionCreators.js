@@ -1,4 +1,4 @@
-import SEARCH_RESULTS from '@constants/actions';
+import { LOAD_PRODUCTS_SEARCH_RESULTS } from '@constants/actionTypes';
 import products from '@mockData/products.json';
 
 /**
@@ -7,18 +7,18 @@ import products from '@mockData/products.json';
  * @param {string} input - The search string to filter products by (optional).
  * @returns {Object} An action object to be dispatched to the store.
  */
-const requestSearchResults = (input) => {
+const requestProductsSearchResults = (input) => {
   const productsMock = products;
-  const searchResult = input
+  const productSearchResult = input
     ? productsMock.filter((product) =>
         product.label.toLowerCase().includes(input.toLowerCase())
       )
     : [];
 
   return {
-    type: SEARCH_RESULTS.LOAD,
-    payload: searchResult,
+    type: LOAD_PRODUCTS_SEARCH_RESULTS,
+    payload: productSearchResult,
   };
 };
 
-export default requestSearchResults;
+export default requestProductsSearchResults;

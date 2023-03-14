@@ -1,4 +1,4 @@
-import { SIDEBAR } from '@constants/actions';
+import { TOGGLE_SIDEBAR } from '@constants/actionTypes';
 
 const initialState = {
   isSidebarVisible: false,
@@ -7,7 +7,7 @@ const initialState = {
 const sideBarReducer = (state = initialState, action) => {
   const { type } = action;
   switch (type) {
-    case SIDEBAR.TOGGLE_SIDEBAR:
+    case TOGGLE_SIDEBAR:
       return {
         ...state,
         isSidebarVisible: !state.isSidebarVisible,

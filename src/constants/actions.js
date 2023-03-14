@@ -1,7 +1,0 @@
-export const SIDEBAR = {
-  TOGGLE_SIDEBAR: 'TOGGLE_SIDEBAR',
-};
-const SEARCH_RESULTS = {
-  LOAD: 'LOAD_PRODUCTS_DATA',
-};
-export default SEARCH_RESULTS;

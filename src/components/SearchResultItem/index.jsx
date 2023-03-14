@@ -5,6 +5,7 @@ import StyledSearchResultItem from './style';
 
 const SearchResultItem = (props) => {
   const { option } = props;
+
   return (
     <StyledSearchResultItem key={option.id} {...props}>
       <Box
@@ -12,7 +13,7 @@ const SearchResultItem = (props) => {
           display: 'flex',
           flexDirection: 'column',
         }}>
-        <Typography variant='h4'>{option?.label}</Typography>
+        <Typography variant='h4'>{option.label}</Typography>
         <Typography variant='body2'>{option.description}</Typography>
       </Box>
       <Typography variant='body1'>{option.sales} sales</Typography>
@@ -23,11 +24,12 @@ const SearchResultItem = (props) => {
 const optionPropTypes = PropTypes.shape({
   id: PropTypes.number.isRequired,
   label: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  sales: PropTypes.number.isRequired,
+  description: PropTypes.string,
+  sales: PropTypes.number,
 });
 
 SearchResultItem.propTypes = {
   option: optionPropTypes.isRequired,
 };
+
 export default SearchResultItem;

@@ -1,7 +1,7 @@
-import { SIDEBAR } from '@constants/actions';
+import { TOGGLE_SIDEBAR } from '@constants/actionTypes';
 
 const toggleSidebar = () => ({
-  type: SIDEBAR.TOGGLE_SIDEBAR,
+  type: TOGGLE_SIDEBAR,
 });
 
 export default toggleSidebar;

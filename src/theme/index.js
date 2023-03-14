@@ -4,7 +4,6 @@ import { COLORS, FONT_WEIGHTS } from '@constants/theme';
 import fonts from './font';
 
 const { GRAY, RED, GREEN, BLUE } = COLORS;
-
 const theme = createTheme({
   breakpoints: {
     values: {
@@ -25,7 +24,7 @@ const theme = createTheme({
       main: GRAY[500],
       light: GRAY[400],
       dark: GRAY[900],
-      extralight: GRAY[50],
+      extraLight: GRAY[50],
       border: GRAY[200],
     },
     error: {
@@ -44,6 +43,7 @@ const theme = createTheme({
     actions: {
       active: GREEN[500],
     },
+    common: COLORS,
   },
   shape: {
     borderRadius: 16,

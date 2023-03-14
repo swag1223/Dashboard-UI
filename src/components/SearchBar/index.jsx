@@ -1,43 +1,34 @@
-import { Autocomplete, InputAdornment } from '@mui/material';
+import { InputAdornment, useTheme } from '@mui/material';
+import Autocomplete from '@mui/material/Autocomplete';
 import PropTypes from 'prop-types';
 
 import FontIcon from '@components/styledComponents/FontIcon';
 import StyledTextField from './style';
 
 const SearchBar = (props) => {
+  const { ...restProps } = props;
+  const theme = useTheme();
   const {
-    inputValue,
-    searchResults,
-    renderOption,
-    onInputChange,
-    placeholder,
-    iconName,
-    iconColor,
-  } = props;
+    palette: {
+      common: { GRAY },
+    },
+  } = theme;
 
   return (
     <Autocomplete
-      inputValue={inputValue}
-      onInputChange={(e, newValue, reason) => {
-        return onInputChange(e, newValue, reason);
-      }}
-      freeSolo
-      options={searchResults}
-      renderOption={(props, option) => {
-        return renderOption(props, option);
-      }}
+      {...restProps}
       renderInput={(params) => (
         <StyledTextField
           {...params}
-          placeholder={placeholder}
+          placeholder='Search'
           InputProps={{
             ...params.InputProps,
             startAdornment: (
               <InputAdornment position='start'>
                 <FontIcon
-                  className={`icon-${iconName}`}
+                  className='icon-search'
                   size={20}
-                  fontcolor={iconColor}
+                  fontcolor={GRAY[500]}
                 />
               </InputAdornment>
             ),
@@ -49,25 +40,12 @@ const SearchBar = (props) => {
 };
 
 SearchBar.propTypes = {
-  inputValue: PropTypes.string.isRequired,
-  searchResults: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      label: PropTypes.string,
-      description: PropTypes.string,
-      sales: PropTypes.number,
-    })
-  ).isRequired,
-  renderOption: PropTypes.func.isRequired,
-  onInputChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
-  iconName: PropTypes.string,
-  iconColor: PropTypes.string.isRequired,
+  ...Autocomplete.propTypes,
+  renderInput: PropTypes.func,
 };
 
-// the default values for props:
 SearchBar.defaultProps = {
-  placeholder: 'Search',
-  iconName: 'search',
+  renderInput: () => {},
 };
+
 export default SearchBar;

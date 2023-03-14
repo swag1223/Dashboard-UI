@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -8,16 +8,15 @@ import { Avatar, Box, IconButton, Toolbar } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 import brandLogo from '@assets/images/Logo.svg';
-import userAvatar from '@assets/images/Avatar.png';
-import DEBOUNCE_DELAY from '@constants/index';
-import { COLORS } from '@constants/theme';
 import { URLS } from '@constants/routes';
+import CONSTANTS from '@constants/index';
 import NavbarMenu from '@components/NavbarMenu';
 import FontIcon from '@components/styledComponents/FontIcon';
 import SearchBar from '@components/SearchBar';
 import SearchResultItem from '@components/SearchResultItem';
-import requestSearchResults from '@store/searchResults/actions';
-import debounce from '@utils/debounce';
+import { requestProductsSearchResults } from '@store/searchResults';
+import { requestUserData } from '@store/userData';
+import debounce from '@utils/index';
 import { NavItemsWrapper, StyledAppBar } from './style';
 
 const Navbar = () => {
@@ -27,14 +26,46 @@ const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const dispatch = useDispatch();
   const { searchResults } = useSelector((state) => state.searchResults);
+  const { userData } = useSelector((state) => state.userData);
+
+  // dispatches request for loggedin user's data.
+  useEffect(() => {
+    dispatch(requestUserData());
+  }, []);
 
   // VARIABLES
+  // Navbar PopUp menu config
+  const NavBarMenuItems = [
+    {
+      to: URLS.PROFILE,
+      iconName: 'user',
+      title: userData.name,
+      subtitle: userData.email,
+    },
+    {
+      to: URLS.SETTINGS,
+      iconName: 'settings',
+      title: 'Settings',
+    },
+    {
+      to: URLS.LOGOUT,
+      iconName: 'logout',
+      title: 'Log Out',
+    },
+  ];
+
   // If true, the popup component is shown.
   const open = Boolean(anchorEl);
 
   const handleSidebarToggle = () => {
     dispatch(toggleSidebar());
   };
+  const {
+    palette: {
+      common: { GRAY },
+    },
+    shadows,
+  } = theme;
 
   // HANDLERS
   /**
@@ -53,11 +84,11 @@ const Navbar = () => {
   };
 
   /**
-   *Handles changes to the input value in the search bar
-   *@param {string} value - The new value of the input
+   *Dispatches an action to request search results for the specified search value.
+   *@param {string} value - The search value to request results for.
    */
-  const handleInputChange = (value) => {
-    dispatch(requestSearchResults(value));
+  const getSearchResults = (value) => {
+    dispatch(requestProductsSearchResults(value));
   };
 
   /**
@@ -70,9 +101,9 @@ const Navbar = () => {
     <SearchResultItem {...props} option={option} />
   );
 
-  // Debounce the handleInputChange function to improve performance
-  const debouncedHandleInputChange = useMemo(
-    () => debounce(handleInputChange, DEBOUNCE_DELAY),
+  // Debounce the getSearchResults function to improve performance
+  const debouncedGetSearchResults = useMemo(
+    () => debounce(getSearchResults, CONSTANTS.DEBOUNCE_DELAY),
     []
   );
 
@@ -82,12 +113,12 @@ const Navbar = () => {
    *@param {string} newValue - The new value of the input
    *@param {string} reason - The reason for the change
    */
-  const onInputChange = (e, newValue, reason) => {
+  const handleInputChange = (e, newValue, reason) => {
     setInputValue(newValue);
     if (reason === 'clear') {
-      handleInputChange(newValue);
+      getSearchResults(newValue);
     } else {
-      debouncedHandleInputChange(newValue);
+      debouncedGetSearchResults(newValue);
     }
   };
 
@@ -114,20 +145,14 @@ const Navbar = () => {
                 display: 'none',
               },
             }}>
-            <FontIcon
-              className='icon-menu'
-              size={30}
-              fontcolor={COLORS.GRAY[900]}
-            />
+            <FontIcon className='icon-menu' size={30} fontcolor={GRAY[900]} />
           </IconButton>
           <SearchBar
-            searchResults={searchResults}
-            renderOption={renderOption}
             inputValue={inputValue}
-            onInputChange={onInputChange}
-            placeholder='Search'
-            iconName='search'
-            iconColor={COLORS.GRAY[500]}
+            options={searchResults}
+            renderOption={renderOption}
+            onInputChange={handleInputChange}
+            freeSolo
           />
         </NavItemsWrapper>
         <Box sx={{ flexGrow: 1 }} />
@@ -136,20 +161,21 @@ const Navbar = () => {
             <FontIcon
               className='icon-bell'
               size={20}
-              fontcolor={COLORS.GRAY[900]}
+              fontcolor={GRAY[900]}
               shadow={4}
               padding={9}
             />
           </IconButton>
           <IconButton onClick={handleAvatarClick}>
             <Avatar
-              alt='John Doe'
-              src={userAvatar}
-              sx={{ boxShadow: `${theme.shadows[4]}` }}
+              alt={userData.title}
+              src={userData.avatar}
+              sx={{ boxShadow: shadows[4] }}
             />
           </IconButton>
         </NavItemsWrapper>
         <NavbarMenu
+          items={NavBarMenuItems}
           anchorEl={anchorEl}
           open={open}
           handleMenuClose={handleMenuClose}
@@ -158,4 +184,5 @@ const Navbar = () => {
     </StyledAppBar>
   );
 };
+
 export default Navbar;
