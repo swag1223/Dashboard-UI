@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, useMediaQuery, useTheme, Divider } from '@mui/material';
+import { useMediaQuery, useTheme, Divider } from '@mui/material';
 import { URLS } from '@constants/routes';
 import toggleSidebar from '@store/sidebar/actions';
 import SidebarListItem from '@components/SidebarListItem';
@@ -90,7 +90,6 @@ const Sidebar = () => {
         />
       </StyledSidebarMainList>
 
-      <Box sx={{ flexGrow: 1 }} />
       <StyledSidebarFooterList>
         <SidebarFooter
           iconName='adjustments-converted'

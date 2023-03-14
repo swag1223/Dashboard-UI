@@ -4,22 +4,28 @@ export const StyledDrawer = styled(Drawer, {
   shouldForwardProp: (prop) => prop !== 'isMobile',
 })(({ isMobile }) => ({
   '& .MuiDrawer-root': {
-    position: 'absolute',
-    top: '65px',
-    minWidth: '250px',
+    position: 'sticky',
+    top: isMobile ? '56px' : '65px',
+    maxWidth: '300px',
     height: isMobile ? 'calc(100vh - 56px)' : 'calc(100vh - 65px)',
+    display: 'flex',
+    justifyContent: 'space-between',
+    border: '1px solid blue',
   },
   '& .MuiPaper-root': {
-    position: 'absolute',
-    top: isMobile ? '56px' : 0,
-    minWidth: '250px',
+    position: 'sticky',
+    top: isMobile ? '56px' : '65px',
+    maxWidth: '300px',
     height: isMobile ? 'calc(100vh - 56px)' : 'calc(100vh - 65px)',
+    display: 'flex',
+    justifyContent: 'space-between',
+    border: '1px solid blue',
     // overflow: 'hidden',
   },
 }));
 
 export const StyledSidebarMainList = styled(List)(() => ({
-  bgcolor: 'background.paper',
+  backgroundColor: 'background.paper',
   display: 'flex',
   justifyContent: 'space-between',
   gap: '8px',
