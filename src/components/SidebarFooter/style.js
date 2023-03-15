@@ -4,6 +4,7 @@ const StyledSidebarFooterList = styled(List)(
   ({
     theme: {
       palette: { common },
+      typography: { pxToRem },
     },
   }) => ({
     backgroundColor: common.white,
@@ -11,6 +12,7 @@ const StyledSidebarFooterList = styled(List)(
     bottom: 0,
     display: 'flex',
     justifyContent: 'center',
+    gap: pxToRem(10),
   })
 );
 

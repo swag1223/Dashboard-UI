@@ -1,22 +1,48 @@
-import FontIcon from '@components/FontIcon/style';
-import { IconButton } from '@mui/material';
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const SidebarFooter = ({ iconName, to, onClick }) => {
-  const location = useLocation();
-  const currentRoute = location.pathname;
-  const isActive = currentRoute === to;
+import { IconButton, useTheme } from '@mui/material';
+
+import PropTypes from 'prop-types';
+
+import FontIcon from '@components/FontIcon/style';
+import useIsActive from '@hooks/useIsActive';
+
+const SidebarFooter = (props) => {
+  const { icon, to, onClick } = props;
+
+  // HOOKS
+  const theme = useTheme();
+  const isActive = useIsActive(to);
+
+  // VARIABLES
+  const {
+    palette: {
+      common: { GRAY, GREEN },
+    },
+  } = theme;
+
   return (
-    <IconButton component={Link} to={to} onClick={onClick}>
+    <IconButton component={NavLink} to={to} onClick={onClick}>
       <FontIcon
-        className={`icon-${iconName}`}
+        className={`icon-${icon}`}
         size={20}
-        variant={isActive ? 'primary' : 'secondary'}
-        fontcolor='dark'
+        fontcolor={isActive ? GREEN[500] : GRAY[900]}
       />
     </IconButton>
   );
+};
+
+// PROPTYPES
+SidebarFooter.propTypes = {
+  icon: PropTypes.string,
+  to: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
+SidebarFooter.defaultProps = {
+  icon: '',
+  to: '',
+  onClick: () => {},
 };
 
 export default SidebarFooter;

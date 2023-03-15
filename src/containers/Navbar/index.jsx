@@ -2,13 +2,13 @@ import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import toggleSidebar from '@store/sidebar/actions';
+import toggleSidebar from '@store/sidebar/actionCreators';
 
 import { Avatar, Box, IconButton, Toolbar } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 import brandLogo from '@assets/images/Logo.svg';
-import { URLS } from '@constants/routes';
+import { NOT_FOUND, URLS } from '@constants/routes';
 import CONSTANTS from '@constants/index';
 import NavbarMenu from '@components/NavbarMenu';
 import FontIcon from '@components/styledComponents/FontIcon';
@@ -157,7 +157,7 @@ const Navbar = () => {
         </NavItemsWrapper>
         <Box sx={{ flexGrow: 1 }} />
         <NavItemsWrapper gap={5}>
-          <IconButton component={Link} to={URLS.NOT_FOUND}>
+          <IconButton component={Link} to={NOT_FOUND}>
             <FontIcon
               className='icon-bell'
               size={20}

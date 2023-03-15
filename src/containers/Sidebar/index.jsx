@@ -1,20 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useMediaQuery, useTheme, Divider } from '@mui/material';
-import { URLS } from '@constants/routes';
-import toggleSidebar from '@store/sidebar/actions';
+import { NavLink } from 'react-router-dom';
+
+import { Divider, List, useMediaQuery, useTheme } from '@mui/material';
+
+import toggleSidebar from '@store/sidebar/actionCreators';
 import SidebarListItem from '@components/SidebarListItem';
 import StyledSidebarFooterList from '@components/SidebarFooter/style';
 import SidebarFooter from '@components/SidebarFooter';
 import SidebarCollapse from '@components/SidebarCollapse';
-
-import {
-  collapseAuthenticationOptions,
-  collapsePagesOptions,
-  collapseSalesOptions,
-} from './sidebarconfig';
-import { StyledDrawer, StyledSidebarMainList } from './style';
+import { Fragment } from 'react';
+import { sidebarFooterItems, sidebarMenuItems } from './sidebarconfig';
+import StyledDrawer from './style';
 
 const Sidebar = () => {
+  // HOOKS
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const dispatch = useDispatch();
@@ -22,6 +21,10 @@ const Sidebar = () => {
     (state) => state.sidebar.isSidebarVisible
   );
 
+  // HANDLERS
+  /**
+   * Toggles the sidebar by dispatching the `toggleSidebar` action.
+   */
   const handleSiderbarToggle = () => {
     dispatch(toggleSidebar());
   };
@@ -32,82 +35,48 @@ const Sidebar = () => {
       variant={isMobile ? 'temporary' : 'permanent'}
       open={isSidebarVisible}
       onClose={handleSiderbarToggle}>
-      <StyledSidebarMainList>
-        <SidebarListItem
-          to={URLS.DASHBOARD}
-          title='Overview'
-          iconName='chart-pie'
-          onClick={handleSiderbarToggle}
-        />
-
-        <SidebarCollapse
-          title='Pages'
-          iconName='document-report'
-          collapseItems={collapsePagesOptions}
-          onClick={handleSiderbarToggle}
-        />
-        <SidebarCollapse
-          title='Sales'
-          iconName='shopping-bag'
-          collapseItems={collapseSalesOptions}
-          onClick={handleSiderbarToggle}
-        />
-
-        <SidebarListItem
-          to={URLS.MESSAGES}
-          title='Messages'
-          iconName='inbox-in'
-          isBadge
-          onClick={handleSiderbarToggle}
-        />
-
-        <SidebarCollapse
-          title='Authentication'
-          iconName='lock-closed'
-          collapseItems={collapseAuthenticationOptions}
-          onClick={handleSiderbarToggle}
-        />
-
-        <Divider sx={{ width: '100%' }} />
-        <SidebarListItem
-          to={URLS.DOCS}
-          title='Docs'
-          iconName='clipboard-list'
-          onClick={handleSiderbarToggle}
-        />
-
-        <SidebarListItem
-          to={URLS.COMPONENTS}
-          title='Components'
-          iconName='collection'
-        />
-
-        <SidebarListItem
-          to={URLS.HELP}
-          title='Help'
-          iconName='support'
-          onClick={handleSiderbarToggle}
-        />
-      </StyledSidebarMainList>
+      <List>
+        {sidebarMenuItems.map((item) => (
+          <Fragment key={item.title}>
+            {item.subItems ? (
+              <SidebarCollapse
+                key={item.title}
+                icon={item.icon}
+                to={item.to}
+                title={item.title}
+                subItems={item.subItems}
+                onClick={handleSiderbarToggle}
+              />
+            ) : (
+              <SidebarListItem
+                key={item.title}
+                icon={item.icon}
+                to={item.to}
+                title={item.title}
+                badgeContent={item.badgeContent}
+                onClick={handleSiderbarToggle}
+              />
+            )}
+            {item.isDivider && <Divider />}
+          </Fragment>
+        ))}
+      </List>
 
       <StyledSidebarFooterList>
-        <SidebarFooter
-          iconName='adjustments-converted'
-          to={URLS.ADJUSTMENTS}
-          onClick={handleSiderbarToggle}
-        />
-        <SidebarFooter
-          iconName='globe-converted'
-          to={URLS.GLOBE}
-          onClick={handleSiderbarToggle}
-        />
-        <SidebarFooter
-          iconName='cog--converted'
-          to={URLS.COG}
-          onClick={handleSiderbarToggle}
-        />
+        {sidebarFooterItems.map((item) => {
+          return (
+            <SidebarFooter
+              component={NavLink}
+              key={item.to}
+              to={item.to}
+              icon={item.icon}
+              onClick={handleSiderbarToggle}
+            />
+          );
+        })}
       </StyledSidebarFooterList>
     </StyledDrawer>
   );
 };
+
 export default Sidebar;
