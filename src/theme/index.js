@@ -1,10 +1,9 @@
 import { createTheme } from '@mui/material';
-import { COLORS, FONT_WEIGHTS } from '@constants/theme';
 
+import { COLORS, FONT_WEIGHTS } from '@constants/theme';
 import fonts from './font';
 
 const { GRAY, RED, GREEN, BLUE } = COLORS;
-
 const theme = createTheme({
   breakpoints: {
     values: {
@@ -25,6 +24,8 @@ const theme = createTheme({
       main: GRAY[500],
       light: GRAY[400],
       dark: GRAY[900],
+      extraLight: GRAY[50],
+      border: GRAY[200],
     },
     error: {
       main: RED[200],
@@ -39,9 +40,10 @@ const theme = createTheme({
       secondary: GRAY[500],
       tertiary: GRAY[400],
     },
+    common: COLORS,
   },
   shape: {
-    borderRadius: 12,
+    borderRadius: 16,
   },
   components: {
     MuiCssBaseline: {
