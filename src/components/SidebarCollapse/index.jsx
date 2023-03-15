@@ -19,6 +19,7 @@ const SidebarCollapse = (props) => {
     palette: {
       common: { GRAY },
     },
+    mixins: { ellipsis },
   } = theme;
 
   const [collapseMenuOpen, setCollapseMenuOpen] = useState(false);
@@ -32,11 +33,7 @@ const SidebarCollapse = (props) => {
         <ListItemText
           primary={title}
           sx={{
-            overflow: 'hidden ',
-            textOverflow: 'ellipsis ',
-            display: '-webkit-box ',
-            WebkitLineClamp: '1',
-            WebkitBoxOrient: 'vertical',
+            ...ellipsis(),
           }}
         />
         {collapseMenuOpen ? (
