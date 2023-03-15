@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Sidebar = () => {
   return (
     // TODO: will be replaced by side bar component later

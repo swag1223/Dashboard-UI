@@ -22,7 +22,7 @@
     "default-param-last": "off",
     "import/no-unresolved": "off",
     "import/extensions": "off",
-
+    "react/jsx-props-no-spreading": "off",
     "import/order": [
       "error",
       {
@@ -41,8 +41,7 @@
             "pattern": "@(src|assets|constants|components|containers|layout|routes|store|theme)/**",
             "group": "internal"
           }
-        ],
-        "newlines-between": "always"
+        ]
       }
     ]
   }

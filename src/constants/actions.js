@@ -1,6 +1,0 @@
-const COUNTER = {
-  INCREMENT: 'INCREMENT',
-  DECREMENT: 'DECREMENT',
-};
-
-export default COUNTER;
