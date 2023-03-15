@@ -66,14 +66,14 @@ export const sidebarMenuItems = [
 export const sidebarFooterItems = [
   {
     to: URLS.ADJUSTMENTS,
-    icon: 'adjustments-converted',
+    icon: 'adjustments',
   },
   {
     to: URLS.GLOBE,
-    icon: 'globe-converted',
+    icon: 'globe',
   },
   {
     to: URLS.COG,
-    icon: 'cog--converted',
+    icon: 'cog',
   },
 ];

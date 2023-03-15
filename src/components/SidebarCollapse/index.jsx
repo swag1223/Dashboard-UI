@@ -41,13 +41,13 @@ const SidebarCollapse = (props) => {
         />
         {collapseMenuOpen ? (
           <FontIcon
-            className='icon-chevron-up-converted'
+            className='icon-chevron-up'
             size={16}
             fontcolor={GRAY[900]}
           />
         ) : (
           <FontIcon
-            className='icon-chevron-down-converted'
+            className='icon-chevron-down'
             size={16}
             fontcolor={GRAY[900]}
           />

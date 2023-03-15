@@ -2,6 +2,7 @@ import { createTheme } from '@mui/material';
 
 import { COLORS, FONT_WEIGHTS } from '@constants/theme';
 import fonts from './font';
+import ellipsis from './mixins';
 
 const { GRAY, RED, GREEN, BLUE } = COLORS;
 const theme = createTheme({
@@ -95,6 +96,9 @@ const finalTheme = createTheme({
       fontSize: theme.typography.pxToRem(12),
       lineHeight: theme.typography.pxToRem(18),
     },
+  },
+  mixins: {
+    ellipsis,
   },
   zIndex: {
     appBar: 1201,

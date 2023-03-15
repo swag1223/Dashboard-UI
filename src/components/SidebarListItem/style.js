@@ -6,16 +6,13 @@ export const StyledListItemText = styled(ListItemText, {
   ({
     theme: {
       palette: { primary, secondary },
+      mixins: { ellipsis },
     },
     isActive,
   }) => ({
     color: isActive ? primary.main : secondary.dark,
     '& .MuiListItemText-primary': {
-      overflow: 'hidden ',
-      textOverflow: 'ellipsis ',
-      display: '-webkit-box ',
-      WebkitLineClamp: '1',
-      WebkitBoxOrient: 'vertical',
+      ...ellipsis(),
     },
   })
 );
