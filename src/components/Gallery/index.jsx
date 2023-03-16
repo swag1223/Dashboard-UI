@@ -1,7 +1,9 @@
 import * as React from 'react';
+
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import { useMediaQuery, useTheme } from '@mui/material';
+
 import imagesData from './imagesData.config';
 
 const Gallery = () => {
@@ -9,6 +11,7 @@ const Gallery = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const cols = isMobile ? 1 : 3;
+
   return (
     <ImageList variant='quilted' cols={cols} gap={25} rowHeight={160}>
       {imagesData.map((image) => {
