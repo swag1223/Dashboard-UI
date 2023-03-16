@@ -14,7 +14,6 @@ const Layout = () => {
       <Navbar />
       <Box sx={{ display: 'flex' }}>
         {!isErrorPage && <Sidebar />}
-
         <Outlet />
       </Box>
     </Box>

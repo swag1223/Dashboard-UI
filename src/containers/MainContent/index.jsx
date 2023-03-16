@@ -1,14 +1,13 @@
-import { Box } from '@mui/material';
-
 import Footer from '@containers/Footer';
+import Gallery from '@components/Gallery';
+import StyledMainContentContainer from './style';
 
 const MainContent = () => {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-      <h1>Main Overview</h1>
-      <Box sx={{ wordBreak: 'break-all' }} />
+    <StyledMainContentContainer>
+      <Gallery />
       <Footer />
-    </Box>
+    </StyledMainContentContainer>
   );
 };
 
