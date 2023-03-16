@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
@@ -8,7 +9,6 @@ import SidebarListItem from '@components/SidebarListItem';
 import StyledSidebarFooterList from '@components/SidebarFooter/style';
 import SidebarFooter from '@components/SidebarFooter';
 import SidebarCollapse from '@components/SidebarCollapse';
-import { Fragment } from 'react';
 import { sidebarFooterItems, sidebarMenuItems } from './sidebarconfig';
 import StyledDrawer from './style';
 

@@ -41,9 +41,6 @@ const theme = createTheme({
       secondary: GRAY[500],
       tertiary: GRAY[400],
     },
-    actions: {
-      active: GREEN[500],
-    },
     common: COLORS,
   },
   shape: {
