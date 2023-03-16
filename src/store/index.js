@@ -1,9 +1,9 @@
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { legacy_createStore as createStore, combineReducers } from 'redux';
+
 import { searchResultsReducer } from './searchResults';
 import { userDataReducer } from './userData';
-
-import sideBarReducer from './sidebar/reducer';
+import { sideBarReducer } from './sidebar';
 
 const allReducer = combineReducers({
   searchResults: searchResultsReducer,

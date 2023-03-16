@@ -2,8 +2,6 @@ import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import toggleSidebar from '@store/sidebar/actionCreators';
-
 import { Avatar, Box, IconButton, Toolbar } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
@@ -15,6 +13,7 @@ import FontIcon from '@components/styledComponents/FontIcon';
 import SearchBar from '@components/SearchBar';
 import SearchResultItem from '@components/SearchResultItem';
 import { requestProductsSearchResults } from '@store/searchResults';
+import toggleSidebar from '@store/sidebar/actionCreators';
 import { requestUserData } from '@store/userData';
 import debounce from '@utils/index';
 import { NavItemsWrapper, StyledAppBar } from './style';
@@ -56,10 +55,6 @@ const Navbar = () => {
 
   // If true, the popup component is shown.
   const open = Boolean(anchorEl);
-
-  const handleSidebarToggle = () => {
-    dispatch(toggleSidebar());
-  };
   const {
     palette: {
       common: { GRAY },
@@ -68,6 +63,14 @@ const Navbar = () => {
   } = theme;
 
   // HANDLERS
+
+  /**
+   * Toggles the sidebar by dispatching the `toggleSidebar` action.
+   */
+  const handleSidebarToggle = () => {
+    dispatch(toggleSidebar());
+  };
+
   /**
    * Handler function to set the anchor element for the popup menu on click of avatar
    * @param {Event} e - The click event object

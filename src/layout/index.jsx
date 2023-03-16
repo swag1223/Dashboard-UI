@@ -1,8 +1,9 @@
+import { Outlet, useLocation } from 'react-router-dom';
+import { Box } from '@mui/material';
+
 import { URLS } from '@constants/routes';
 import Navbar from '@containers/Navbar';
 import Sidebar from '@containers/Sidebar';
-import { Box } from '@mui/material';
-import { Outlet, useLocation } from 'react-router-dom';
 
 const Layout = () => {
   const location = useLocation();

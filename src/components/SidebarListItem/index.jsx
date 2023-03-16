@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import { Badge, Box, IconButton, useTheme } from '@mui/material';
-
 import PropTypes from 'prop-types';
+
+import { Badge, Box, IconButton, useTheme } from '@mui/material';
 
 import FontIcon from '@components/styledComponents/FontIcon';
 import useIsActive from '@hooks/useIsActive';
