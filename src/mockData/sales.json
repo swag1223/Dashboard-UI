@@ -1,0 +1,37 @@
+[
+  {
+    "date": 1,
+    "sales": 50,
+    "amt": 0
+  },
+  {
+    "date": 2,
+    "sales": 100,
+    "amt": 40
+  },
+  {
+    "date": 3,
+    "sales": 120,
+    "amt": 80
+  },
+  {
+    "date": 4,
+    "sales": 210,
+    "amt": 120
+  },
+  {
+    "date": 5,
+    "sales": 30,
+    "amt": 160
+  },
+  {
+    "date": 6,
+    "sales": 60,
+    "amt": 200
+  },
+  {
+    "date": 7,
+    "sales": 90,
+    "amt": 240
+  }
+]

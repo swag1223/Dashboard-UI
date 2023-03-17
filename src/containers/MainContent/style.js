@@ -9,6 +9,7 @@ const StyledMainContentContainer = styled(Box)(
   }) => ({
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'space-between',
     padding: `${pxToRem(15)} ${pxToRem(20)}`,
     backgroundColor: secondary.extraLight,
     width: '100%',
