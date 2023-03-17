@@ -23,7 +23,11 @@ const SidebarListItem = (props) => {
   } = theme;
 
   return (
-    <StyledSidebarListItemButton component={NavLink} to={to} onClick={onClick}>
+    <StyledSidebarListItemButton
+      component={NavLink}
+      to={to}
+      onClick={onClick}
+      disableGutters>
       <Box sx={{ width: pxToRem(20) }}>
         {icon && (
           <FontIcon

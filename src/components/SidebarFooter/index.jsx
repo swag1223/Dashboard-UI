@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { IconButton, useTheme } from '@mui/material';
 
-import FontIcon from '@components/FontIcon/style';
+import FontIcon from '@components/styledComponents/FontIcon';
 import useIsActive from '@hooks/useIsActive';
 
 const SidebarFooter = (props) => {
