@@ -15,7 +15,7 @@ const StyledDrawer = styled(Drawer, {
       top: isMobile
         ? pxToRem(CONSTANTS.NAVBAR_HEIGHT_MOBILE)
         : pxToRem(CONSTANTS.NAVBAR_HEIGHT_DESKTOP),
-      width: pxToRem(250),
+      width: pxToRem(CONSTANTS.SIDEBAR_WIDTH),
       height: isMobile
         ? `calc(100vh - ${pxToRem(CONSTANTS.NAVBAR_HEIGHT_MOBILE)})`
         : `calc(100vh - ${pxToRem(CONSTANTS.NAVBAR_HEIGHT_DESKTOP)})`,

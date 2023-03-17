@@ -1,5 +1,7 @@
 import { ListItemButton, styled } from '@mui/material';
 
+import CONSTANTS from '@constants/index';
+
 const StyledCollapseListItemButton = styled(ListItemButton)(
   ({
     theme: {
@@ -9,7 +11,7 @@ const StyledCollapseListItemButton = styled(ListItemButton)(
   }) => ({
     borderRadius: pxToRem(12),
     padding: spacing(1, 11),
-    minWidth: pxToRem(225),
+    width: pxToRem(CONSTANTS.SIDEBAR_LIST_ITEM_WIDTH),
   })
 );
 
