@@ -1,37 +1,30 @@
 [
   {
-    "date": 1,
-    "sales": 50,
-    "amt": 0
+    "datetime": "2023-04-1",
+    "sales": 82
   },
   {
-    "date": 2,
-    "sales": 100,
-    "amt": 40
+    "datetime": "2023-04-02",
+    "sales": 115
   },
   {
-    "date": 3,
-    "sales": 120,
-    "amt": 80
+    "datetime": "2023-04-03",
+    "sales": 79
   },
   {
-    "date": 4,
-    "sales": 210,
-    "amt": 120
+    "datetime": "2023-04-04",
+    "sales": 108
   },
   {
-    "date": 5,
-    "sales": 30,
-    "amt": 160
+    "datetime": "2023-07-05",
+    "sales": 80
   },
   {
-    "date": 6,
-    "sales": 60,
-    "amt": 200
+    "datetime": "2023-04-06",
+    "sales": 110
   },
   {
-    "date": 7,
-    "sales": 90,
-    "amt": 240
+    "datetime": "2023-04-07",
+    "sales": 150
   }
 ]
