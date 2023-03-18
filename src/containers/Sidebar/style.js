@@ -7,19 +7,10 @@ const StyledDrawer = styled(Drawer, {
   ({
     theme: {
       typography: { pxToRem },
-      palette: {
-        common: { GRAY },
-      },
     },
     isMobile,
   }) => ({
     '& .MuiPaper-root': {
-      '&::-webkit-scrollbar': {
-        width: pxToRem(CONSTANTS.SIDEBAR_SCROLLBAR_WIDTH),
-      },
-      '&::-webkit-scrollbar-thumb': {
-        backgroundColor: GRAY[10],
-      },
       scrollbarGutter: 'stable',
       position: 'sticky',
       top: isMobile
