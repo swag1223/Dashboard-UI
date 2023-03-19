@@ -39,5 +39,18 @@
     "label": "Multipurpose Template",
     "description": "React & Bootstrap Framework",
     "sales": 22
+  },
+
+  {
+    "id": 7,
+    "label": "Multipurpose Template",
+    "description": "React & Bootstrap Framework",
+    "sales": 22
+  },
+  {
+    "id": 8,
+    "label": "Multipurpose Template",
+    "description": "React & Bootstrap Framework",
+    "sales": 22
   }
 ]

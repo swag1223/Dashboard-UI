@@ -79,6 +79,9 @@
 //   // const [activeIndex, setActiveIndex] = useState(0);
 //   // const activeItem = salesData[activeIndex];
 
+//   const handleClick = () => {
+//     console.log('hi');
+//   };
 //   // const handleClick = useCallback(
 //   //   (entry, index) => {
 //   //     setActiveIndex(index);
@@ -195,7 +198,7 @@
 //               stroke={primary.main}
 //               strokeWidth={3}
 //               dot={false}
-//               // onClick={handleClick}
+//               onClick={handleClick}
 //               activeDot={{ r: 8, strokeWidth: 3 }}
 //               // onMouseEnter={handleLineMouseEnter}
 //               // onMouseLeave={handleLineMouseLeave}
