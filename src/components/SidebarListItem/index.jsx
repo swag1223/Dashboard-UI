@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Badge, Box, IconButton, useTheme } from '@mui/material';
 
 import FontIcon from '@components/styledComponents/FontIcon';
-import useIsActive from '@hooks/useIsActive';
+import useIsRouteActive from '@hooks/useIsRouteActive';
 import { StyledSidebarListItemButton, StyledListItemText } from './style';
 
 const SidebarListItem = (props) => {
@@ -12,7 +12,7 @@ const SidebarListItem = (props) => {
 
   // HOOKS
   const theme = useTheme();
-  const isActive = useIsActive(to);
+  const isActive = useIsRouteActive(to);
 
   // VARIABLES
   const {

@@ -21,14 +21,15 @@ export const StyledSidebarListItemButton = styled(ListItemButton)(
   ({
     theme: {
       typography: { pxToRem },
+      spacing,
     },
   }) => {
     return {
       borderRadius: pxToRem(12),
       display: 'flex',
       gap: pxToRem(18),
-      margin: `${pxToRem(5)} ${pxToRem(16)}`,
-      padding: `${pxToRem(2)} ${pxToRem(8)}`,
+      margin: spacing(1, 4),
+      padding: spacing(0.5, 2),
     };
   }
 );

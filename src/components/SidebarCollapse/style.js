@@ -4,11 +4,11 @@ const StyledCollapseListItemButton = styled(ListItemButton)(
   ({
     theme: {
       typography: { pxToRem },
+      spacing,
     },
   }) => ({
     borderRadius: pxToRem(12),
-    padding: `${pxToRem(4)} ${pxToRem(45)}`,
-    minWidth: pxToRem(225),
+    padding: spacing(1, 11),
   })
 );
 
