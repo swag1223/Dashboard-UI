@@ -3,13 +3,13 @@ import { Box, styled } from '@mui/material';
 const StyledMainContentContainer = styled(Box)(
   ({
     theme: {
+      spacing,
       palette: { secondary },
-      typography: { pxToRem },
     },
   }) => ({
     display: 'flex',
     flexDirection: 'column',
-    padding: `${pxToRem(15)} ${pxToRem(20)}`,
+    padding: spacing(4, 5),
     backgroundColor: secondary.extraLight,
     width: '100%',
   })
