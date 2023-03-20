@@ -42,38 +42,46 @@ export const StyledTooltipContainer = styled(Box)(
       },
       shadows,
       shape: { borderRadius },
+      typography: { pxToRem },
     },
   }) => ({
     boxShadow: shadows[1],
-    maxWidth: '140px',
-    height: '94px',
+    maxWidth: pxToRem(140),
+    height: pxToRem(94),
     backgroundColor: white,
     borderRadius,
-    padding: '10px',
+    padding: pxToRem(10),
     postion: 'relative',
     '&:before': {
       content: '""',
       position: 'absolute',
       display: 'block',
       backgroundColor: 'white',
-      width: 15,
-      height: 15,
+      width: pxToRem(15),
+      height: pxToRem(15),
       bottom: 0,
       borderBottom: `1px solid ${border}`,
       borderRight: `1px solid ${border}`,
-      left: '42%',
+      left: '45%',
       transform: 'translateY(50%) rotate(45deg)',
       zIndex: 0,
     },
   })
 );
 
-export const StyledTooltipSalesIndicator = styled(Box)(({ color }) => ({
-  borderRadius: '50%',
-  backgroundColor: color,
-  height: '10px',
-  width: '10px',
-}));
+export const StyledTooltipSalesIndicator = styled(Box)(
+  ({
+    theme: {
+      typography: { pxToRem },
+    },
+    color,
+  }) => ({
+    borderRadius: '50%',
+    backgroundColor: color,
+    height: pxToRem(10),
+    width: pxToRem(10),
+  })
+);
 
 export const StyledTooltipSalesIndicatorWrapper = styled(Box)(
   ({
