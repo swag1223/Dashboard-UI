@@ -58,6 +58,9 @@ const fonts = `
   .icon-chevron-down:before {
     content: "\\e902";
   }
+  .icon-exclamation-circle:before {
+    content: "\\e906";
+  }
   .icon-shopping-bag:before {
     content: "\\e917";
   }
@@ -85,7 +88,7 @@ const fonts = `
   .icon-clipboard-list:before {
     content: "\\e90a";
   }
-  .icon-cog:before {
+  .icon-settings:before {
     content: "\\e90b";
   }
   .icon-search:before {

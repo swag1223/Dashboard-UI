@@ -31,6 +31,7 @@ const Sidebar = () => {
 
   return (
     <StyledDrawer
+      className='custom-scrollbar custom-scrollbar-color'
       isMobile={isMobile}
       variant={isMobile ? 'temporary' : 'permanent'}
       open={isSidebarVisible}

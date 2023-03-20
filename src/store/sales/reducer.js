@@ -1,7 +1,7 @@
 import { LOAD_SALES_DATA } from '@constants/actionTypes';
 
 const initialState = {
-  salesData: {},
+  salesData: [],
 };
 
 const salesDataReducer = (state = initialState, action) => {

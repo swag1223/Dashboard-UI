@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 import { IconButton, useTheme } from '@mui/material';
 
-import FontIcon from '@components/FontIcon/style';
-import useIsActive from '@hooks/useIsActive';
+import FontIcon from '@components/styledComponents/FontIcon';
+import useIsRouteActive from '@hooks/useIsRouteActive';
 
 const SidebarFooter = (props) => {
   const { icon, to, onClick } = props;
 
   // HOOKS
   const theme = useTheme();
-  const isActive = useIsActive(to);
+  const isActive = useIsRouteActive(to);
 
   // VARIABLES
   const {
