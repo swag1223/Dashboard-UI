@@ -1,143 +1,175 @@
-// import {
-//   LineChart,
-//   Line,
-//   XAxis,
-//   YAxis,
-//   CartesianGrid,
-//   // ResponsiveContainer,
-//   Tooltip,
-// } from 'recharts';
-// import { useState } from 'react';
-// import { Box, Typography, useTheme } from '@mui/material';
-// // import Tooltip from '@mui/material/Tooltip';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-// const CustomTooltip = ({
-//   data,
-//   active,
-//   payload,
-//   label,
-//   // index,
-//   // activeIndex,
-// }) => {
-//   if (active) {
-//     // const { sales } = data[activeIndex].sales;
-//     return (
-//       <Box>
-//         <Typography>{`Sales: ${label} `}</Typography>
-//       </Box>
-//     );
-//   }
-//   return null;
-// };
+import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
+import PropTypes from 'prop-types';
 
-// const Sales = ({ salesData }) => {
-//   // const handleGraphClick = () => {
-//   //   console.log('hi');
-//   // };
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
 
-//   // const [clicked, setClicked] = useState(false);
-//   //   const [activeIndex, setActiveIndex] = useState(null);
-//   //   const [showTooltip, setShowTooltip] = useState(false);
+import FontIcon from '@components/styledComponents/FontIcon';
+import { requestSalesData } from '@store/sales';
+import {
+  StyledSalesContainer,
+  StyledSalesHeading,
+  StyledTooltipContainer,
+  StyledTooltipSalesIndicator,
+  StyledTooltipSalesIndicatorWrapper,
+} from './style';
 
-//   //   const [tooltipX, setTooltipX] = useState(null);
-//   //   const [tooltipY, setTooltipY] = useState(null);
+const dateFormatter = (tick) => {
+  const datetime = new Date(tick);
+  const date = datetime.getDate().toString().padStart(2, '0');
+  const month = datetime.toLocaleString('default', { month: 'short' });
+  const year = datetime.getFullYear();
 
-//   // const handleLineMouseEnter = (e, index) => {
-//   //   setActiveIndex(index);
-//   // };
+  return `${date} ${month} ${year}`;
+};
 
-//   // const handleLineMouseLeave = () => {
-//   //   setActiveIndex(null);
-//   // };
+const salesUnitFormatter = (tick) => {
+  return `${tick} K`;
+};
 
-//   const handleLineHover = (event) => {
-//     const { x, y, index } = event;
-//     setActiveIndex(index);
-//     setTooltipX(x);
-//     setTooltipY(y);
-//   };
+const CustomTooltip = ({ customActive, payload, label, color }) => {
+  if (customActive && payload) {
+    return (
+      <StyledTooltipContainer>
+        <Typography variant='body2' color='secondary.main'>
+          {dateFormatter(label)}
+        </Typography>
+        <StyledTooltipSalesIndicatorWrapper>
+          <StyledTooltipSalesIndicator color={color} />
+          <Typography variant='body1' color='secondary.main'>
+            Sales:
+          </Typography>
+          <Typography variant='body1'>{`$${payload[0].value}k`}</Typography>
+        </StyledTooltipSalesIndicatorWrapper>
+      </StyledTooltipContainer>
+    );
+  }
+  return null;
+};
 
-//   const handleLineClick = (event, index) => {
-//     // event.stopPropagation(null);
-//     // setActiveIndex(activeIndex === index ? null : index);
-//     // setActiveIndex(index);
-//     // setClicked(true);
-//     setShowTooltip(!showTooltip);
-//   };
+const Sales = () => {
+  const { salesData } = useSelector((state) => state.salesData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(requestSalesData());
+  }, []);
 
-//   // const handleChartClick = () => {
-//   //   // setClicked(false);
-//   //   setActiveIndex(null);
-//   // };
+  const sortedData = [...salesData].sort(
+    (a, b) => new Date(a.datetime) - new Date(b.datetime)
+  );
 
-//   const theme = useTheme();
-//   const {
-//     palette: { primary },
-//   } = theme;
+  const [isToolTipActive, setIsTooltipActive] = useState(false);
+  const [toolTipPosition, setToolTipPosition] = useState({});
 
-//   return (
-//     <Box sx={{ backgroundColor: 'white', padding: '20px 40px' }}>
-//       <LineChart
-//         width={900}
-//         height={400}
-//         data={salesData}
-//         // onClick={handleChartClick}
-//         margin={{
-//           top: 5,
-//           right: 30,
-//           left: 20,
-//           bottom: 5,
-//         }}>
-//         <CartesianGrid vertical={false} />
-//         <XAxis
-//           axisLine={false}
-//           dataKey='date'
-//           unit='April'
-//           // interval={0}
-//           tickLine={false}
-//           padding={{ left: 30, right: 30 }}
-//         />
-//         <YAxis
-//           axisLine={false}
-//           dataKey='amt'
-//           // interval='preserveStartEnd'
-//           unit='K'
-//           padding={{ left: 30, right: 30 }}
-//           tickLine={false}
-//         />
-//         <Tooltip
-//           cursor='pointer'
-//           content={
-//             <CustomTooltip
-//               data={salesData}
-//               // clicked={clicked}
-//               activeIndex={activeIndex}
-//             />
-//           }
-//           active={showTooltip}
-//           position={{ x: tooltipX, y: tooltipY }}
-//           // active={!!activePoint}
-//           // payload={[activePoint]}
-//           // trigger='click'
-//         />
-//         {/* <Legend /> */}
-//         {/* {clicked && activePoint && (
-//           <Tooltip content={activePoint.value} trigger='click' />
-//         )} */}
+  const theme = useTheme();
+  const {
+    palette: {
+      primary,
+      common: { GRAY, GREEN },
+    },
+  } = theme;
 
-//         <Line
-//           type='monotone'
-//           dataKey='sales'
-//           stroke={primary.main}
-//           dot={false}
-//           activeDot={{ r: 8 }}
-//           //   onMouseMove={handleLineHover}
-//           //   onClick={handleLineClick}
-//           // onMouseEnter={handleLineMouseEnter}
-//           // onMouseLeave={handleLineMouseLeave}
-//         />
-//       </LineChart>
-//     </Box>
-//   );
-// };
-// export default Sales;
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  return (
+    <StyledSalesContainer>
+      <StyledSalesHeading>
+        <Typography variant='h4'>Sales</Typography>
+        <FontIcon className='icon-globe' size={18} fontcolor={GRAY[500]} />
+      </StyledSalesHeading>
+      <Box>
+        <ResponsiveContainer width='99%' height={390}>
+          <LineChart
+            data={sortedData}
+            margin={{
+              top: 5,
+              right: 15,
+              left: 15,
+              bottom: 5,
+            }}>
+            <CartesianGrid vertical={false} />
+            <XAxis
+              axisLine={false}
+              dataKey='datetime'
+              tickFormatter={dateFormatter}
+              height={isMobile ? 100 : 50}
+              //   interval='preserveStartEnd'
+              tickLine={false}
+              padding={{ left: 30, right: 30 }}
+              dx={isMobile ? -15 : 3}
+              dy={isMobile ? 40 : 5}
+              angle={isMobile ? -45 : 0}
+              tick={{ fontSize: 13 }}
+              interval={0}
+            />
+            {!isMobile && (
+              <YAxis
+                dx={-10}
+                axisLine={false}
+                tickFormatter={salesUnitFormatter}
+                tickLine={false}
+                tick={{ fontSize: 13 }}
+              />
+            )}
+
+            <Tooltip
+              color={GREEN[500]}
+              cursor={{ strokeDasharray: 4 }}
+              content={<CustomTooltip customActive={isToolTipActive} />}
+              position={toolTipPosition}
+              wrapperStyle={{
+                outline: 'none',
+              }}
+            />
+
+            <Line
+              type='monotone'
+              dataKey='sales'
+              stroke={primary.main}
+              strokeWidth={3}
+              dot={false}
+              activeDot={{
+                r: 8,
+                strokeWidth: 3,
+                cursor: 'pointer',
+                onClick: () => setIsTooltipActive((state) => !state),
+                onMouseLeave: () => setIsTooltipActive(false),
+                onMouseMove: (event, data) => {
+                  setToolTipPosition({ x: data.cx - 70, y: data.cy - 120 });
+                },
+              }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </Box>
+    </StyledSalesContainer>
+  );
+};
+
+CustomTooltip.propTypes = {
+  customActive: PropTypes.bool.isRequired,
+  payload: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number,
+    })
+  ),
+  label: PropTypes.string,
+  color: PropTypes.string,
+};
+
+CustomTooltip.defaultProps = {
+  payload: [],
+  label: '',
+  color: '',
+};
+
+export default Sales;
