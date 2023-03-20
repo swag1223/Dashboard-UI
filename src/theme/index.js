@@ -43,6 +43,7 @@ const theme = createTheme({
     },
     common: COLORS,
   },
+  spacing: 4,
   shape: {
     borderRadius: 16,
   },
