@@ -1,132 +1,56 @@
-import React from 'react';
-
-import customersData from '@mockData/customers.json';
-import {
-  Avatar,
-  Box,
-  Divider,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
+import React, { useEffect } from 'react';
+import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { requestCustomersData } from '@store/customers';
+import CustomList from '@components/CustomList';
 
 const LatestCustomers = () => {
-  // const { customersData } = useSelector((state) => state.customersData);
-  // console.log(customersData);
-  // const dispatch = useDispatch();
+  const transformCustomerInfo = (customer) => {
+    return {
+      id: customer.id,
+      title: customer.name,
+      subtitle: customer.email,
+      avatar: customer.avatar,
+      amount: (
+        <Typography variant='h4'>
+          $
+          <Typography variant='h4' component='span'>
+            {customer.amount}
+          </Typography>
+        </Typography>
+      ),
+    };
+  };
 
-  // useEffect(() => {
-  //   dispatch(requestCustomersData());
-  // }, []);
+  const { customersData } = useSelector((state) => state.customersData);
+  const dispatch = useDispatch();
 
-  // console.log(customersData);
+  useEffect(() => {
+    dispatch(requestCustomersData());
+  }, []);
+
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const { shadows } = theme;
+
+  const transformedCustomersData = customersData.map((customer) => {
+    return transformCustomerInfo(customer);
+  });
 
   return (
     <Box
       sx={{
-        maxHeight: '448px',
         borderRadius: '16px',
         bgcolor: 'background.paper',
         padding: isMobile ? '16px' : '24px',
-        // maxWidth: isMobile ? '100%' : '380px',
+        width: isMobile ? '100%' : '35%',
         boxShadow: shadows[1],
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '20px',
       }}>
       <Typography variant='h4'>Latest Customers</Typography>
-      <List
-        // disablePadding
-        sx={{
-          // borderRadius: '16px',
-          // bgcolor: 'background.paper',
-          // padding: isMobile ? '16px' : '24px',
-          // maxWidth: isMobile ? '100%' : '50%',
-          // boxShadow: shadows[1],
-          // border: '1px solid red',
-
-          overflowY: 'auto',
-          height: '100%',
-          // maxHeight: '400px',
-        }}
-        // sx={{ border: '1px solid black' }}
-      >
-        {/* <ListSubheader>
-          <Typography variant='h4' color='text.primary'>
-            Latest Customers
-          </Typography>
-        </ListSubheader> */}
-        {customersData.map((customer) => {
-          return (
-            <>
-              <ListItem
-                disablePadding
-                key={customer.id}
-                sx={{
-                  // border: '1px solid yellow',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  //   gap: '80px',
-                }}>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    // border: '1px solid green',
-                  }}>
-                  <ListItemAvatar
-                    sx={{
-                      //   border: '1px solid black',
-                      display: 'flex',
-                      //   justifyContent: 'center',
-                      alignItems: 'center',
-                    }}>
-                    <Avatar alt={customer.name} src={customer.avatar} />
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary={
-                      <Typography
-                        variant='h4'
-                        color='text.primary'
-                        // sx={{ border: '1px solid blue' }}
-                      >
-                        {customer.name}
-                      </Typography>
-                    }
-                    secondary={
-                      <Typography
-                        //   sx={{ display: 'inline' }}
-                        // sx={{ border: '1px solid red' }}
-                        variant='body2'
-                        //   component='span'
-                        color='text.secondary'>
-                        {customer.email}
-                      </Typography>
-                    }
-                  />
-                </Box>
-                <ListItemText
-                  sx={{ textAlign: 'right' }}
-                  primary={
-                    <Typography
-                      //   component='span'
-                      variant='h4'
-                      color='text.primary'
-                      //   sx={{ border: '1px solid orange' }}
-                    >
-                      {`$${customer.amount}`}
-                    </Typography>
-                  }
-                />
-              </ListItem>
-              {customer.id !== customersData.length ? <Divider /> : null}
-            </>
-          );
-        })}
-      </List>
+      <CustomList data={transformedCustomersData} />
     </Box>
   );
 };

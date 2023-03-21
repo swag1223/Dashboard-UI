@@ -13,10 +13,7 @@ const StyledMainContentContainer = styled(Box)(
     gap: pxToRem(20),
     padding: spacing(4, 5),
     backgroundColor: secondary.extraLight,
-    // width: '100%',
-    width: `calc(100vw - 250px)`,
-
-    // border: '1px solid green',
+    width: '100%',
   })
 );
 
