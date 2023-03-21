@@ -130,8 +130,8 @@ const Sales = () => {
           fontcolor={GRAY[500]}
         />
       </StyledSalesHeading>
-      <Box>
-        <ResponsiveContainer width='99%' height={390}>
+      <Box width='100%'>
+        <ResponsiveContainer width='100%' height={390}>
           <LineChart
             data={sortedData}
             margin={{
@@ -150,7 +150,6 @@ const Sales = () => {
                   ? CONSTANTS.X_AXIS_HEIGHT_MOBILE
                   : CONSTANTS.X_AXIS_HEIGHT_DESKTOP
               }
-              allowDuplicatedCategory={false}
               tickLine={false}
               padding={{ left: 30, right: 30 }}
               dx={
@@ -170,7 +169,7 @@ const Sales = () => {
 
             {!isMobile && (
               <YAxis
-                dx={-10}
+                dx={CONSTANTS.HORIZONTAL_DISTANCE_OF_YTICKS_FROM_AXIS}
                 axisLine={false}
                 tickFormatter={salesUnitFormatter}
                 tickLine={false}
@@ -196,14 +195,14 @@ const Sales = () => {
               dot={false}
               activeDot={{
                 r: CONSTANTS.ACTIVE_DOT_RADIUS,
-                strokeWidth: CONSTANTS.ACTIVE_DOT_RADIUS,
+                strokeWidth: CONSTANTS.ACTIVE_DOT_BORDER,
                 cursor: 'pointer',
                 onClick: () => setIsTooltipActive((state) => !state),
                 onMouseLeave: () => setIsTooltipActive(false),
                 onMouseMove: (event, data) => {
                   setToolTipPosition({
                     x: data.cx + CONSTANTS.TOOLTIP_POSITION_X_COORIDANTE,
-                    y: data.cy - CONSTANTS.TOOLTIP_POSITION_Y_COORIDANTE,
+                    y: data.cy + CONSTANTS.TOOLTIP_POSITION_Y_COORIDANTE,
                   });
                 },
               }}

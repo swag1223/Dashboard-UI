@@ -29,7 +29,7 @@ export const StyledSalesHeading = styled(Box)(
     alignItems: 'center',
     gap: pxToRem(15),
     marginBottom: spacing(5),
-    padding: spacing(2),
+    padding: spacing(5),
   })
 );
 
