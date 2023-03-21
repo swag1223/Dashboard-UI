@@ -1,6 +1,6 @@
 import Footer from '@containers/Footer';
 import Gallery from '@components/Gallery';
-import Sales from '@components/Sales';
+import Sales from '@containers/Sales';
 
 import StyledMainContentContainer from './style';
 
