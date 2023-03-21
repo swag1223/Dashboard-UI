@@ -77,3 +77,9 @@ yarn run build
 
 **When adding new aliases** :
 define in both `vite.config.js` and in `jsconfig.json` for intellisense.
+
+**Used `recharts.js` for implementing graph** :
+
+```
+ https://recharts.org/en-US/
+```
