@@ -10,7 +10,7 @@ const StyledDrawer = styled(Drawer, {
     },
     isMobile,
   }) => ({
-    '& .MuiPaper-root': {
+    '&.MuiDrawer-root , & .MuiPaper-root': {
       scrollbarGutter: 'stable',
       position: 'sticky',
       top: isMobile

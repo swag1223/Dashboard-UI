@@ -1,12 +1,14 @@
+import Sales from '@containers/Sales';
 import Footer from '@containers/Footer';
 import Gallery from '@components/Gallery';
-import Sales from '@components/Sales';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { requestSalesData } from '@store/sales';
 import { useEffect } from 'react';
 import LatestCustomers from '@containers/LatestCustomers';
 import TopProducts from '@containers/TopProducts';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
+
 import StyledMainContentContainer from './style';
 
 const MainContent = () => {
