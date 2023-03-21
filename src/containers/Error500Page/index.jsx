@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { Box } from '@mui/material';
 
-import URLS from '@constants/routes';
+import { URLS } from '@constants/routes';
 
 const Error500Page = () => {
   return (

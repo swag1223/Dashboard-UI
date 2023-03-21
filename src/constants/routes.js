@@ -1,10 +1,25 @@
-const URLS = {
+export const URLS = {
   DASHBOARD: '/',
-  PROFILE: 'profile',
-  SETTINGS: 'settings',
-  LOGOUT: 'logout',
-  AUTH: 'auth',
-  NOT_FOUND: '*',
+  AUTH: '/auth',
+  PROFILE: '/profile',
+  SETTINGS: '/settings',
+  LOGOUT: '/logout',
+  HOME: '/home',
+  ABOUT_US: '/aboutus',
+  CONTACT_US: '/contactus',
+  PRODUCT_LIST: '/productlist',
+  BILLING: '/billing',
+  INVOICE: '/invoice',
+  MESSAGES: '/messages',
+  ACCOUNT: '/account',
+  LOGIN: '/login',
+  SIGNIN: '/signin',
+  DOCS: '/docs',
+  COMPONENTS: '/components',
+  HELP: '/help',
+  ADJUSTMENTS: '/adjustments',
+  GLOBE: '/globe',
+  COG: '/cog',
 };
 
-export default URLS;
+export const NOT_FOUND = '*';

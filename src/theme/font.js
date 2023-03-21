@@ -52,55 +52,73 @@ const fonts = `
     -moz-osx-font-smoothing: grayscale;
   }
   
-  .icon-chevron-up-converted:before {
-    content: "\\e909";
-  }
-  .icon-chevron-down-converted:before {
-    content: "\\e908";
-  }
-  .icon-support:before {
-    content: "\\e90a";
-  }
-  .icon-collection:before {
-    content: "\\e90b";
-  }
-  .icon-clipboard-list:before {
-    content: "\\e90c";
-  }
-  .icon-lock-closed:before {
-    content: "\\e90d";
-  }
-  .icon-inbox-in:before {
-    content: "\\e90e";
-  }
-  .icon-shopping-bag:before {
-    content: "\\e90f";
-  }
-  .icon-document-report:before {
-    content: "\\e910";
-  }
-  .icon-chart-pie:before {
-    content: "\\e907";
-  }
-  .icon-logout:before {
-    content: "\\e906";
-  }
-  .icon-Vector:before {
-    content: "\\e905";
-  }
-  .icon-settings:before {
-    content: "\\e904";
-  }
-  .icon-user:before {
-    content: "\\e903";
-  }
-  .icon-search:before {
-    content: "\\e902";
-  }
-  .icon-menu:before {
+  .icon-chevron-up:before {
     content: "\\e901";
   }
+  .icon-chevron-down:before {
+    content: "\\e902";
+  }
+  .icon-shopping-bag:before {
+    content: "\\e917";
+  }
+  .icon-support:before {
+    content: "\\e918";
+  }
   .icon-bell:before {
+    content: "\\e903";
+  }
+  .icon-menu:before {
+    content: "\\e904";
+  }
+  .icon-lock-closed:before {
+    content: "\\e905";
+  }
+  .icon-logout:before {
+    content: "\\e907";
+  }
+  .icon-document-report:before {
+    content: "\\e908";
+  }
+  .icon-inbox-in:before {
+    content: "\\e909";
+  }
+  .icon-clipboard-list:before {
+    content: "\\e90a";
+  }
+  .icon-settings:before {
+    content: "\\e90b";
+  }
+  .icon-search:before {
+    content: "\\e90d";
+  }
+  .icon-user:before {
+    content: "\\e90e";
+  }
+  .icon-collection:before {
+    content: "\\e90f";
+  }
+  .icon-chart-pie:before {
+    content: "\\e910";
+  }
+  .icon-dribbble:before {
+    content: "\\e911";
+  }
+  .icon-github:before {
+    content: "\\e912";
+  }
+  .icon-twitter:before {
+    content: "\\e913";
+  }
+  .icon-facebook-f:before {
+    content: "\\e914";
+  }
+  .icon-cog:before {
+    content: "\\e915";
+  }
+  .icon-globe:before {
+    content: "\\e916";
+  }
+  .icon-adjustments:before {
     content: "\\e900";
   }`;
 

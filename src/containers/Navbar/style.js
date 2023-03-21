@@ -20,5 +20,8 @@ export const StyledAppBar = styled(AppBar)(
   }) => ({
     backgroundColor: common.white,
     borderBottom: `1px solid ${secondary.border}`,
+    top: 0,
+    left: 0,
+    right: 0,
   })
 );

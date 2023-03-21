@@ -6,13 +6,14 @@ import { Avatar, Box, IconButton, Toolbar } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 import brandLogo from '@assets/images/Logo.svg';
+import { NOT_FOUND, URLS } from '@constants/routes';
 import CONSTANTS from '@constants/index';
-import URLS from '@constants/routes';
 import NavbarMenu from '@components/NavbarMenu';
 import FontIcon from '@components/styledComponents/FontIcon';
 import SearchBar from '@components/SearchBar';
 import SearchResultItem from '@components/SearchResultItem';
 import { requestProductsSearchResults } from '@store/searchResults';
+import toggleSidebar from '@store/sidebar/actionCreators';
 import { requestUserData } from '@store/userData';
 import debounce from '@utils/index';
 import { NavItemsWrapper, StyledAppBar } from './style';
@@ -54,7 +55,6 @@ const Navbar = () => {
 
   // If true, the popup component is shown.
   const open = Boolean(anchorEl);
-
   const {
     palette: {
       common: { GRAY },
@@ -63,6 +63,14 @@ const Navbar = () => {
   } = theme;
 
   // HANDLERS
+
+  /**
+   * Toggles the sidebar by dispatching the `toggleSidebar` action.
+   */
+  const handleSidebarToggle = () => {
+    dispatch(toggleSidebar());
+  };
+
   /**
    * Handler function to set the anchor element for the popup menu on click of avatar
    * @param {Event} e - The click event object
@@ -134,6 +142,7 @@ const Navbar = () => {
             <img alt='Brand logo' src={brandLogo} />
           </IconButton>
           <IconButton
+            onClick={handleSidebarToggle}
             sx={{
               [theme.breakpoints.up('sm')]: {
                 display: 'none',
@@ -151,7 +160,7 @@ const Navbar = () => {
         </NavItemsWrapper>
         <Box sx={{ flexGrow: 1 }} />
         <NavItemsWrapper gap={5}>
-          <IconButton component={Link} to={URLS.NOT_FOUND}>
+          <IconButton component={Link} to={NOT_FOUND}>
             <FontIcon
               className='icon-bell'
               size={20}
