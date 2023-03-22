@@ -1,4 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom';
+
 import { Box } from '@mui/material';
 
 import { URLS } from '@constants/routes';
