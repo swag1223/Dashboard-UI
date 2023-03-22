@@ -6,6 +6,7 @@ import LatestCustomers from '@containers/LatestCustomers';
 import TopProducts from '@containers/TopProducts';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 
+import Transactions from '@containers/Transactions';
 import StyledMainContentContainer from './style';
 
 const MainContent = () => {
@@ -26,6 +27,7 @@ const MainContent = () => {
         <LatestCustomers />
         <TopProducts />
       </Box>
+      <Transactions />
       <Footer />
     </StyledMainContentContainer>
   );

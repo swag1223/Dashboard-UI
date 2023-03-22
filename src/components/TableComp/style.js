@@ -1,0 +1,34 @@
+import { styled, TableCell, tableCellClasses, TableRow } from '@mui/material';
+
+export const StyledTableCell = styled(TableCell)(
+  ({
+    theme: {
+      spacing,
+      palette: {
+        common: { GRAY },
+      },
+    },
+  }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: GRAY[50],
+    },
+    [`&.${tableCellClasses.body}`]: {
+      border: 'none',
+      padding: spacing(3),
+    },
+  })
+);
+
+export const StyledTableRow = styled(TableRow)(
+  ({
+    theme: {
+      palette: {
+        common: { GRAY },
+      },
+    },
+  }) => ({
+    '&:nth-of-type(even)': {
+      backgroundColor: GRAY[50],
+    },
+  })
+);
