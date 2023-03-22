@@ -1,32 +1,24 @@
-import {
-  Avatar,
-  Box,
-  ListItemAvatar,
-  ListItemText,
-  Typography,
-} from '@mui/material';
-import PropTypes from 'prop-types';
-import ellipsis from '@theme/mixins';
+import { Avatar, Box, ListItemText, Typography } from '@mui/material';
 
-const CardItem = ({ dataItem }) => {
+import PropTypes from 'prop-types';
+
+import ellipsis from '@theme/mixins';
+import StyledCardItemAvatar from './style';
+
+const CardItem = (props) => {
+  const { avatar, name, title, subtitle } = props;
+
   return (
-    <Box
-      sx={{
-        display: 'flex',
-      }}>
-      {dataItem.avatar && (
-        <ListItemAvatar
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-          }}>
-          <Avatar alt={dataItem.name} src={dataItem.avatar} />
-        </ListItemAvatar>
+    <Box display='flex'>
+      {avatar && (
+        <StyledCardItemAvatar>
+          <Avatar alt={name} src={avatar} />
+        </StyledCardItemAvatar>
       )}
       <ListItemText
         primary={
           <Typography variant='h4' color='text.primary' sx={{ ...ellipsis() }}>
-            {dataItem.title}
+            {title}
           </Typography>
         }
         secondary={
@@ -34,7 +26,7 @@ const CardItem = ({ dataItem }) => {
             variant='body2'
             color='text.secondary'
             sx={{ ...ellipsis() }}>
-            {dataItem.subtitle}
+            {subtitle}
           </Typography>
         }
       />
@@ -43,15 +35,17 @@ const CardItem = ({ dataItem }) => {
 };
 
 CardItem.propTypes = {
-  dataItem: PropTypes.shape({
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    avatar: PropTypes.string,
-    name: PropTypes.string,
-  }),
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  avatar: PropTypes.string,
+  name: PropTypes.string,
 };
 
 CardItem.defaultProps = {
-  dataItem: {},
+  title: '',
+  subtitle: '',
+  avatar: '',
+  name: '',
 };
+
 export default CardItem;

@@ -1,14 +1,26 @@
-import CustomList from '@components/CustomList';
-import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
-import { requestTopProductsData } from '@store/topProducts';
-import React, { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import {
+  Box,
+  Divider,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
+
+import CardItem from '@components/CardItem';
+import {
+  StyledCommonList,
+  StyledCommonListItem,
+} from '@containers/LatestCustomers/style';
+import { requestTopProductsData } from '@store/topProducts';
+import StyledTopProductsContainer from './style';
+
 const TopProducts = () => {
+  // HOOKS
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const { shadows } = theme;
-
   const { topProductsData } = useSelector((state) => state.topProductsData);
   const dispatch = useDispatch();
 
@@ -16,41 +28,31 @@ const TopProducts = () => {
     dispatch(requestTopProductsData());
   }, []);
 
-  const tranformProductInfo = (product) => {
-    return {
-      id: product.id,
-      title: product.label,
-      subtitle: product.description,
-      amount: (
-        <Box sx={{ display: 'flex', gap: '5px' }}>
-          <Typography variant='h4'>{product.sales}</Typography>
-          <Typography variant='body1' color='secondary.main'>
-            sales
-          </Typography>
-        </Box>
-      ),
-    };
-  };
-
-  const transformedProductsData = topProductsData.map((product) => {
-    return tranformProductInfo(product);
-  });
-
   return (
-    <Box
-      sx={{
-        borderRadius: '16px',
-        bgcolor: 'background.paper',
-        padding: isMobile ? '16px' : '24px',
-        width: isMobile ? '100%' : '65%',
-        boxShadow: shadows[1],
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '20px',
-      }}>
+    <StyledTopProductsContainer isMobile={isMobile}>
       <Typography variant='h4'>Top Products</Typography>
-      <CustomList data={transformedProductsData} />
-    </Box>
+      <StyledCommonList disablePadding>
+        {topProductsData.map((product) => {
+          return (
+            <Fragment key={product.id}>
+              <StyledCommonListItem disablePadding>
+                <CardItem
+                  title={product.label}
+                  subtitle={product.description}
+                />
+                <Box display='flex' gap='5px'>
+                  <Typography variant='h4'>{product.sales}</Typography>
+                  <Typography variant='body1' color='secondary.main'>
+                    sales
+                  </Typography>
+                </Box>
+              </StyledCommonListItem>
+              {product.id !== topProductsData.length ? <Divider /> : null}
+            </Fragment>
+          );
+        })}
+      </StyledCommonList>
+    </StyledTopProductsContainer>
   );
 };
 
