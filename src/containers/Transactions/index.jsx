@@ -5,7 +5,9 @@ import { FONT_WEIGHTS } from '@constants/theme';
 import ellipsis from '@theme/mixins';
 import TableComp from '@components/TableComp';
 
-import transactionsData from '@mockData/transactions.json';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { requestTransactionsData } from '@store/transactions';
 import StyledTransactionsContainer from './style';
 
 const dateFormatter = (data) => {
@@ -20,6 +22,13 @@ const dateFormatter = (data) => {
 const Transactions = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const { transactionsData } = useSelector((state) => state.transactionsData);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(requestTransactionsData());
+  }, []);
 
   const transactionTypeConfig = {
     receive: 'Payment from ',
@@ -72,7 +81,7 @@ const Transactions = () => {
     };
   };
 
-  const tableRowsFinalData = transactionsData.tableRows.map((row) => {
+  const tableRowsFinalData = (transactionsData.tableRows || []).map((row) => {
     return transformTransactionsRowData(row);
   });
 

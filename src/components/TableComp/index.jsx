@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import { FONT_WEIGHTS } from '@constants/theme';
 import {
   Paper,
@@ -18,8 +19,8 @@ const TableComp = (props) => {
     <TableContainer
       component={Paper}
       elevation={0}
-      sx={{ maxHeight: '420px', overflow: 'auto' }}>
-      <Table x={{ maxWidth: 700 }}>
+      sx={{ maxWidth: '957px', maxHeight: '420px' }}>
+      <Table stickyHeader>
         <TableHead>
           <TableRow>
             {headers
@@ -38,12 +39,12 @@ const TableComp = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rowsData.map((row) => (
-            <StyledTableRow>
+          {rowsData.map((row, index) => (
+            <StyledTableRow key={index}>
               {Object.keys(row)
                 .filter((key) => !(isMobile && keysToRemove.includes(key)))
-                .map((key) => (
-                  <StyledTableCell>{row[key]}</StyledTableCell>
+                .map((key, index) => (
+                  <StyledTableCell key={index}>{row[key]}</StyledTableCell>
                 ))}
             </StyledTableRow>
           ))}
