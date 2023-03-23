@@ -1,18 +1,14 @@
-import { Link } from 'react-router-dom';
+import ErrorPage from '@components/ErrorPage';
+import error500 from '@assets/images/error500.png';
 
-import { Box } from '@mui/material';
-
-import { URLS } from '@constants/routes';
-
-const Error500Page = () => {
+const Error404Page = () => {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-      <h1>Error500Page</h1>
-      <Link className='links' to={URLS.DASHBOARD}>
-        Go To Home
-      </Link>
-    </Box>
+    <ErrorPage
+      src={error500}
+      heading='Something has gone seriously wrong'
+      description='It’s always time for a coffee break We should be back by the time you finish your coffee.'
+    />
   );
 };
 
-export default Error500Page;
+export default Error404Page;
