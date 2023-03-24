@@ -6,6 +6,7 @@ const initialState = {
 
 const topProductsReducer = (state = initialState, action) => {
   const { type, payload } = action;
+
   switch (type) {
     case LOAD_TOP_PRODUCTS_DATA:
       return {

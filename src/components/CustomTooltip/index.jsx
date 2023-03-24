@@ -1,12 +1,11 @@
 import { Typography } from '@mui/material';
 
 import PropTypes from 'prop-types';
-
 import {
   StyledTooltipContainer,
   StyledTooltipSalesIndicator,
   StyledTooltipSalesIndicatorWrapper,
-} from '@components/Graph/style';
+} from './style';
 
 /**
  * CustomTooltip component.
