@@ -14,7 +14,7 @@ import {
 import PropTypes from 'prop-types';
 
 import CONSTANTS from '@constants/index';
-import CustomTooltip from '@components/Tooltip';
+import CustomTooltip from '@components/CustomTooltip';
 
 const Graph = (props) => {
   const {
