@@ -13,13 +13,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { StyledTableCell, StyledTableRow } from './style';
 
-const TableComp = (props) => {
+const CustomTable = (props) => {
   const { headers, rowsData, isMobile, keysToRemove } = props;
   return (
     <TableContainer
       component={Paper}
       elevation={0}
-      sx={{ maxWidth: '957px', maxHeight: '420px' }}>
+      sx={{ maxWidth: '957px', maxHeight: '455px' }}>
       <Table stickyHeader>
         <TableHead>
           <TableRow>
@@ -55,7 +55,7 @@ const TableComp = (props) => {
 };
 
 // PROPTYPES
-TableComp.propTypes = {
+CustomTable.propTypes = {
   headers: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string,
@@ -74,11 +74,11 @@ TableComp.propTypes = {
   keysToRemove: PropTypes.arrayOf(PropTypes.string),
 };
 
-TableComp.defaultProps = {
+CustomTable.defaultProps = {
   headers: [],
   rowsData: {},
   isMobile: false,
   keysToRemove: [],
 };
 
-export default TableComp;
+export default CustomTable;
