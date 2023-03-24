@@ -23,6 +23,7 @@
     "import/no-unresolved": "off",
     "import/extensions": "off",
     "react/jsx-props-no-spreading": "off",
+    "react/no-array-index-key": "off",
     "import/order": [
       "error",
       {

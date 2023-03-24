@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 
 import { FONT_WEIGHTS } from '@constants/theme';
-import StatusChip from '@components/Chip';
+import StatusChip from '@components/StatusChip';
 import CustomTable from '@components/CustomTable';
 import { requestTransactionsData } from '@store/transactions';
 import { dateFormatter } from '@utils/index';
@@ -19,6 +20,9 @@ const Transactions = () => {
     dispatch(requestTransactionsData());
   }, []);
 
+  /**
+   * An object that maps the transaction types to their corresponding strings.
+   */
   const transactionTypeConfig = {
     receive: 'Payment from ',
     processing: 'Payment from ',
@@ -26,6 +30,9 @@ const Transactions = () => {
     refund: 'Payment refund to ',
   };
 
+  /**
+   * An object that maps the transaction statuses to their corresponding label and color.
+   */
   const transactionStatusConfig = {
     completed: {
       label: 'Completed',
@@ -41,6 +48,9 @@ const Transactions = () => {
     },
   };
 
+  /**
+   * Transforms the row data for transaction table.
+   */
   const transformTransactionsRowData = (row) => {
     return {
       transaction: (
@@ -53,7 +63,9 @@ const Transactions = () => {
       ),
 
       dateTime: (
-        <Typography variant='body3'>{dateFormatter(row.dateTime)}</Typography>
+        <Typography variant='body3' color='text.secondary'>
+          {dateFormatter(row.dateTime)}
+        </Typography>
       ),
 
       amount: (
@@ -61,6 +73,7 @@ const Transactions = () => {
           {row.transactionType === 'refund' ? `-${row.amount}` : row.amount}
         </Typography>
       ),
+
       status: (
         <StatusChip
           label={transactionStatusConfig[row.status].label}
@@ -70,17 +83,25 @@ const Transactions = () => {
     };
   };
 
+  /**
+   *Maps the table rows to transformed data objects.
+   *returns An array of transformed data objects for transaction table rows.
+   */
   const tableRowsFinalData = (transactionsData.tableRows || []).map((row) => {
     return transformTransactionsRowData(row);
   });
 
+  /** keys of the columnNames to remove in mobile  */
   const keysToRemove = ['amount', 'status'];
 
   return (
     <StyledTransactionsContainer>
       <Box>
         <Typography variant='h4'>Transactions</Typography>
-        <Typography variant='body2' color='text.secondary'>
+        <Typography
+          variant='body2'
+          color='text.secondary'
+          sx={{ ...theme.mixins.ellipsis() }}>
           This is a list of latest transactions.
         </Typography>
       </Box>

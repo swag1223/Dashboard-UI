@@ -1,25 +1,22 @@
-/* eslint-disable react/no-array-index-key */
-import { FONT_WEIGHTS } from '@constants/theme';
 import {
   Paper,
   Table,
   TableBody,
-  TableContainer,
   TableHead,
   TableRow,
   Typography,
 } from '@mui/material';
+
 import PropTypes from 'prop-types';
-import React from 'react';
-import { StyledTableCell, StyledTableRow } from './style';
+
+import { FONT_WEIGHTS } from '@constants/theme';
+import { StyledTableCell, StyledTableContainer, StyledTableRow } from './style';
 
 const CustomTable = (props) => {
   const { headers, rowsData, isMobile, keysToRemove } = props;
+
   return (
-    <TableContainer
-      component={Paper}
-      elevation={0}
-      sx={{ maxWidth: '957px', maxHeight: '455px' }}>
+    <StyledTableContainer component={Paper} elevation={0}>
       <Table stickyHeader>
         <TableHead>
           <TableRow>
@@ -30,6 +27,7 @@ const CustomTable = (props) => {
               .map((header) => (
                 <StyledTableCell key={header.label}>
                   <Typography
+                    color='text.secondary'
                     variant='body2'
                     fontWeight={FONT_WEIGHTS.SEMIBOLD}>
                     {header.label}
@@ -39,18 +37,18 @@ const CustomTable = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rowsData.map((row, index) => (
-            <StyledTableRow key={index}>
+          {rowsData.map((row, rowIndex) => (
+            <StyledTableRow key={rowIndex}>
               {Object.keys(row)
                 .filter((key) => !(isMobile && keysToRemove.includes(key)))
-                .map((key, index) => (
-                  <StyledTableCell key={index}>{row[key]}</StyledTableCell>
+                .map((key, cellIndex) => (
+                  <StyledTableCell key={cellIndex}>{row[key]}</StyledTableCell>
                 ))}
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
+    </StyledTableContainer>
   );
 };
 
