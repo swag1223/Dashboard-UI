@@ -1,11 +1,11 @@
-import { Avatar, Box, ListItemText, Typography } from '@mui/material';
+import { Avatar, Box, ListItemText, Typography, useTheme } from '@mui/material';
 
 import PropTypes from 'prop-types';
 
-import ellipsis from '@theme/mixins';
 import StyledCardItemAvatar from './style';
 
 const CardItem = (props) => {
+  const theme = useTheme();
   const { avatar, name, title, subtitle } = props;
 
   return (
@@ -17,7 +17,12 @@ const CardItem = (props) => {
       )}
       <ListItemText
         primary={
-          <Typography variant='h4' color='text.primary' sx={{ ...ellipsis() }}>
+          <Typography
+            variant='h4'
+            color='text.primary'
+            sx={{
+              ...theme.mixins.ellipsis(),
+            }}>
             {title}
           </Typography>
         }
@@ -25,7 +30,9 @@ const CardItem = (props) => {
           <Typography
             variant='body2'
             color='text.secondary'
-            sx={{ ...ellipsis() }}>
+            sx={{
+              ...theme.mixins.ellipsis(),
+            }}>
             {subtitle}
           </Typography>
         }

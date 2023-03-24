@@ -24,6 +24,10 @@ const TopProducts = () => {
   const { topProductsData } = useSelector((state) => state.topProductsData);
   const dispatch = useDispatch();
 
+  const {
+    typography: { pxToRem },
+  } = theme;
+
   useEffect(() => {
     dispatch(requestTopProductsData());
   }, []);
@@ -40,7 +44,7 @@ const TopProducts = () => {
                   title={product.label}
                   subtitle={product.description}
                 />
-                <Box display='flex' gap='5px'>
+                <Box display='flex' gap={pxToRem(5)}>
                   <Typography variant='h4'>{product.sales}</Typography>
                   <Typography variant='body1' color='secondary.main'>
                     sales
