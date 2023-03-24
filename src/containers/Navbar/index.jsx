@@ -15,7 +15,7 @@ import SearchResultItem from '@components/SearchResultItem';
 import { requestProductsSearchResults } from '@store/searchResults';
 import toggleSidebar from '@store/sidebar/actionCreators';
 import { requestUserData } from '@store/userData';
-import debounce from '@utils/index';
+import { debounce } from '@utils/index';
 import { NavItemsWrapper, StyledAppBar } from './style';
 
 const Navbar = () => {

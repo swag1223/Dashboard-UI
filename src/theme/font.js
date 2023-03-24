@@ -58,6 +58,9 @@ const fonts = `
   .icon-chevron-down:before {
     content: "\\e902";
   }
+  .icon-exclamation-circle:before {
+    content: "\\e906";
+  }
   .icon-shopping-bag:before {
     content: "\\e917";
   }
