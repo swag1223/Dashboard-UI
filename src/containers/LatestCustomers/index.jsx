@@ -5,6 +5,7 @@ import { Typography, useMediaQuery, useTheme, Divider } from '@mui/material';
 
 import CardItem from '@components/CardItem';
 import { requestCustomersData } from '@store/customers';
+
 import {
   StyledCommonListItem,
   StyledCommonList,
@@ -36,14 +37,9 @@ const LatestCustomers = () => {
                   title={customer.name}
                   subtitle={customer.email}
                 />
+
                 <Typography variant='h4' color='text.primary'>
-                  $
-                  <Typography
-                    variant='h4'
-                    component='span'
-                    color='text.primary'>
-                    {customer.amount}
-                  </Typography>
+                  ${customer.amount}
                 </Typography>
               </StyledCommonListItem>
               {customer.id !== customersData.length ? <Divider /> : null}
