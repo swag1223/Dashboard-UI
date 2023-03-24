@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Neil Sims",
+    "email": "email@example.com",
+    "avatar": "src/assets/images/Neil.png",
+    "amount": 367
+  },
+  {
+    "id": 2,
+    "name": "Bonnie Green",
+    "email": "email@example.com",
+    "avatar": "src/assets/images/Bonnie.png",
+    "amount": 67
+  },
+  {
+    "id": 3,
+    "name": "Micheal Gough",
+    "email": "email@example.com",
+    "avatar": "src/assets/images/Micheal.png",
+    "amount": 3467
+  },
+  {
+    "id": 4,
+    "name": "Thomas Lean",
+    "email": "email@example.com",
+    "avatar": "src/assets/images/Thomas.png",
+    "amount": 2367
+  },
+  {
+    "id": 5,
+    "name": "Lana Byrd",
+    "email": "email@example.com",
+    "avatar": "src/assets/images/Lana.png",
+    "amount": 367
+  },
+  {
+    "id": 6,
+    "name": "Karen Nelson",
+    "email": "email@example.com",
+    "avatar": "src/assets/images/Karen.png",
+    "amount": 1367
+  }
+]
