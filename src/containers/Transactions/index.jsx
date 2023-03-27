@@ -16,6 +16,10 @@ const Transactions = () => {
   const { transactionsData } = useSelector((state) => state.transactionsData);
   const dispatch = useDispatch();
 
+  const {
+    typography: { pxToRem },
+  } = theme;
+
   useEffect(() => {
     dispatch(requestTransactionsData());
   }, []);
@@ -54,22 +58,29 @@ const Transactions = () => {
   const transformTransactionsRowData = (row) => {
     return {
       transaction: (
-        <Typography variant='body3' sx={{ ...theme.mixins.ellipsis() }}>
+        <Typography
+          variant='body3'
+          component='p'
+          noWrap={!!isMobile}
+          sx={{
+            ...theme.mixins.ellipsis(),
+            maxWidth: isMobile ? 'unset' : pxToRem(300),
+          }}>
           {transactionTypeConfig[row.transactionType]}
-          <Typography variant='span' fontWeight={FONT_WEIGHTS.SEMIBOLD}>
+          <Typography component='span' fontWeight={FONT_WEIGHTS.SEMIBOLD}>
             {row.name}
           </Typography>
         </Typography>
       ),
 
       dateTime: (
-        <Typography variant='body3' color='text.secondary'>
+        <Typography variant='body3' color='text.secondary' noWrap>
           {dateFormatter(row.dateTime)}
         </Typography>
       ),
 
       amount: (
-        <Typography variant='body3' fontWeight={FONT_WEIGHTS.SEMIBOLD}>
+        <Typography variant='body3' fontWeight={FONT_WEIGHTS.SEMIBOLD} noWrap>
           {row.transactionType === 'refund' ? `-${row.amount}` : row.amount}
         </Typography>
       ),
@@ -83,6 +94,13 @@ const Transactions = () => {
     };
   };
 
+  /** keys of the columnNames to remove in mobile  */
+  const keysToRemove = ['amount', 'status'];
+
+  const updatedHeaders = (transactionsData.headers || []).filter(
+    (header) => !(isMobile && keysToRemove.includes(header.key))
+  );
+
   /**
    *Maps the table rows to transformed data objects.
    *returns An array of transformed data objects for transaction table rows.
@@ -91,8 +109,11 @@ const Transactions = () => {
     return transformTransactionsRowData(row);
   });
 
-  /** keys of the columnNames to remove in mobile  */
-  const keysToRemove = ['amount', 'status'];
+  const updatedRows = tableRowsFinalData.map((row) =>
+    Object.keys(row)
+      .filter((key) => !(isMobile && keysToRemove.includes(key)))
+      .map((key) => row[key])
+  );
 
   return (
     <StyledTransactionsContainer>
@@ -105,12 +126,7 @@ const Transactions = () => {
           This is a list of latest transactions.
         </Typography>
       </Box>
-      <CustomTable
-        headers={transactionsData.headers}
-        rowsData={tableRowsFinalData}
-        isMobile={isMobile}
-        keysToRemove={keysToRemove}
-      />
+      <CustomTable headers={updatedHeaders} rowsData={updatedRows} />
     </StyledTransactionsContainer>
   );
 };

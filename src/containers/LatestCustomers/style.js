@@ -1,6 +1,6 @@
-import { List, ListItem, styled } from '@mui/material';
+import { Box, List, ListItem, styled } from '@mui/material';
 
-export const StyledLatestCustomerContainer = styled(List, {
+export const StyledLatestCustomerContainer = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'isMobile',
 })(
   ({
