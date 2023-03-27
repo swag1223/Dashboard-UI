@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Typography, useMediaQuery, useTheme } from '@mui/material';
+import { useMediaQuery, useTheme } from '@mui/material';
 import {
   LineChart,
   Line,
@@ -14,45 +14,7 @@ import {
 import PropTypes from 'prop-types';
 
 import CONSTANTS from '@constants/index';
-import {
-  StyledTooltipContainer,
-  StyledTooltipSalesIndicator,
-  StyledTooltipSalesIndicatorWrapper,
-} from './style';
-
-/**
- * CustomTooltip component.
- * @param {boolean} props.customActive - Indicates whether the tooltip is active or not.
- * @param {Array<Object>} props.payload - The data payload for the tooltip.
- * @param {string} props.label - The label for the tooltip.
- * @param {string} props.color - The color for indicator inside the tooltip.
- * @returns {JSX.Element|null} The CustomTooltip component.
- */
-const CustomTooltip = ({
-  customActive,
-  payload,
-  label,
-  color,
-  labelFormatter,
-}) => {
-  if (customActive && payload) {
-    return (
-      <StyledTooltipContainer>
-        <Typography variant='body2' color='secondary.main'>
-          {labelFormatter(label)}
-        </Typography>
-        <StyledTooltipSalesIndicatorWrapper>
-          <StyledTooltipSalesIndicator color={color} />
-          <Typography variant='body1' color='secondary.main'>
-            Sales:
-          </Typography>
-          <Typography variant='body1'>{`$${payload[0].value}k`}</Typography>
-        </StyledTooltipSalesIndicatorWrapper>
-      </StyledTooltipContainer>
-    );
-  }
-  return null;
-};
+import CustomTooltip from '@components/CustomTooltip';
 
 const Graph = (props) => {
   const {
@@ -142,6 +104,7 @@ const Graph = (props) => {
             <CustomTooltip
               customActive={isToolTipActive}
               labelFormatter={xAxisTickFormatter}
+              valueFormatter={yAxisTickFormatter}
             />
           }
           position={toolTipPosition}
@@ -175,25 +138,6 @@ const Graph = (props) => {
   );
 };
 
-CustomTooltip.propTypes = {
-  customActive: PropTypes.bool.isRequired,
-  payload: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.number,
-    })
-  ),
-  label: PropTypes.string,
-  color: PropTypes.string,
-  labelFormatter: PropTypes.func,
-};
-
-CustomTooltip.defaultProps = {
-  payload: [],
-  label: '',
-  color: '',
-  labelFormatter: () => {},
-};
-
 Graph.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
@@ -211,4 +155,5 @@ Graph.defaultProps = {
   xAxisTickFormatter: () => {},
   yAxisTickFormatter: () => {},
 };
+
 export default Graph;

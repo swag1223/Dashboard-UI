@@ -6,7 +6,6 @@ const initialState = {
 
 const transactionsReducer = (state = initialState, action) => {
   const { type, payload } = action;
-  // console.log(action);
   switch (type) {
     case LOAD_TRANSACTIONS_DATA:
       return {
