@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import StyledCardItemAvatar from './style';
 
 const CardItem = (props) => {
-  const theme = useTheme();
   const { avatar, name, title, subtitle } = props;
+  const theme = useTheme();
 
   return (
     <Box display='flex'>
@@ -20,9 +20,7 @@ const CardItem = (props) => {
           <Typography
             variant='h4'
             color='text.primary'
-            sx={{
-              ...theme.mixins.ellipsis(),
-            }}>
+            sx={{ ...theme.mixins.ellipsis() }}>
             {title}
           </Typography>
         }
