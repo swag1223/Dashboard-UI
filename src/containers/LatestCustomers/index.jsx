@@ -24,7 +24,9 @@ const LatestCustomers = () => {
   }, []);
 
   return (
-    <StyledLatestCustomerContainer isMobile={isMobile}>
+    <StyledLatestCustomerContainer
+      isMobile={isMobile}
+      className='custom-scrollbar custom-scrollbar-color'>
       <Typography variant='h4'>Latest Customers</Typography>
       <StyledCommonList disablePadding>
         {customersData.map((customer) => {

@@ -119,7 +119,7 @@ const Transactions = () => {
   );
 
   return (
-    <StyledTransactionsContainer>
+    <StyledTransactionsContainer className='custom-scrollbar custom-scrollbar-color'>
       <Box>
         <Typography variant='h4'>Transactions</Typography>
         <Typography

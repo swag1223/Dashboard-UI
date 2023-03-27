@@ -33,7 +33,9 @@ const TopProducts = () => {
   }, []);
 
   return (
-    <StyledTopProductsContainer isMobile={isMobile}>
+    <StyledTopProductsContainer
+      isMobile={isMobile}
+      className='custom-scrollbar custom-scrollbar-color'>
       <Typography variant='h4'>Top Products</Typography>
       <StyledCommonList disablePadding>
         {topProductsData.map((product) => {
