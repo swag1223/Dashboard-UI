@@ -26,7 +26,7 @@ const CardItem = (props) => {
         }
         secondary={
           <Typography
-            variant='body2'
+            variant='body3'
             color='text.secondary'
             sx={{
               ...theme.mixins.ellipsis(),

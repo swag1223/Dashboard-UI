@@ -26,7 +26,7 @@ const CustomTooltip = ({
   if (customActive && payload) {
     return (
       <StyledTooltipContainer>
-        <Typography variant='body2' color='secondary.main'>
+        <Typography variant='body3' color='secondary.main'>
           {labelFormatter(label)}
         </Typography>
         <StyledTooltipSalesIndicatorWrapper>

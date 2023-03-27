@@ -29,7 +29,7 @@ const NavbarMenuItem = (props) => {
       <StyledNavbarMenuContent>
         <Typography variant='h4'>{title}</Typography>
         {subtitle && (
-          <Typography variant='body2' color='text.secondary'>
+          <Typography variant='body3' color='text.secondary'>
             {subtitle}
           </Typography>
         )}

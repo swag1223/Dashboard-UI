@@ -95,13 +95,13 @@ const finalTheme = createTheme({
     },
     body2: {
       fontWeight: FONT_WEIGHTS.REGULAR,
-      fontSize: theme.typography.pxToRem(12),
-      lineHeight: theme.typography.pxToRem(18),
+      fontSize: theme.typography.pxToRem(14),
+      lineHeight: theme.typography.pxToRem(20),
     },
     body3: {
       fontWeight: FONT_WEIGHTS.REGULAR,
-      fontSize: theme.typography.pxToRem(14),
-      lineHeight: theme.typography.pxToRem(20),
+      fontSize: theme.typography.pxToRem(12),
+      lineHeight: theme.typography.pxToRem(18),
     },
   },
   mixins: {
