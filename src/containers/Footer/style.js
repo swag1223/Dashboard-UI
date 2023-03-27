@@ -1,6 +1,8 @@
 import { Box, styled } from '@mui/material';
 
-const StyledFooterContainer = styled(Box)(
+const StyledFooterContainer = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'isMobile',
+})(
   ({
     theme: {
       palette: {
@@ -10,12 +12,17 @@ const StyledFooterContainer = styled(Box)(
       shape: { borderRadius },
       spacing,
     },
+    isMobile,
   }) => ({
     backgroundColor: white,
     borderRadius,
     minHeight: pxToRem(112),
     gap: pxToRem(4),
-    padding: spacing(4),
+    display: 'flex',
+    padding: isMobile ? spacing(8) : spacing(4),
+    justifyContent: 'space-between',
+    alignItems: isMobile ? 'flex-start' : 'center',
+    flexDirection: isMobile ? 'column' : 'row',
   })
 );
 

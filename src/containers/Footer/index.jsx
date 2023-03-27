@@ -38,18 +38,18 @@ const Footer = () => {
     },
   } = theme;
   return (
-    <StyledFooterContainer
-      display='flex'
-      justifyContent='space-between'
-      alignItems={isMobile ? 'flex-start' : 'center'}
-      flexDirection={isMobile ? 'column' : 'row'}>
+    <StyledFooterContainer isMobile={isMobile}>
       <Typography variant='body1' color='text.secondary'>
         © 2021 Themesberg, LLC. All rights reserved.
       </Typography>
       <Box display='flex' justifyContent='space-between'>
         {footerIconsConfig.map((icon) => {
           return (
-            <IconButton component={Link} to={icon.to} key={icon.iconName}>
+            <IconButton
+              component={Link}
+              to={icon.to}
+              key={icon.iconName}
+              target='_blank'>
               <FontIcon
                 className={`icon-${icon.iconName}`}
                 fontcolor={GRAY[900]}
