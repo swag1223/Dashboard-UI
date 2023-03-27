@@ -1,5 +1,5 @@
 import ErrorPage from '@components/ErrorPage';
-import error404 from '@assets/images/test404.svg';
+import error404 from '@assets/images/error404.svg';
 
 const Error404Page = () => {
   return (

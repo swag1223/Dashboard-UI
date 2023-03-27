@@ -14,7 +14,7 @@ const Layout = () => {
   return (
     <Box sx={{ maxWidth: '1300px', margin: '0 auto' }}>
       <Navbar />
-      <Box sx={{ display: 'flex' }}>
+      <Box display='flex'>
         {!isErrorPage && <Sidebar />}
         <Outlet />
       </Box>

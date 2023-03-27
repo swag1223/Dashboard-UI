@@ -1,44 +1,43 @@
 import { Link } from 'react-router-dom';
 
-import { Box, Button, Typography, useTheme } from '@mui/material';
+import {
+  Box,
+  Button,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
+
+import PropTypes from 'prop-types';
 
 import { URLS } from '@constants/routes';
+import StyledErrorPageContainer from './style';
 
 const ErrorPage = ({ src, heading, description }) => {
-  //   console.log(src);
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const {
-    palette: {
-      common: { GRAY },
-    },
+    typography: { pxToRem },
     spacing,
   } = theme;
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: GRAY[50],
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-        padding: spacing(8, 20),
-        gap: '50px',
-      }}>
-      <img
-        src={src}
-        alt='404'
-        width='450px'
-        // style={{ border: '1px solid red' }}
-      />
+    <StyledErrorPageContainer>
+      <Box
+        display='flex'
+        justifyContent='center'
+        width={isMobile ? pxToRem(256) : pxToRem(400)}>
+        <img src={src} alt={heading} />
+      </Box>
       <Box
         display='flex'
         justifyContent='center'
         flexDirection='column'
         alignItems='center'
-        sx={{ gap: '20px' }}>
-        <Typography variant='h1'>{heading}</Typography>
-        <Typography variant='body1' color='text.secondary'>
+        sx={{ gap: pxToRem(20) }}>
+        <Typography variant='h1' textAlign='center'>
+          {heading}
+        </Typography>
+        <Typography variant='body1' color='text.secondary' textAlign='center'>
           {description}
         </Typography>
         <Button
@@ -49,8 +48,20 @@ const ErrorPage = ({ src, heading, description }) => {
           Go To Home
         </Button>
       </Box>
-    </Box>
+    </StyledErrorPageContainer>
   );
+};
+
+ErrorPage.propTypes = {
+  src: PropTypes.string,
+  heading: PropTypes.string,
+  description: PropTypes.string,
+};
+
+ErrorPage.defaultProps = {
+  src: '',
+  heading: '',
+  description: '',
 };
 
 export default ErrorPage;
