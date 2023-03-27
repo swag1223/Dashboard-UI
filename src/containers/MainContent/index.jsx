@@ -2,9 +2,10 @@ import { Box, useMediaQuery, useTheme } from '@mui/material';
 
 import Gallery from '@components/Gallery';
 import Sales from '@containers/Sales';
-import Footer from '@containers/Footer';
 import LatestCustomers from '@containers/LatestCustomers';
 import TopProducts from '@containers/TopProducts';
+import Transactions from '@containers/Transactions';
+import Footer from '@containers/Footer';
 
 import StyledMainContentContainer from './style';
 
@@ -29,6 +30,7 @@ const MainContent = () => {
         <LatestCustomers />
         <TopProducts />
       </Box>
+      <Transactions />
       <Footer />
     </StyledMainContentContainer>
   );

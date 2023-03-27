@@ -7,6 +7,7 @@ import { sideBarReducer } from './sidebar';
 import { salesDataReducer } from './sales';
 import { customersDataReducer } from './customers';
 import { topProductsReducer } from './topProducts';
+import { transactionsReducer } from './transactions';
 
 const allReducer = combineReducers({
   searchResults: searchResultsReducer,
@@ -15,6 +16,7 @@ const allReducer = combineReducers({
   salesData: salesDataReducer,
   customersData: customersDataReducer,
   topProductsData: topProductsReducer,
+  transactionsData: transactionsReducer,
 });
 
 const store = createStore(allReducer, composeWithDevTools());

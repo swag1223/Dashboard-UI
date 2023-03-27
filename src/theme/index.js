@@ -28,6 +28,10 @@ const theme = createTheme({
       extraLight: GRAY[50],
       border: GRAY[200],
     },
+    success: {
+      main: GREEN[100],
+      contrastText: GREEN[800],
+    },
     error: {
       main: RED[200],
       contrastText: RED[800],
@@ -93,6 +97,11 @@ const finalTheme = createTheme({
       fontWeight: FONT_WEIGHTS.REGULAR,
       fontSize: theme.typography.pxToRem(12),
       lineHeight: theme.typography.pxToRem(18),
+    },
+    body3: {
+      fontWeight: FONT_WEIGHTS.REGULAR,
+      fontSize: theme.typography.pxToRem(14),
+      lineHeight: theme.typography.pxToRem(20),
     },
   },
   mixins: {
