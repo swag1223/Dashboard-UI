@@ -79,13 +79,11 @@ const finalTheme = createTheme({
       fontSize: theme.typography.pxToRem(20),
       lineHeight: theme.typography.pxToRem(30),
     },
-
     h3: {
       fontWeight: FONT_WEIGHTS.SEMIBOLD,
       fontSize: theme.typography.pxToRem(20),
       lineHeight: theme.typography.pxToRem(30),
     },
-
     h4: {
       fontWeight: FONT_WEIGHTS.SEMIBOLD,
       fontSize: theme.typography.pxToRem(16),
