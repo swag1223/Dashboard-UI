@@ -1,6 +1,6 @@
-import { List, styled } from '@mui/material';
+import { Box, styled } from '@mui/material';
 
-const StyledTopProductsContainer = styled(List, {
+const StyledTopProductsContainer = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'isMobile',
 })(
   ({

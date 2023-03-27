@@ -6,20 +6,8 @@ import { Box, Typography, useTheme } from '@mui/material';
 import FontIcon from '@components/styledComponents/FontIcon';
 import Graph from '@components/Graph';
 import { requestSalesData } from '@store/sales';
+import { dateFormatter } from '@utils/index';
 import { StyledSalesContainer, StyledSalesHeading } from './style';
-
-/**
- *Takes a datetimestamp and returns a formatted date string.
- *Takes a datetimestamp to format and returns formatted date string in the format "DD MMM YYYY".
- */
-const dateFormatter = (tick) => {
-  const datetime = new Date(tick);
-  const date = datetime.getDate().toString().padStart(2, '0');
-  const month = datetime.toLocaleString('default', { month: 'short' });
-  const year = datetime.getFullYear();
-
-  return `${date} ${month} ${year}`;
-};
 
 /**
  * appends 'K' as unit at the end of the value

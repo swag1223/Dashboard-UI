@@ -1,8 +1,35 @@
+import { Link } from 'react-router-dom';
+
+import {
+  Box,
+  IconButton,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
+
 import FontIcon from '@components/styledComponents/FontIcon';
-import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
-import { common } from '@mui/material/colors';
+import StyledFooterContainer from './style';
 
 const Footer = () => {
+  const footerIconsConfig = [
+    {
+      iconName: 'github',
+      to: 'https://github.com/',
+    },
+    {
+      iconName: 'twitter',
+      to: 'https://twitter.com/',
+    },
+    {
+      iconName: 'facebook-f',
+      to: 'https://www.facebook.com/',
+    },
+    {
+      iconName: 'dribble',
+      to: 'https://dribbble.com/',
+    },
+  ];
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const {
@@ -11,40 +38,28 @@ const Footer = () => {
     },
   } = theme;
   return (
-    <Box
-      padding={8}
-      sx={{
-        backgroundColor: common.white,
-        borderRadius: '16px',
-        minHeight: '112px',
-        gap: '20px',
-      }}
-      display='flex'
-      justifyContent='space-between'
-      alignItems={isMobile ? 'flex-start' : 'center'}
-      flexDirection={isMobile ? 'column' : 'row'}>
+    <StyledFooterContainer isMobile={isMobile}>
       <Typography variant='body1' color='text.secondary'>
         © 2021 Themesberg, LLC. All rights reserved.
       </Typography>
-      <Box display='flex' justifyContent='space-between' sx={{ gap: '20px' }}>
-        <FontIcon className='icon-github' fontcolor={GRAY[900]} fontSize={20} />
-        <FontIcon
-          className='icon-twitter'
-          fontcolor={GRAY[900]}
-          fontSize={20}
-        />
-        <FontIcon
-          className='icon-facebook-f'
-          fontcolor={GRAY[900]}
-          fontSize={20}
-        />
-        <FontIcon
-          className='icon-dribble'
-          fontcolor={GRAY[900]}
-          fontSize={20}
-        />
+      <Box display='flex' justifyContent='space-between'>
+        {footerIconsConfig.map((icon) => {
+          return (
+            <IconButton
+              component={Link}
+              to={icon.to}
+              key={icon.iconName}
+              target='_blank'>
+              <FontIcon
+                className={`icon-${icon.iconName}`}
+                fontcolor={GRAY[900]}
+                fontSize={22}
+              />
+            </IconButton>
+          );
+        })}
       </Box>
-    </Box>
+    </StyledFooterContainer>
   );
 };
 

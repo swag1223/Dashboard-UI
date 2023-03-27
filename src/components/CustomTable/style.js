@@ -1,4 +1,22 @@
-import { styled, TableCell, tableCellClasses, TableRow } from '@mui/material';
+import CONSTANTS from '@constants/index';
+import {
+  styled,
+  TableCell,
+  tableCellClasses,
+  TableContainer,
+  TableRow,
+} from '@mui/material';
+
+export const StyledTableContainer = styled(TableContainer)(
+  ({
+    theme: {
+      typography: { pxToRem },
+    },
+  }) => ({
+    maxWidth: pxToRem(CONSTANTS.TABLE_MAXWIDTH),
+    maxHeight: pxToRem(CONSTANTS.TABLE_MAXHEIGHT),
+  })
+);
 
 export const StyledTableCell = styled(TableCell)(
   ({

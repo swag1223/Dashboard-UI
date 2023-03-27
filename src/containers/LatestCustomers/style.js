@@ -1,6 +1,6 @@
-import { List, ListItem, styled } from '@mui/material';
+import { Box, List, ListItem, styled } from '@mui/material';
 
-export const StyledLatestCustomerContainer = styled(List, {
+export const StyledLatestCustomerContainer = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'isMobile',
 })(
   ({
@@ -26,13 +26,25 @@ export const StyledLatestCustomerContainer = styled(List, {
   })
 );
 
-export const StyledCommonList = styled(List)(() => ({
-  maxHeight: '370px',
-  overflowY: 'auto',
-}));
+export const StyledCommonList = styled(List)(
+  ({
+    theme: {
+      typography: { pxToRem },
+    },
+  }) => ({
+    maxHeight: pxToRem(370),
+    overflowY: 'auto',
+  })
+);
 
-export const StyledCommonListItem = styled(ListItem)(() => ({
-  display: 'flex',
-  justifyContent: 'space-between',
-  gap: '20px',
-}));
+export const StyledCommonListItem = styled(ListItem)(
+  ({
+    theme: {
+      typography: { pxToRem },
+    },
+  }) => ({
+    display: 'flex',
+    justifyContent: 'space-between',
+    gap: pxToRem(20),
+  })
+);

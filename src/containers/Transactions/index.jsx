@@ -1,26 +1,32 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 
-import StatusChip from '@components/Chip';
 import { FONT_WEIGHTS } from '@constants/theme';
-import ellipsis from '@theme/mixins';
-import TableComp from '@components/TableComp';
-
-import transactionsData from '@mockData/transactions.json';
+import StatusChip from '@components/StatusChip';
+import CustomTable from '@components/CustomTable';
+import { requestTransactionsData } from '@store/transactions';
+import { dateFormatter } from '@utils/index';
 import StyledTransactionsContainer from './style';
-
-const dateFormatter = (data) => {
-  const datetime = new Date(data);
-  const date = datetime.getDate().toString().padStart(2, '0');
-  const month = datetime.toLocaleString('default', { month: 'short' });
-  const year = datetime.getFullYear();
-
-  return `${month} ${date},${year}`;
-};
 
 const Transactions = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const { transactionsData } = useSelector((state) => state.transactionsData);
+  const dispatch = useDispatch();
 
+  const {
+    typography: { pxToRem },
+  } = theme;
+
+  useEffect(() => {
+    dispatch(requestTransactionsData());
+  }, []);
+
+  /**
+   * An object that maps the transaction types to their corresponding strings.
+   */
   const transactionTypeConfig = {
     receive: 'Payment from ',
     processing: 'Payment from ',
@@ -28,6 +34,9 @@ const Transactions = () => {
     refund: 'Payment refund to ',
   };
 
+  /**
+   * An object that maps the transaction statuses to their corresponding label and color.
+   */
   const transactionStatusConfig = {
     completed: {
       label: 'Completed',
@@ -43,26 +52,42 @@ const Transactions = () => {
     },
   };
 
+  /**
+   * Transforms the row data for transaction table.
+   */
   const transformTransactionsRowData = (row) => {
     return {
       transaction: (
-        <Typography variant='body3' sx={{ ...ellipsis() }}>
+        <Typography
+          variant='body2'
+          component='p'
+          noWrap={!!isMobile}
+          sx={{
+            ...theme.mixins.ellipsis(),
+            maxWidth: isMobile ? 'unset' : pxToRem(300),
+          }}>
           {transactionTypeConfig[row.transactionType]}
-          <Typography variant='span' fontWeight={FONT_WEIGHTS.SEMIBOLD}>
+          <Typography
+            variant='body2'
+            component='span'
+            fontWeight={FONT_WEIGHTS.SEMIBOLD}>
             {row.name}
           </Typography>
         </Typography>
       ),
 
       dateTime: (
-        <Typography variant='body3'>{dateFormatter(row.dateTime)}</Typography>
+        <Typography variant='body2' color='text.secondary' noWrap>
+          {dateFormatter(row.dateTime)}
+        </Typography>
       ),
 
       amount: (
-        <Typography variant='body3' fontWeight={FONT_WEIGHTS.SEMIBOLD}>
+        <Typography variant='body2' fontWeight={FONT_WEIGHTS.SEMIBOLD} noWrap>
           {row.transactionType === 'refund' ? `-${row.amount}` : row.amount}
         </Typography>
       ),
+
       status: (
         <StatusChip
           label={transactionStatusConfig[row.status].label}
@@ -72,26 +97,39 @@ const Transactions = () => {
     };
   };
 
-  const tableRowsFinalData = transactionsData.tableRows.map((row) => {
+  /** keys of the columnNames to remove in mobile  */
+  const keysToRemove = ['amount', 'status'];
+
+  const updatedHeaders = (transactionsData.headers || []).filter(
+    (header) => !(isMobile && keysToRemove.includes(header.key))
+  );
+
+  /**
+   *Maps the table rows to transformed data objects.
+   *returns An array of transformed data objects for transaction table rows.
+   */
+  const tableRowsFinalData = (transactionsData.tableRows || []).map((row) => {
     return transformTransactionsRowData(row);
   });
 
-  const keysToRemove = ['amount', 'status'];
+  const updatedRows = tableRowsFinalData.map((row) =>
+    Object.keys(row)
+      .filter((key) => !(isMobile && keysToRemove.includes(key)))
+      .map((key) => row[key])
+  );
 
   return (
     <StyledTransactionsContainer>
       <Box>
         <Typography variant='h4'>Transactions</Typography>
-        <Typography variant='body2' color='text.secondary'>
+        <Typography
+          variant='body3'
+          color='text.secondary'
+          sx={{ ...theme.mixins.ellipsis() }}>
           This is a list of latest transactions.
         </Typography>
       </Box>
-      <TableComp
-        headers={transactionsData.headers}
-        rowsData={tableRowsFinalData}
-        isMobile={isMobile}
-        keysToRemove={keysToRemove}
-      />
+      <CustomTable headers={updatedHeaders} rowsData={updatedRows} />
     </StyledTransactionsContainer>
   );
 };
