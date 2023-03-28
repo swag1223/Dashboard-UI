@@ -1,10 +1,11 @@
-import { useEffect, Fragment } from 'react';
+import { useEffect, Fragment, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Typography, useMediaQuery, useTheme, Divider } from '@mui/material';
+import { Typography, Divider } from '@mui/material';
 
 import CardItem from '@components/CardItem';
 import { requestCustomersData } from '@store/customers';
+import IsMobileContext from '@context/index';
 
 import {
   StyledCommonListItem,
@@ -16,8 +17,9 @@ const LatestCustomers = () => {
   // HOOKS
   const { customersData } = useSelector((state) => state.customersData);
   const dispatch = useDispatch();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const value = useContext(IsMobileContext);
+
+  const { isTablet } = value;
 
   useEffect(() => {
     dispatch(requestCustomersData());
@@ -25,7 +27,7 @@ const LatestCustomers = () => {
 
   return (
     <StyledLatestCustomerContainer
-      isMobile={isMobile}
+      isTablet={isTablet}
       className='custom-scrollbar custom-scrollbar-color'>
       <Typography variant='h4'>Latest Customers</Typography>
       <StyledCommonList disablePadding>

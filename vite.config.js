@@ -13,6 +13,7 @@ export default defineConfig({
       '@constants': path.resolve(__dirname, 'src/constants'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@containers': path.resolve(__dirname, 'src/containers'),
+      '@context': path.resolve(__dirname, 'src/context'),
       '@mockData': path.resolve(__dirname, 'src/mockData'),
       '@layout': path.resolve(__dirname, 'src/layout'),
       '@routes': path.resolve(__dirname, 'src/routes'),

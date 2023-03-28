@@ -1,4 +1,6 @@
-import { useMediaQuery, useTheme } from '@mui/material';
+import { useContext } from 'react';
+
+import { useTheme } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 
@@ -7,15 +9,16 @@ import beach4 from '@assets/images/beach4.png';
 import beach2 from '@assets/images/beach2.png';
 import beach1 from '@assets/images/beach1.png';
 import CONSTANTS from '@constants/index';
+import IsMobileContext from '@context/index';
 
 const Gallery = () => {
   const theme = useTheme();
+  const value = useContext(IsMobileContext);
   const {
-    breakpoints,
     typography: { pxToRem },
   } = theme;
-  const isMobile = useMediaQuery(breakpoints.down('sm'));
 
+  const { isMobile } = value;
   // number of columns to appear in our grid
   const cols = isMobile ? 1 : 3;
 

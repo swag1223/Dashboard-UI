@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
-import { useMediaQuery, useTheme } from '@mui/material';
+import { useTheme } from '@mui/material';
 import {
   LineChart,
   Line,
@@ -15,6 +15,7 @@ import PropTypes from 'prop-types';
 
 import CONSTANTS from '@constants/index';
 import CustomTooltip from '@components/CustomTooltip';
+import IsMobileContext from '@context/index';
 
 const Graph = (props) => {
   const {
@@ -39,14 +40,16 @@ const Graph = (props) => {
    *
    */
   const [toolTipPosition, setToolTipPosition] = useState({});
+  const value = useContext(IsMobileContext);
   const theme = useTheme();
+
   const {
     palette: {
       primary,
       common: { GREEN },
     },
   } = theme;
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { isTablet } = value;
 
   return (
     <ResponsiveContainer
@@ -66,28 +69,28 @@ const Graph = (props) => {
           dataKey={xAxisDataKey}
           tickFormatter={xAxisTickFormatter}
           height={
-            isMobile
+            isTablet
               ? CONSTANTS.X_AXIS_HEIGHT_MOBILE
               : CONSTANTS.X_AXIS_HEIGHT_DESKTOP
           }
           tickLine={false}
           padding={{ left: 30, right: 30 }}
           dx={
-            isMobile
+            isTablet
               ? CONSTANTS.HORIZONTAL_DISTANCE_OF_XTICKS_FROM_AXIS_MOBILE
               : CONSTANTS.HORIZONTAL_DISTANCE_OF_XTICKS_FROM_AXIS_DESKTOP
           }
           dy={
-            isMobile
+            isTablet
               ? CONSTANTS.VERTICAL_DISTANCE_OF_XTICKS_FROM_AXIS_MOBILE
               : CONSTANTS.VERTICAL_DISTANCE_OF_XTICKS_FROM_AXIS_DESKTOP
           }
-          angle={isMobile ? CONSTANTS.ROTATE_TICK_BY_ANGLE : 0}
+          angle={isTablet ? CONSTANTS.ROTATE_TICK_BY_ANGLE : 0}
           tick={{ fontSize: CONSTANTS.TICK_FONT_SIZE }}
           interval={0} // No tick value is lost during window resize
         />
 
-        {!isMobile && (
+        {!isTablet && (
           <YAxis
             dx={CONSTANTS.HORIZONTAL_DISTANCE_OF_YTICKS_FROM_AXIS}
             axisLine={false}
