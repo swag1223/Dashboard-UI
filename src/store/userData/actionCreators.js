@@ -1,5 +1,5 @@
 import { LOAD_USER_DATA } from '@constants/actionTypes';
-import user from '@mockData/user.json';
+import user from '@mockData/user';
 
 /**
  *Returns an action object to load user data.

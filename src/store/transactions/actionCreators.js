@@ -1,5 +1,5 @@
 import { LOAD_TRANSACTIONS_DATA } from '@constants/actionTypes';
-import TransactionsData from '@mockData/transactions.json';
+import TransactionsData from '@mockData/transactions';
 
 const requestTransactionsData = () => {
   return {

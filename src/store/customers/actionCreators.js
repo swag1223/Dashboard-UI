@@ -1,5 +1,5 @@
 import { LOAD_CUSTOMERS_DATA } from '@constants/actionTypes';
-import customersData from '@mockData/customers.json';
+import customersData from '@mockData/customers';
 
 const requestCustomersData = () => {
   return {

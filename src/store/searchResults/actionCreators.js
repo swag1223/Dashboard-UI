@@ -1,5 +1,5 @@
 import { LOAD_PRODUCTS_SEARCH_RESULTS } from '@constants/actionTypes';
-import products from '@mockData/products.json';
+import products from '@mockData/products';
 
 /**
  * Returns an action object to request SEARCH RESULTS from the products' mock data,
