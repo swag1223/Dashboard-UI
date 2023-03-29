@@ -34,6 +34,7 @@ const Footer = () => {
       common: { GRAY },
     },
   } = theme;
+
   return (
     <StyledFooterContainer isMobile={isMobile}>
       <Typography variant='body1' color='text.secondary'>
