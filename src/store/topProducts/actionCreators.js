@@ -1,5 +1,5 @@
 import { LOAD_TOP_PRODUCTS_DATA } from '@constants/actionTypes';
-import TopProducts from '@mockData/products.json';
+import TopProducts from '@mockData/products';
 
 const requestTopProductsData = () => {
   return {
