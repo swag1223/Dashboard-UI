@@ -24,7 +24,7 @@ const CustomTable = (props) => {
               <StyledTableCell key={header.label}>
                 <Typography
                   color='text.secondary'
-                  variant='body2'
+                  variant='body3'
                   fontWeight={FONT_WEIGHTS.SEMIBOLD}>
                   {header.label}
                 </Typography>

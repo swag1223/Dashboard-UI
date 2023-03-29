@@ -76,13 +76,11 @@ const finalTheme = createTheme({
       fontSize: theme.typography.pxToRem(20),
       lineHeight: theme.typography.pxToRem(30),
     },
-
     h3: {
       fontWeight: FONT_WEIGHTS.SEMIBOLD,
       fontSize: theme.typography.pxToRem(20),
       lineHeight: theme.typography.pxToRem(30),
     },
-
     h4: {
       fontWeight: FONT_WEIGHTS.SEMIBOLD,
       fontSize: theme.typography.pxToRem(16),
@@ -95,13 +93,13 @@ const finalTheme = createTheme({
     },
     body2: {
       fontWeight: FONT_WEIGHTS.REGULAR,
-      fontSize: theme.typography.pxToRem(12),
-      lineHeight: theme.typography.pxToRem(18),
+      fontSize: theme.typography.pxToRem(14),
+      lineHeight: theme.typography.pxToRem(20),
     },
     body3: {
       fontWeight: FONT_WEIGHTS.REGULAR,
-      fontSize: theme.typography.pxToRem(14),
-      lineHeight: theme.typography.pxToRem(20),
+      fontSize: theme.typography.pxToRem(12),
+      lineHeight: theme.typography.pxToRem(18),
     },
   },
   mixins: {

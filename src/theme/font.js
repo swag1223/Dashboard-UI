@@ -103,7 +103,7 @@ const fonts = `
   .icon-chart-pie:before {
     content: "\\e910";
   }
-  .icon-dribbble:before {
+  .icon-dribble:before {
     content: "\\e911";
   }
   .icon-github:before {
