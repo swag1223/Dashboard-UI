@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import { Box, useTheme } from '@mui/material';
 
 import Gallery from '@components/Gallery';
@@ -7,15 +6,14 @@ import LatestCustomers from '@containers/LatestCustomers';
 import TopProducts from '@containers/TopProducts';
 import Transactions from '@containers/Transactions';
 import Footer from '@containers/Footer';
-import IsMobileContext from '@context/index';
+import useViewportContext from '@hooks/useViewPortContext';
 
 import StyledMainContentContainer from './style';
 
 const MainContent = () => {
   const theme = useTheme();
-  const value = useContext(IsMobileContext);
+  const { isTablet } = useViewportContext();
 
-  const { isTablet } = value;
   const {
     typography: { pxToRem },
   } = theme;

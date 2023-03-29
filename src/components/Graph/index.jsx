@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 
 import { useTheme } from '@mui/material';
 import {
@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 
 import CONSTANTS from '@constants/index';
 import CustomTooltip from '@components/CustomTooltip';
-import IsMobileContext from '@context/index';
+import useViewportContext from '@hooks/useViewPortContext';
 
 const Graph = (props) => {
   const {
@@ -40,7 +40,7 @@ const Graph = (props) => {
    *
    */
   const [toolTipPosition, setToolTipPosition] = useState({});
-  const value = useContext(IsMobileContext);
+  const { isTablet } = useViewportContext();
   const theme = useTheme();
 
   const {
@@ -49,7 +49,6 @@ const Graph = (props) => {
       common: { GREEN },
     },
   } = theme;
-  const { isTablet } = value;
 
   return (
     <ResponsiveContainer

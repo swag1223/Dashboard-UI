@@ -1,4 +1,4 @@
-import { Fragment, useContext } from 'react';
+import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ import SidebarListItem from '@components/SidebarListItem';
 import StyledSidebarFooterList from '@components/SidebarFooter/style';
 import SidebarFooter from '@components/SidebarFooter';
 import SidebarCollapse from '@components/SidebarCollapse';
-import IsMobileContext from '@context/index';
+import useViewportContext from '@hooks/useViewPortContext';
 
 import { sidebarFooterItems, sidebarMenuItems } from './sidebarconfig';
 import StyledDrawer from './style';
@@ -17,12 +17,11 @@ import StyledDrawer from './style';
 const Sidebar = () => {
   // HOOKS
 
-  const value = useContext(IsMobileContext);
+  const { isMobile } = useViewportContext();
   const dispatch = useDispatch();
   const isSidebarVisible = useSelector(
     (state) => state.sidebar.isSidebarVisible
   );
-  const { isMobile } = value;
 
   // HANDLERS
   /**

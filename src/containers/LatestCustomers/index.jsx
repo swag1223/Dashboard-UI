@@ -1,11 +1,11 @@
-import { useEffect, Fragment, useContext } from 'react';
+import { useEffect, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Typography, Divider } from '@mui/material';
 
 import CardItem from '@components/CardItem';
 import { requestCustomersData } from '@store/customers';
-import IsMobileContext from '@context/index';
+import useViewportContext from '@hooks/useViewPortContext';
 
 import {
   StyledCommonListItem,
@@ -17,9 +17,7 @@ const LatestCustomers = () => {
   // HOOKS
   const { customersData } = useSelector((state) => state.customersData);
   const dispatch = useDispatch();
-  const value = useContext(IsMobileContext);
-
-  const { isTablet } = value;
+  const { isTablet } = useViewportContext();
 
   useEffect(() => {
     dispatch(requestCustomersData());

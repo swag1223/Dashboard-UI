@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Box, Typography, useTheme } from '@mui/material';
@@ -6,9 +6,9 @@ import { Box, Typography, useTheme } from '@mui/material';
 import { FONT_WEIGHTS } from '@constants/theme';
 import StatusChip from '@components/StatusChip';
 import CustomTable from '@components/CustomTable';
-import IsMobileContext from '@context/index';
 import { requestTransactionsData } from '@store/transactions';
 import { dateFormatter } from '@utils/index';
+import useViewportContext from '@hooks/useViewPortContext';
 
 import StyledTransactionsContainer from './style';
 
@@ -17,9 +17,7 @@ const Transactions = () => {
   const { transactionsData } = useSelector((state) => state.transactionsData);
   const dispatch = useDispatch();
 
-  const value = useContext(IsMobileContext);
-
-  const { isMobile } = value;
+  const { isMobile } = useViewportContext();
 
   const {
     typography: { pxToRem },

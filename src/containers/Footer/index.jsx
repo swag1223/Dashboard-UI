@@ -1,10 +1,9 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
 
 import FontIcon from '@components/styledComponents/FontIcon';
-import IsMobileContext from '@context/index';
+import useViewportContext from '@hooks/useViewPortContext';
 
 import StyledFooterContainer from './style';
 
@@ -28,9 +27,7 @@ const Footer = () => {
     },
   ];
   const theme = useTheme();
-  const value = useContext(IsMobileContext);
-
-  const { isMobile } = value;
+  const { isMobile } = useViewportContext();
 
   const {
     palette: {

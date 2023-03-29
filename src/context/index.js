@@ -1,5 +1,4 @@
-import { createContext } from 'react';
-
-const IsMobileContext = createContext();
-
-export default IsMobileContext;
+export {
+  ViewportContext,
+  ViewportContextProvider,
+} from './ViewportContextProvider';

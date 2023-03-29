@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Box, Button, Typography, useTheme } from '@mui/material';
@@ -6,15 +5,14 @@ import { Box, Button, Typography, useTheme } from '@mui/material';
 import PropTypes from 'prop-types';
 
 import { URLS } from '@constants/routes';
-import IsMobileContext from '@context/index';
+import useViewportContext from '@hooks/useViewPortContext';
 
 import StyledErrorPageContainer from './style';
 
 const ErrorPage = ({ src, heading, description }) => {
   const theme = useTheme();
-  const value = useContext(IsMobileContext);
+  const { isMobile } = useViewportContext();
 
-  const { isMobile } = value;
   const {
     typography: { pxToRem },
     spacing,

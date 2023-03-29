@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Box, Divider, Typography, useTheme } from '@mui/material';
@@ -8,20 +8,19 @@ import {
   StyledCommonList,
   StyledCommonListItem,
 } from '@containers/LatestCustomers/style';
-import IsMobileContext from '@context/index';
 import { requestTopProductsData } from '@store/topProducts';
+import useViewportContext from '@hooks/useViewPortContext';
 
 import StyledTopProductsContainer from './style';
 
 const TopProducts = () => {
   // HOOKS
   const theme = useTheme();
-  const value = useContext(IsMobileContext);
+  const { isTablet } = useViewportContext();
 
   const { topProductsData } = useSelector((state) => state.topProductsData);
   const dispatch = useDispatch();
 
-  const { isTablet } = value;
   const {
     typography: { pxToRem },
   } = theme;
