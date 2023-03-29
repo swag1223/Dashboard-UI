@@ -10,6 +10,7 @@ import {
 import PropTypes from 'prop-types';
 
 import { FONT_WEIGHTS } from '@constants/theme';
+
 import { StyledTableCell, StyledTableContainer, StyledTableRow } from './style';
 
 const CustomTable = (props) => {

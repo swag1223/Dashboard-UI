@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 import { IconButton, useTheme } from '@mui/material';
+
+import PropTypes from 'prop-types';
 
 import FontIcon from '@components/styledComponents/FontIcon';
 import useIsRouteActive from '@hooks/useIsRouteActive';

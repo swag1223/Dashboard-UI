@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 import NavbarMenuItem from '@components/NavbarMenuItem';
+
 import StyledNavbarMenu from './style';
 
 const NavbarMenu = (props) => {

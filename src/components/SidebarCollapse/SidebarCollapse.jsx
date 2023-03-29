@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 
 import { Collapse, List, ListItemText, useTheme } from '@mui/material';
 
-import SidebarListItem from '@components/SidebarListItem';
-import { StyledSidebarListItemButton } from '@components/SidebarListItem/style';
+import PropTypes from 'prop-types';
+
 import FontIcon from '@components/styledComponents/FontIcon';
+import SidebarListItem, {
+  StyledSidebarListItemButton,
+} from '@components/SidebarListItem';
 
 const SidebarCollapse = (props) => {
   const { title, icon, subItems, onClick } = props;
@@ -25,6 +27,7 @@ const SidebarCollapse = (props) => {
   const handleCollapseMenuClick = () => {
     setCollapseMenuOpen(!collapseMenuOpen);
   };
+
   return (
     <>
       <StyledSidebarListItemButton onClick={handleCollapseMenuClick}>
@@ -49,7 +52,6 @@ const SidebarCollapse = (props) => {
           />
         )}
       </StyledSidebarListItemButton>
-
       <Collapse in={collapseMenuOpen} timeout='auto' unmountOnExit>
         <List disablePadding>
           {subItems.map((item) => {

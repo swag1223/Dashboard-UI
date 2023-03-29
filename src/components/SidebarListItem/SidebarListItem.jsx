@@ -5,6 +5,7 @@ import { Badge, Box, IconButton, useTheme } from '@mui/material';
 
 import FontIcon from '@components/styledComponents/FontIcon';
 import useIsRouteActive from '@hooks/useIsRouteActive';
+
 import { StyledSidebarListItemButton, StyledListItemText } from './style';
 
 const SidebarListItem = (props) => {

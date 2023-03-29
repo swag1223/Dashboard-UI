@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 import { Typography, useTheme } from '@mui/material';
 
+import PropTypes from 'prop-types';
+
 import FontIcon from '@components/styledComponents/FontIcon';
+
 import { StyledNavbarMenuItem, StyledNavbarMenuContent } from './style';
 
 const NavbarMenuItem = (props) => {

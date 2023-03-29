@@ -1,5 +1,5 @@
-import ErrorPage from '@components/ErrorPage';
 import error500 from '@assets/images/error500.png';
+import ErrorPage from '@components/ErrorPage';
 
 const Error404Page = () => {
   return (

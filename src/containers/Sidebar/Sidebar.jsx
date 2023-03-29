@@ -4,15 +4,16 @@ import { NavLink } from 'react-router-dom';
 
 import { Divider, List } from '@mui/material';
 
-import toggleSidebar from '@store/sidebar/actionCreators';
-import SidebarListItem from '@components/SidebarListItem';
-import StyledSidebarFooterList from '@components/SidebarFooter/style';
-import SidebarFooter from '@components/SidebarFooter';
 import SidebarCollapse from '@components/SidebarCollapse';
+import SidebarListItem from '@components/SidebarListItem';
+import SidebarFooter, {
+  StyledSidebarFooterList,
+} from '@components/SidebarFooter';
+import toggleSidebar from '@store/sidebar/actionCreators';
 import useViewportContext from '@hooks/useViewPortContext';
 
-import { sidebarFooterItems, sidebarMenuItems } from './sidebarconfig';
 import StyledDrawer from './style';
+import { sidebarFooterItems, sidebarMenuItems } from './sidebarconfig';
 
 const Sidebar = () => {
   // HOOKS

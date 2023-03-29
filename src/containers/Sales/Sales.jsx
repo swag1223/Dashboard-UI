@@ -7,6 +7,7 @@ import FontIcon from '@components/styledComponents/FontIcon';
 import Graph from '@components/Graph';
 import { requestSalesData } from '@store/sales';
 import { dateFormatter } from '@utils/index';
+
 import { StyledSalesContainer, StyledSalesHeading } from './style';
 
 /**

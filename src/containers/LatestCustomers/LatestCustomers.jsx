@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Typography, Divider } from '@mui/material';
 
-import CardItem from '@components/CardItem';
 import { requestCustomersData } from '@store/customers';
 import useViewportContext from '@hooks/useViewPortContext';
+import CardItem from '@components/CardItem';
 
 import {
   StyledCommonListItem,
