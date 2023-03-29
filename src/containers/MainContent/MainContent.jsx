@@ -1,13 +1,13 @@
 import { Box, useTheme } from '@mui/material';
 
+import useViewportContext from '@hooks/useViewPortContext';
+
 import Gallery from '@components/Gallery';
 import Sales from '@containers/Sales';
 import LatestCustomers from '@containers/LatestCustomers';
 import TopProducts from '@containers/TopProducts';
 import Transactions from '@containers/Transactions';
 import Footer from '@containers/Footer';
-import useViewportContext from '@hooks/useViewPortContext';
-
 import StyledMainContentContainer from './style';
 
 const MainContent = () => {

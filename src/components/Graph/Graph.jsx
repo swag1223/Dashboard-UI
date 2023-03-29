@@ -13,8 +13,8 @@ import {
 
 import PropTypes from 'prop-types';
 
-import CONSTANTS from '@constants/index';
 import CustomTooltip from '@components/CustomTooltip';
+import CONSTANTS from '@constants/index';
 import useViewportContext from '@hooks/useViewPortContext';
 
 const Graph = (props) => {

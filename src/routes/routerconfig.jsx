@@ -1,10 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import { NOT_FOUND, URLS } from '@constants/routes';
-import Error404Page from '@containers/Error404Page';
-import Error500Page from '@containers/Error500Page';
+
 import MainContent from '@containers/MainContent';
-import Layout from '@layout/index';
+import Error500Page from '@containers/Error500Page';
+import Error404Page from '@containers/Error404Page';
+import Layout from '@layout/Layout';
 
 const router = createBrowserRouter([
   {
