@@ -6,6 +6,7 @@
       "@assets/*": ["assets/*"],
       "@constants/*": ["constants/*"],
       "@components/*": ["components/*"],
+      "@context/*": ["context/*"],
       "@containers/*": ["containers/*"],
       "@mockData/*": ["mockData/*"],
       "@layout/*": ["layout/*"],

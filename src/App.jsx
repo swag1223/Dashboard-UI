@@ -3,6 +3,7 @@ import { RouterProvider } from 'react-router-dom';
 
 import { ThemeProvider, CssBaseline } from '@mui/material';
 
+import { ViewportContextProvider } from '@context/index';
 import store from '@store';
 import theme from '@theme';
 import router from '@routes/routerconfig';
@@ -13,7 +14,9 @@ const App = () => {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <RouterProvider router={router} />
+        <ViewportContextProvider>
+          <RouterProvider router={router} />
+        </ViewportContextProvider>
       </ThemeProvider>
     </Provider>
   );

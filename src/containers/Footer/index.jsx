@@ -1,14 +1,10 @@
 import { Link } from 'react-router-dom';
 
-import {
-  Box,
-  IconButton,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
+import { Box, IconButton, Typography, useTheme } from '@mui/material';
 
 import FontIcon from '@components/styledComponents/FontIcon';
+import useViewportContext from '@hooks/useViewPortContext';
+
 import StyledFooterContainer from './style';
 
 const Footer = () => {
@@ -31,12 +27,14 @@ const Footer = () => {
     },
   ];
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const { isMobile } = useViewportContext();
+
   const {
     palette: {
       common: { GRAY },
     },
   } = theme;
+
   return (
     <StyledFooterContainer isMobile={isMobile}>
       <Typography variant='body1' color='text.secondary'>

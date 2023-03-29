@@ -1,17 +1,13 @@
-import { Link } from 'react-router-dom';
-
-import { Box } from '@mui/material';
-
-import { URLS } from '@constants/routes';
+import ErrorPage from '@components/ErrorPage';
+import error404 from '@assets/images/error404.svg';
 
 const Error404Page = () => {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-      <h1>404 Page Not Found </h1>
-      <Link className='links' to={URLS.DASHBOARD}>
-        Go To Home
-      </Link>
-    </Box>
+    <ErrorPage
+      src={error404}
+      heading='Page Not Found'
+      description='Oops! Looks like you followed a bad link. If you think this is a problem with us, please tell us.'
+    />
   );
 };
 

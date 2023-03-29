@@ -1,20 +1,23 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 
 import { FONT_WEIGHTS } from '@constants/theme';
 import StatusChip from '@components/StatusChip';
 import CustomTable from '@components/CustomTable';
 import { requestTransactionsData } from '@store/transactions';
 import { dateFormatter } from '@utils/index';
+import useViewportContext from '@hooks/useViewPortContext';
+
 import StyledTransactionsContainer from './style';
 
 const Transactions = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const { transactionsData } = useSelector((state) => state.transactionsData);
   const dispatch = useDispatch();
+
+  const { isMobile } = useViewportContext();
 
   const {
     typography: { pxToRem },
@@ -119,7 +122,7 @@ const Transactions = () => {
   );
 
   return (
-    <StyledTransactionsContainer>
+    <StyledTransactionsContainer className='custom-scrollbar custom-scrollbar-color'>
       <Box>
         <Typography variant='h4'>Transactions</Typography>
         <Typography

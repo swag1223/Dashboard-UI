@@ -46,6 +46,9 @@ const theme = createTheme({
       tertiary: GRAY[400],
     },
     common: COLORS,
+    background: {
+      default: GRAY[50],
+    },
   },
   spacing: 4,
   shape: {

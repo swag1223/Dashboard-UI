@@ -1,13 +1,7 @@
 import { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  Box,
-  Divider,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
+import { Box, Divider, Typography, useTheme } from '@mui/material';
 
 import CardItem from '@components/CardItem';
 import {
@@ -15,12 +9,15 @@ import {
   StyledCommonListItem,
 } from '@containers/LatestCustomers/style';
 import { requestTopProductsData } from '@store/topProducts';
+import useViewportContext from '@hooks/useViewPortContext';
+
 import StyledTopProductsContainer from './style';
 
 const TopProducts = () => {
   // HOOKS
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { isTablet } = useViewportContext();
+
   const { topProductsData } = useSelector((state) => state.topProductsData);
   const dispatch = useDispatch();
 
@@ -33,7 +30,9 @@ const TopProducts = () => {
   }, []);
 
   return (
-    <StyledTopProductsContainer isMobile={isMobile}>
+    <StyledTopProductsContainer
+      isTablet={isTablet}
+      className='custom-scrollbar custom-scrollbar-color'>
       <Typography variant='h4'>Top Products</Typography>
       <StyledCommonList disablePadding>
         {topProductsData.map((product) => {

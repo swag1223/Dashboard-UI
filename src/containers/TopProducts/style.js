@@ -1,7 +1,7 @@
 import { Box, styled } from '@mui/material';
 
 const StyledTopProductsContainer = styled(Box, {
-  shouldForwardProp: (prop) => prop !== 'isMobile',
+  shouldForwardProp: (prop) => prop !== 'isTablet',
 })(
   ({
     theme: {
@@ -13,10 +13,10 @@ const StyledTopProductsContainer = styled(Box, {
       },
       typography: { pxToRem },
     },
-    isMobile,
+    isTablet,
   }) => ({
-    padding: isMobile ? spacing(4) : spacing(6),
-    width: isMobile ? '100%' : '65%',
+    padding: isTablet ? spacing(4) : spacing(6),
+    width: isTablet ? '100%' : '65%',
     backgroundColor: white,
     display: 'flex',
     flexDirection: 'column',

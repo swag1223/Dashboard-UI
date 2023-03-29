@@ -2,20 +2,22 @@ import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { Divider, List, useMediaQuery, useTheme } from '@mui/material';
+import { Divider, List } from '@mui/material';
 
 import toggleSidebar from '@store/sidebar/actionCreators';
 import SidebarListItem from '@components/SidebarListItem';
 import StyledSidebarFooterList from '@components/SidebarFooter/style';
 import SidebarFooter from '@components/SidebarFooter';
 import SidebarCollapse from '@components/SidebarCollapse';
+import useViewportContext from '@hooks/useViewPortContext';
+
 import { sidebarFooterItems, sidebarMenuItems } from './sidebarconfig';
 import StyledDrawer from './style';
 
 const Sidebar = () => {
   // HOOKS
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const { isMobile } = useViewportContext();
   const dispatch = useDispatch();
   const isSidebarVisible = useSelector(
     (state) => state.sidebar.isSidebarVisible
