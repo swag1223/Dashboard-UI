@@ -59,7 +59,7 @@ const Transactions = () => {
     return {
       transaction: (
         <Typography
-          variant='body3'
+          variant='body2'
           component='p'
           noWrap={!!isMobile}
           sx={{
@@ -67,20 +67,23 @@ const Transactions = () => {
             maxWidth: isMobile ? 'unset' : pxToRem(300),
           }}>
           {transactionTypeConfig[row.transactionType]}
-          <Typography component='span' fontWeight={FONT_WEIGHTS.SEMIBOLD}>
+          <Typography
+            variant='body2'
+            component='span'
+            fontWeight={FONT_WEIGHTS.SEMIBOLD}>
             {row.name}
           </Typography>
         </Typography>
       ),
 
       dateTime: (
-        <Typography variant='body3' color='text.secondary' noWrap>
+        <Typography variant='body2' color='text.secondary' noWrap>
           {dateFormatter(row.dateTime)}
         </Typography>
       ),
 
       amount: (
-        <Typography variant='body3' fontWeight={FONT_WEIGHTS.SEMIBOLD} noWrap>
+        <Typography variant='body2' fontWeight={FONT_WEIGHTS.SEMIBOLD} noWrap>
           {row.transactionType === 'refund' ? `-${row.amount}` : row.amount}
         </Typography>
       ),
@@ -120,7 +123,7 @@ const Transactions = () => {
       <Box>
         <Typography variant='h4'>Transactions</Typography>
         <Typography
-          variant='body2'
+          variant='body3'
           color='text.secondary'
           sx={{ ...theme.mixins.ellipsis() }}>
           This is a list of latest transactions.
