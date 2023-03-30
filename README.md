@@ -4,7 +4,7 @@ REACT DASHBOARD
 
 ## Demo link:
 
-//will add later
+https://react-dashboard-1223.netlify.app/
 
 ## Table of Content:
 
@@ -19,11 +19,16 @@ This project contains a UI for a dashboard/admin panel. The admin panel will con
 
 ## Screenshots
 
-//will add later
+![image](/uploads/8e179a8aae42f5f79929556f60995fe8/image.png)
+![image](/uploads/b4288987b7a21508ad899a067ef0e63c/image.png)
+![image](/uploads/d7d9a2eaa62ce79a3c5442adf9c81831/image.png)
+![image](/uploads/19021c0ba72c7e080594aaee06ea1e1f/image.png)
+![image](/uploads/edfe9ac3cab45d712edab1542bdab612/image.png)
+![image](/uploads/9419c7034404781f42abb7bd19a15f28/image.png)
 
 ## Technologies
 
-`Vite`, `ReactJS` , `MUI`, `Eslint`, `Prettier`, `Pre-commit Hook:Husky`
+`Vite`, `ReactJS` , `MUI`, `Eslint`, `Prettier`, `Recharts`
 
 ## Setup
 
