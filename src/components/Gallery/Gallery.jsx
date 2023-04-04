@@ -61,8 +61,8 @@ const Gallery = () => {
           CONSTANTS.IMAGE_LIST_ROW1_HEIGHT
         )} ${pxToRem(CONSTANTS.IMAGE_LIST_ROW2_HEIGHT)}`,
       }}>
-      {imagesData.map((image) => {
-        return (
+      {imagesData.map(
+        (image) =>
           !image.isHidden && (
             <ImageListItem
               key={image.title}
@@ -72,8 +72,7 @@ const Gallery = () => {
               <img src={image.img} alt={image.title} />
             </ImageListItem>
           )
-        );
-      })}
+      )}
     </ImageList>
   );
 };

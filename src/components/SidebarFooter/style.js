@@ -16,4 +16,4 @@ const StyledSidebarFooterList = styled(List)(
   })
 );
 
-export default StyledSidebarFooterList;
+export { StyledSidebarFooterList };

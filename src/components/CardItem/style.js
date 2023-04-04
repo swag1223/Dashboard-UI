@@ -5,4 +5,4 @@ const StyledCardItemAvatar = styled(ListItemAvatar)(() => ({
   alignItems: 'center',
 }));
 
-export default StyledCardItemAvatar;
+export { StyledCardItemAvatar };

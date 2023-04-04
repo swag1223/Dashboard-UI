@@ -1,4 +1,4 @@
 import TopProducts from './TopProducts';
 
 export default TopProducts;
-export { default as StyledTopProductsContainer } from './style';
+export { StyledTopProductsContainer } from './style';

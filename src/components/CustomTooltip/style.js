@@ -1,6 +1,6 @@
 import { Box, styled } from '@mui/material';
 
-export const StyledTooltipContainer = styled(Box)(
+const StyledTooltipContainer = styled(Box)(
   ({
     theme: {
       palette: {
@@ -36,7 +36,7 @@ export const StyledTooltipContainer = styled(Box)(
   })
 );
 
-export const StyledTooltipSalesIndicator = styled(Box)(
+const StyledTooltipSalesIndicator = styled(Box)(
   ({
     theme: {
       typography: { pxToRem },
@@ -50,7 +50,7 @@ export const StyledTooltipSalesIndicator = styled(Box)(
   })
 );
 
-export const StyledTooltipSalesIndicatorWrapper = styled(Box)(
+const StyledTooltipSalesIndicatorWrapper = styled(Box)(
   ({
     theme: {
       typography: { pxToRem },
@@ -61,3 +61,9 @@ export const StyledTooltipSalesIndicatorWrapper = styled(Box)(
     gap: pxToRem(8),
   })
 );
+
+export {
+  StyledTooltipContainer,
+  StyledTooltipSalesIndicator,
+  StyledTooltipSalesIndicatorWrapper,
+};

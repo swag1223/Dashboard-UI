@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import FontIcon from '@components/styledComponents/FontIcon';
 
-import StyledTextField from './style';
+import { StyledTextField } from './style';
 
 const SearchBar = (props) => {
   const { ...restProps } = props;

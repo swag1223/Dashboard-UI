@@ -1,9 +1,9 @@
-import Neil from '@assets/images/Neil.png';
-import Bonnie from '@assets/images/Bonnie.png';
-import Micheal from '@assets/images/Micheal.png';
-import Thomas from '@assets/images/Thomas.png';
-import Lana from '@assets/images/Lana.png';
-import Karen from '@assets/images/Karen.png';
+import Neil from '@assets/images/neil.png';
+import Bonnie from '@assets/images/bonnie.png';
+import Micheal from '@assets/images/micheal.png';
+import Thomas from '@assets/images/thomas.png';
+import Lana from '@assets/images/lana.png';
+import Karen from '@assets/images/karen.png';
 
 export default [
   {

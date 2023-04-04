@@ -8,7 +8,7 @@ import LatestCustomers from '@containers/LatestCustomers';
 import TopProducts from '@containers/TopProducts';
 import Transactions from '@containers/Transactions';
 import Footer from '@containers/Footer';
-import StyledMainContentContainer from './style';
+import { StyledMainContentContainer } from './style';
 
 const MainContent = () => {
   const theme = useTheme();

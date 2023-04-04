@@ -49,22 +49,8 @@ const CustomTable = (props) => {
 
 // PROPTYPES
 CustomTable.propTypes = {
-  headers: PropTypes.arrayOf(
-    PropTypes.shape({
-      key: PropTypes.string,
-      label: PropTypes.string,
-    })
-  ),
-  rowsData: PropTypes.arrayOf(
-    PropTypes.arrayOf(
-      PropTypes.shape({
-        transaction: PropTypes.element,
-        dateTime: PropTypes.element,
-        amount: PropTypes.element,
-        status: PropTypes.element,
-      })
-    )
-  ),
+  headers: PropTypes.arrayOf(PropTypes.shape({})),
+  rowsData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape({}))),
 };
 
 CustomTable.defaultProps = {

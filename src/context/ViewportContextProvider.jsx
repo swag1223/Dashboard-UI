@@ -5,9 +5,9 @@ import { useMediaQuery } from '@mui/material';
 
 import PropTypes from 'prop-types';
 
-export const ViewportContext = createContext();
+const ViewportContext = createContext();
 
-export const ViewportContextProvider = ({ children }) => {
+const ViewportContextProvider = ({ children }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.down('md'));
@@ -23,3 +23,5 @@ export const ViewportContextProvider = ({ children }) => {
 ViewportContextProvider.propTypes = {
   children: PropTypes.element.isRequired,
 };
+
+export { ViewportContext, ViewportContextProvider };

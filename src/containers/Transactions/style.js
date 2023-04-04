@@ -22,4 +22,4 @@ const StyledTransactionsContainer = styled(Box)(
   })
 );
 
-export default StyledTransactionsContainer;
+export { StyledTransactionsContainer };

@@ -26,4 +26,4 @@ const StyledTopProductsContainer = styled(Box, {
   })
 );
 
-export default StyledTopProductsContainer;
+export { StyledTopProductsContainer };

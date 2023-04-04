@@ -12,4 +12,4 @@ const StyledCollapseListItemButton = styled(ListItemButton)(
   })
 );
 
-export default StyledCollapseListItemButton;
+export { StyledCollapseListItemButton };

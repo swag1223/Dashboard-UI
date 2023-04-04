@@ -10,13 +10,12 @@ import { requestTransactionsData } from '@store/transactions';
 import { dateFormatter } from '@utils/index';
 import useViewportContext from '@hooks/useViewPortContext';
 
-import StyledTransactionsContainer from './style';
+import { StyledTransactionsContainer } from './style';
 
 const Transactions = () => {
   const theme = useTheme();
   const { transactionsData } = useSelector((state) => state.transactionsData);
   const dispatch = useDispatch();
-
   const { isMobile } = useViewportContext();
 
   const {
@@ -108,8 +107,8 @@ const Transactions = () => {
   );
 
   /**
-   *Maps the table rows to transformed data objects.
-   *returns An array of transformed data objects for transaction table rows.
+   * Maps the table rows to transformed data objects.
+   * returns An array of transformed data objects for transaction table rows.
    */
   const tableRowsFinalData = (transactionsData.tableRows || []).map((row) => {
     return transformTransactionsRowData(row);

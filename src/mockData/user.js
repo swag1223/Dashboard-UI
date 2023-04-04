@@ -1,4 +1,4 @@
-import currentUser from '@assets/images/Avatar.png';
+import currentUser from '@assets/images/avatar.png';
 
 export default {
   id: 1,

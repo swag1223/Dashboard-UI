@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { URLS } from '@constants/routes';
 import useViewportContext from '@hooks/useViewPortContext';
 
-import StyledErrorPageContainer from './style';
+import { StyledErrorPageContainer } from './style';
 
 const ErrorPage = ({ src, heading, description }) => {
   const theme = useTheme();

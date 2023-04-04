@@ -1,4 +1,4 @@
 import Footer from './Footer';
 
 export default Footer;
-export { default as StyledFooterContainer } from './style';
+export { StyledFooterContainer } from './style';

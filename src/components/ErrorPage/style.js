@@ -20,4 +20,4 @@ const StyledErrorPageContainer = styled(Box)(
   })
 );
 
-export default StyledErrorPageContainer;
+export { StyledErrorPageContainer };

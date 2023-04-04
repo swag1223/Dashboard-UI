@@ -1,4 +1,3 @@
-import CONSTANTS from '@constants/index';
 import {
   styled,
   TableCell,
@@ -7,7 +6,9 @@ import {
   TableRow,
 } from '@mui/material';
 
-export const StyledTableContainer = styled(TableContainer)(
+import CONSTANTS from '@constants/index';
+
+const StyledTableContainer = styled(TableContainer)(
   ({
     theme: {
       typography: { pxToRem },
@@ -18,7 +19,7 @@ export const StyledTableContainer = styled(TableContainer)(
   })
 );
 
-export const StyledTableCell = styled(TableCell)(
+const StyledTableCell = styled(TableCell)(
   ({
     theme: {
       spacing,
@@ -37,7 +38,7 @@ export const StyledTableCell = styled(TableCell)(
   })
 );
 
-export const StyledTableRow = styled(TableRow)(
+const StyledTableRow = styled(TableRow)(
   ({
     theme: {
       palette: {
@@ -50,3 +51,5 @@ export const StyledTableRow = styled(TableRow)(
     },
   })
 );
+
+export { StyledTableContainer, StyledTableCell, StyledTableRow };

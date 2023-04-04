@@ -5,7 +5,7 @@ import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import FontIcon from '@components/styledComponents/FontIcon';
 import useViewportContext from '@hooks/useViewPortContext';
 
-import StyledFooterContainer from './style';
+import { StyledFooterContainer } from './style';
 
 const Footer = () => {
   const footerIconsConfig = [

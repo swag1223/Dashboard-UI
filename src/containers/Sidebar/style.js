@@ -26,4 +26,4 @@ const StyledDrawer = styled(Drawer, {
   })
 );
 
-export default StyledDrawer;
+export { StyledDrawer };

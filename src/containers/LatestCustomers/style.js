@@ -1,6 +1,6 @@
 import { Box, List, ListItem, styled } from '@mui/material';
 
-export const StyledLatestCustomerContainer = styled(Box, {
+const StyledLatestCustomerContainer = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'isTablet',
 })(
   ({
@@ -26,7 +26,7 @@ export const StyledLatestCustomerContainer = styled(Box, {
   })
 );
 
-export const StyledCommonList = styled(List)(
+const StyledCommonList = styled(List)(
   ({
     theme: {
       typography: { pxToRem },
@@ -37,7 +37,7 @@ export const StyledCommonList = styled(List)(
   })
 );
 
-export const StyledCommonListItem = styled(ListItem)(
+const StyledCommonListItem = styled(ListItem)(
   ({
     theme: {
       typography: { pxToRem },
@@ -48,3 +48,9 @@ export const StyledCommonListItem = styled(ListItem)(
     gap: pxToRem(20),
   })
 );
+
+export {
+  StyledLatestCustomerContainer,
+  StyledCommonList,
+  StyledCommonListItem,
+};

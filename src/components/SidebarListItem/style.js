@@ -1,6 +1,6 @@
 import { ListItemButton, ListItemText, styled } from '@mui/material';
 
-export const StyledListItemText = styled(ListItemText, {
+const StyledListItemText = styled(ListItemText, {
   shouldForwardProp: (prop) => prop !== 'isActive',
 })(
   ({
@@ -17,7 +17,7 @@ export const StyledListItemText = styled(ListItemText, {
   })
 );
 
-export const StyledSidebarListItemButton = styled(ListItemButton)(
+const StyledSidebarListItemButton = styled(ListItemButton)(
   ({
     theme: {
       typography: { pxToRem },
@@ -33,3 +33,5 @@ export const StyledSidebarListItemButton = styled(ListItemButton)(
     };
   }
 );
+
+export { StyledListItemText, StyledSidebarListItemButton };

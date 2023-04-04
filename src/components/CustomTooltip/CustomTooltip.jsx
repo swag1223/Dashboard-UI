@@ -14,6 +14,7 @@ import {
  * @param {Array<Object>} props.payload - The data payload for the tooltip.
  * @param {string} props.label - The label for the tooltip.
  * @param {string} props.color - The color for indicator inside the tooltip.
+ * @param {string} props.plottedValue - The value plotted on graph
  * @returns {JSX.Element|null} The CustomTooltip component.
  */
 const CustomTooltip = ({
@@ -23,6 +24,7 @@ const CustomTooltip = ({
   color,
   labelFormatter,
   valueFormatter,
+  plottedValue,
 }) => {
   if (customActive && payload) {
     return (
@@ -33,7 +35,7 @@ const CustomTooltip = ({
         <StyledTooltipSalesIndicatorWrapper>
           <StyledTooltipSalesIndicator color={color} />
           <Typography variant='body1' color='secondary.main'>
-            Sales:
+            {plottedValue}:
           </Typography>
           <Typography variant='body1'>
             {valueFormatter(payload[0].value)}
@@ -56,6 +58,7 @@ CustomTooltip.propTypes = {
   color: PropTypes.string,
   labelFormatter: PropTypes.func,
   valueFormatter: PropTypes.func,
+  plottedValue: PropTypes.string,
 };
 
 CustomTooltip.defaultProps = {
@@ -64,6 +67,7 @@ CustomTooltip.defaultProps = {
   color: '',
   labelFormatter: () => {},
   valueFormatter: () => {},
+  plottedValue: '',
 };
 
 export default CustomTooltip;

@@ -13,4 +13,4 @@ const StyledSearchResultItem = styled(Box)(
   })
 );
 
-export default StyledSearchResultItem;
+export { StyledSearchResultItem };

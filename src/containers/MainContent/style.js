@@ -17,4 +17,4 @@ const StyledMainContentContainer = styled(Box)(
   })
 );
 
-export default StyledMainContentContainer;
+export { StyledMainContentContainer };

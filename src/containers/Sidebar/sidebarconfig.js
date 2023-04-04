@@ -1,6 +1,6 @@
 import { URLS } from '@constants/routes';
 
-export const sidebarMenuItems = [
+const sidebarMenuItems = [
   {
     to: URLS.DASHBOARD,
     icon: 'chart-pie',
@@ -63,7 +63,7 @@ export const sidebarMenuItems = [
   },
 ];
 
-export const sidebarFooterItems = [
+const sidebarFooterItems = [
   {
     to: URLS.ADJUSTMENTS,
     icon: 'adjustments',
@@ -77,3 +77,5 @@ export const sidebarFooterItems = [
     icon: 'cog',
   },
 ];
+
+export { sidebarMenuItems, sidebarFooterItems };

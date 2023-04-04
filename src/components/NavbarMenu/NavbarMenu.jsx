@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import NavbarMenuItem from '@components/NavbarMenuItem';
 
-import StyledNavbarMenu from './style';
+import { StyledNavbarMenu } from './style';
 
 const NavbarMenu = (props) => {
   const { anchorEl, open, handleMenuClose, items } = props;

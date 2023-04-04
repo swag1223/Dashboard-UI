@@ -12,7 +12,7 @@ import SidebarFooter, {
 import toggleSidebar from '@store/sidebar/actionCreators';
 import useViewportContext from '@hooks/useViewPortContext';
 
-import StyledDrawer from './style';
+import { StyledDrawer } from './style';
 import { sidebarFooterItems, sidebarMenuItems } from './sidebarconfig';
 
 const Sidebar = () => {
@@ -34,7 +34,9 @@ const Sidebar = () => {
 
   return (
     <StyledDrawer
-      className='custom-scrollbar custom-scrollbar-color'
+      classes={{
+        paper: 'custom-scrollbar custom-scrollbar-color',
+      }}
       isMobile={isMobile}
       variant={isMobile ? 'temporary' : 'permanent'}
       open={isSidebarVisible}

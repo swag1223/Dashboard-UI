@@ -1,6 +1,6 @@
 import { AppBar, Box, styled } from '@mui/material';
 
-export const NavItemsWrapper = styled(Box)(
+const NavItemsWrapper = styled(Box)(
   ({
     theme: {
       typography: { pxToRem },
@@ -12,7 +12,7 @@ export const NavItemsWrapper = styled(Box)(
   })
 );
 
-export const StyledAppBar = styled(AppBar)(
+const StyledAppBar = styled(AppBar)(
   ({
     theme: {
       palette: { common, secondary },
@@ -25,3 +25,5 @@ export const StyledAppBar = styled(AppBar)(
     right: 0,
   })
 );
+
+export { NavItemsWrapper, StyledAppBar };

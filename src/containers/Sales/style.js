@@ -1,6 +1,6 @@
 import { styled, Box } from '@mui/material';
 
-export const StyledSalesContainer = styled(Box)(
+const StyledSalesContainer = styled(Box)(
   ({
     theme: {
       palette: {
@@ -18,7 +18,7 @@ export const StyledSalesContainer = styled(Box)(
   })
 );
 
-export const StyledSalesHeading = styled(Box)(
+const StyledSalesHeading = styled(Box)(
   ({
     theme: {
       spacing,
@@ -32,3 +32,5 @@ export const StyledSalesHeading = styled(Box)(
     padding: spacing(5),
   })
 );
+
+export { StyledSalesContainer, StyledSalesHeading };

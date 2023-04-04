@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 
 import PropTypes from 'prop-types';
 
-import StyledSearchResultItem from './style';
+import { StyledSearchResultItem } from './style';
 
 const SearchResultItem = (props) => {
   const { option } = props;

@@ -1,8 +1,15 @@
-import { Avatar, Box, ListItemText, Typography, useTheme } from '@mui/material';
+import {
+  Avatar,
+  Box,
+  ListItemText,
+  Tooltip,
+  Typography,
+  useTheme,
+} from '@mui/material';
 
 import PropTypes from 'prop-types';
 
-import StyledCardItemAvatar from './style';
+import { StyledCardItemAvatar } from './style';
 
 const CardItem = (props) => {
   const { avatar, name, title, subtitle } = props;
@@ -17,22 +24,26 @@ const CardItem = (props) => {
       )}
       <ListItemText
         primary={
-          <Typography
-            variant='h4'
-            color='text.primary'
-            sx={{ ...theme.mixins.ellipsis() }}>
-            {title}
-          </Typography>
+          <Tooltip title={title} placement='top' arrow>
+            <Typography
+              variant='h4'
+              color='text.primary'
+              sx={{ ...theme.mixins.ellipsis() }}>
+              {title}
+            </Typography>
+          </Tooltip>
         }
         secondary={
-          <Typography
-            variant='body3'
-            color='text.secondary'
-            sx={{
-              ...theme.mixins.ellipsis(),
-            }}>
-            {subtitle}
-          </Typography>
+          <Tooltip title={subtitle} placement='top' arrow>
+            <Typography
+              variant='body3'
+              color='text.secondary'
+              sx={{
+                ...theme.mixins.ellipsis(),
+              }}>
+              {subtitle}
+            </Typography>
+          </Tooltip>
         }
       />
     </Box>

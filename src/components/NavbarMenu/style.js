@@ -15,4 +15,4 @@ const StyledNavbarMenu = styled(Menu)(
   })
 );
 
-export default StyledNavbarMenu;
+export { StyledNavbarMenu };

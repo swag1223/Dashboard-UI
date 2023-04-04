@@ -11,7 +11,7 @@ import {
   StyledCommonListItem,
 } from '@containers/LatestCustomers';
 import CardItem from '@components/CardItem';
-import StyledTopProductsContainer from './style';
+import { StyledTopProductsContainer } from './style';
 
 const TopProducts = () => {
   // HOOKS

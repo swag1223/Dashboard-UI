@@ -1,4 +1,4 @@
 import ErrorPage from './ErrorPage';
 
 export default ErrorPage;
-export { default as StyledErrorPageContainer } from './style';
+export { StyledErrorPageContainer } from './style';

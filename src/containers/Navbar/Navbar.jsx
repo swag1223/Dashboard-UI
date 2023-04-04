@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Avatar, Box, IconButton, Toolbar } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
-import brandLogo from '@assets/images/Logo.svg';
+import brandLogo from '@assets/images/logo.svg';
 import { NOT_FOUND, URLS } from '@constants/routes';
 import CONSTANTS from '@constants/index';
 import FontIcon from '@components/styledComponents/FontIcon';

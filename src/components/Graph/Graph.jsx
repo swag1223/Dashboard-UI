@@ -52,7 +52,7 @@ const Graph = (props) => {
 
   return (
     <ResponsiveContainer
-      width='100%'
+      width='99%'
       height={CONSTANTS.GRAPH_RESPONSIVE_CONTAINER_HEIGHT}>
       <LineChart
         data={data}
@@ -62,7 +62,7 @@ const Graph = (props) => {
           left: 15,
           bottom: 5,
         }}>
-        <CartesianGrid vertical={false} />
+        <CartesianGrid vertical={false} strokeOpacity={0.3} />
         <XAxis
           axisLine={false}
           dataKey={xAxisDataKey}
@@ -107,6 +107,7 @@ const Graph = (props) => {
               customActive={isToolTipActive}
               labelFormatter={xAxisTickFormatter}
               valueFormatter={yAxisTickFormatter}
+              plottedValue='Sales'
             />
           }
           position={toolTipPosition}

@@ -26,4 +26,4 @@ const StyledFooterContainer = styled(Box, {
   })
 );
 
-export default StyledFooterContainer;
+export { StyledFooterContainer };
