@@ -4,6 +4,14 @@ const initialState = {
   transactionsData: {},
 };
 
+/**
+
+@function transactionsReducer
+@description Reducer function for managing state related to transactionsData.
+@param {State} state - The current state
+@param {Action} action - The action object
+@returns {State} The new state
+*/
 const transactionsReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {

@@ -1,9 +1,7 @@
-import { useTheme } from '@emotion/react';
 import { createContext, useMemo } from 'react';
-
-import { useMediaQuery } from '@mui/material';
-
 import PropTypes from 'prop-types';
+
+import { useMediaQuery, useTheme } from '@mui/material';
 
 const ViewportContext = createContext();
 

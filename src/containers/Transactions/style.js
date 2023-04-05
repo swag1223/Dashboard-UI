@@ -12,11 +12,11 @@ const StyledTransactionsContainer = styled(Box)(
       typography: { pxToRem },
     },
   }) => ({
-    padding: spacing(4),
+    padding: spacing(6, 4),
     backgroundColor: white,
     display: 'flex',
     flexDirection: 'column',
-    gap: pxToRem(20),
+    gap: pxToRem(25),
     borderRadius: shape.borderRadius,
     boxShadow: shadows[1],
   })

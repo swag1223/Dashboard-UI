@@ -4,6 +4,7 @@ const initialState = {
   // Whether the sidebar is currently visible.
   isSidebarVisible: false,
 };
+
 /**
  * Redux reducer for sidebar visibility.
  * @returns {State} The new state of the reducer.

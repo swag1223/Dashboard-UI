@@ -1,4 +1,4 @@
-export default {
+const transactionsData = {
   headers: [
     { key: 'transaction', label: 'TRANSACTIONS' },
     { key: 'dateTime', label: 'DATE & TIME' },
@@ -51,3 +51,5 @@ export default {
     },
   ],
 };
+
+export default transactionsData;

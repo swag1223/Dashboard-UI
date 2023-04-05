@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {
   Avatar,
   Box,
@@ -6,8 +8,6 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
-
-import PropTypes from 'prop-types';
 
 import { StyledCardItemAvatar } from './style';
 

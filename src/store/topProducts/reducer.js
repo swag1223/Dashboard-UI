@@ -4,6 +4,14 @@ const initialState = {
   topProductsData: [],
 };
 
+/**
+
+@function topProductsReducer
+@description Reducer function for managing state related to topProductsData.
+@param {State} state - The current state
+@param {Action} action - The action object
+@returns {State} The new state
+*/
 const topProductsReducer = (state = initialState, action) => {
   const { type, payload } = action;
 

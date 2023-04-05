@@ -12,7 +12,7 @@ const StyledSalesContainer = styled(Box)(
     },
   }) => ({
     backgroundColor: white,
-    padding: spacing(0.5),
+    padding: spacing(5, 0.5),
     borderRadius,
     boxShadow: shadows[1],
   })
@@ -27,8 +27,8 @@ const StyledSalesHeading = styled(Box)(
   }) => ({
     display: 'flex',
     alignItems: 'center',
-    gap: pxToRem(15),
-    marginBottom: spacing(5),
+    gap: pxToRem(30),
+    marginBottom: spacing(10),
     padding: spacing(5),
   })
 );

@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { Box, Button, Typography, useTheme } from '@mui/material';
-
-import PropTypes from 'prop-types';
 
 import { URLS } from '@constants/routes';
 import useViewportContext from '@hooks/useViewPortContext';

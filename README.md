@@ -88,3 +88,11 @@ define in both `vite.config.js` and in `jsconfig.json` for intellisense.
 ```
  https://recharts.org/en-US/
 ```
+
+## Steps To Deploy:
+
+can follow this blog:
+
+```
+https://www.freecodecamp.org/news/how-to-deploy-a-react-application-to-netlify-363b8a98a985/
+```

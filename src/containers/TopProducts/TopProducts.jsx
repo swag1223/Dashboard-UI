@@ -5,12 +5,12 @@ import { Box, Divider, Typography, useTheme } from '@mui/material';
 
 import { requestTopProductsData } from '@store/topProducts';
 import useViewportContext from '@hooks/useViewPortContext';
-
 import {
   StyledCommonList,
   StyledCommonListItem,
 } from '@containers/LatestCustomers';
 import CardItem from '@components/CardItem';
+
 import { StyledTopProductsContainer } from './style';
 
 const TopProducts = () => {

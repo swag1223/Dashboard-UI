@@ -18,14 +18,12 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/material": "^5.11.10",
-    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.2",
     "recharts": "^2.5.0",
-    "redux": "^4.2.1",
-    "redux-thunk": "^2.4.2"
+    "redux": "^4.2.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
@@ -42,6 +40,7 @@
     "husky": "^8.0.0",
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
+    "prop-types": "^15.8.1",
     "redux-devtools-extension": "^2.13.9",
     "sass": "^1.58.3",
     "vite": "^4.1.0"

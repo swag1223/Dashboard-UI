@@ -1,4 +1,4 @@
-export default [
+const products = [
   {
     id: 1,
     label: 'Restaurant Booking App',
@@ -41,3 +41,5 @@ export default [
     sales: 22,
   },
 ];
+
+export default products;

@@ -1,10 +1,10 @@
 .custom-scrollbar {
-  ::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     width: rem($SIDEBAR_SCROLLBAR_WIDTH);
   }
 }
 .custom-scrollbar-color {
-  ::-webkit-scrollbar-thumb {
+  &::-webkit-scrollbar-thumb {
     background-color: $SCROLLBAR_COLOR;
   }
 }

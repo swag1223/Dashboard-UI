@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Box, Typography, useTheme } from '@mui/material';
 
 import { FONT_WEIGHTS } from '@constants/theme';
+import CONSTANTS from '@constants/index';
 import StatusChip from '@components/StatusChip';
 import CustomTable from '@components/CustomTable';
 import { requestTransactionsData } from '@store/transactions';
@@ -22,6 +23,20 @@ const Transactions = () => {
     typography: { pxToRem },
   } = theme;
 
+  const {
+    TRANSACTIONS: {
+      RECEIVE,
+      PROCESSING,
+      FAILED,
+      REFUND,
+      COMPLETED,
+      IN_PROGRESS,
+      CANCELLED,
+      AMOUNT,
+      STATUS,
+    },
+  } = CONSTANTS;
+
   useEffect(() => {
     dispatch(requestTransactionsData());
   }, []);
@@ -30,25 +45,25 @@ const Transactions = () => {
    * An object that maps the transaction types to their corresponding strings.
    */
   const transactionTypeConfig = {
-    receive: 'Payment from ',
-    processing: 'Payment from ',
-    failed: 'Payment failed from ',
-    refund: 'Payment refund to ',
+    [RECEIVE]: 'Payment from ',
+    [PROCESSING]: 'Payment from ',
+    [FAILED]: 'Payment failed from ',
+    [REFUND]: 'Payment refund to ',
   };
 
   /**
    * An object that maps the transaction statuses to their corresponding label and color.
    */
   const transactionStatusConfig = {
-    completed: {
+    [COMPLETED]: {
       label: 'Completed',
       color: 'success',
     },
-    'in progress': {
+    [IN_PROGRESS]: {
       label: 'In Progress',
       color: 'info',
     },
-    cancelled: {
+    [CANCELLED]: {
       label: 'Cancelled',
       color: 'error',
     },
@@ -86,7 +101,7 @@ const Transactions = () => {
 
       amount: (
         <Typography variant='body2' fontWeight={FONT_WEIGHTS.SEMIBOLD} noWrap>
-          {row.transactionType === 'refund' ? `-${row.amount}` : row.amount}
+          {row.transactionType === REFUND ? `-${row.amount}` : row.amount}
         </Typography>
       ),
 
@@ -100,7 +115,7 @@ const Transactions = () => {
   };
 
   /** keys of the columnNames to remove in mobile  */
-  const keysToRemove = ['amount', 'status'];
+  const keysToRemove = [AMOUNT, STATUS];
 
   const updatedHeaders = (transactionsData.headers || []).filter(
     (header) => !(isMobile && keysToRemove.includes(header.key))
@@ -121,7 +136,7 @@ const Transactions = () => {
   );
 
   return (
-    <StyledTransactionsContainer className='custom-scrollbar custom-scrollbar-color'>
+    <StyledTransactionsContainer>
       <Box>
         <Typography variant='h4'>Transactions</Typography>
         <Typography

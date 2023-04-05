@@ -1,6 +1,6 @@
-import { Chip } from '@mui/material';
-
 import PropTypes from 'prop-types';
+
+import { Chip } from '@mui/material';
 
 const StatusChip = ({ label, color }) => {
   return <Chip label={label} color={color} size='small' />;

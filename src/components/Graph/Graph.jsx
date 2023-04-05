@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { useTheme } from '@mui/material';
 import {
@@ -10,8 +11,6 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
-
-import PropTypes from 'prop-types';
 
 import CustomTooltip from '@components/CustomTooltip';
 import CONSTANTS from '@constants/index';
@@ -52,6 +51,10 @@ const Graph = (props) => {
 
   return (
     <ResponsiveContainer
+      /**
+       * with width=' 100%' , responsive container doesnt resize properly ,
+       * a viable fix is to set width to 99% with a height
+       */
       width='99%'
       height={CONSTANTS.GRAPH_RESPONSIVE_CONTAINER_HEIGHT}>
       <LineChart

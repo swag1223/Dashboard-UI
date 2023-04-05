@@ -15,8 +15,8 @@ const StyledLatestCustomerContainer = styled(Box, {
     },
     isTablet,
   }) => ({
-    padding: isTablet ? spacing(4) : spacing(6),
-    width: isTablet ? '100%' : '35%',
+    padding: isTablet ? spacing(4) : spacing(10, 5),
+    width: isTablet ? '100%' : '30%',
     backgroundColor: white,
     display: 'flex',
     flexDirection: 'column',

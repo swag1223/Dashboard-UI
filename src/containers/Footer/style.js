@@ -19,7 +19,7 @@ const StyledFooterContainer = styled(Box, {
     minHeight: pxToRem(112),
     gap: pxToRem(4),
     display: 'flex',
-    padding: isMobile ? spacing(8) : spacing(4),
+    padding: spacing(8),
     justifyContent: 'space-between',
     alignItems: isMobile ? 'flex-start' : 'center',
     flexDirection: isMobile ? 'column' : 'row',

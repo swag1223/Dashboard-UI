@@ -1,4 +1,4 @@
-export const COLORS = {
+const COLORS = {
   GRAY: {
     50: '#F9FAFB',
     200: '#E5E7EB',
@@ -21,9 +21,11 @@ export const COLORS = {
   },
 };
 
-export const FONT_WEIGHTS = {
+const FONT_WEIGHTS = {
   REGULAR: 400,
   MEDIUM: 500,
   SEMIBOLD: 600,
   BOLD: 700,
 };
+
+export { COLORS, FONT_WEIGHTS };

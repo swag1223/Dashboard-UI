@@ -1,5 +1,5 @@
 import { LOAD_TRANSACTIONS_DATA } from '@constants/actionTypes';
-import TransactionsData from '@mockData/transactions';
+import transactionsData from '@mockData/transactions';
 
 /**
  * Returns an action object to request TRANSACTIONS DATA from the transactions' mock data,
@@ -8,7 +8,7 @@ import TransactionsData from '@mockData/transactions';
 const requestTransactionsData = () => {
   return {
     type: LOAD_TRANSACTIONS_DATA,
-    payload: TransactionsData,
+    payload: transactionsData,
   };
 };
 

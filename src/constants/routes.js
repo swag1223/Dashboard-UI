@@ -1,4 +1,4 @@
-export const URLS = {
+const URLS = {
   DASHBOARD: '/',
   AUTH: '/auth',
   PROFILE: '/profile',
@@ -22,4 +22,6 @@ export const URLS = {
   COG: '/cog',
 };
 
-export const NOT_FOUND = '*';
+const NOT_FOUND = '*';
+
+export { URLS, NOT_FOUND };

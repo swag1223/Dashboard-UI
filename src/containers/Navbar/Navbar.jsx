@@ -9,12 +9,10 @@ import brandLogo from '@assets/images/logo.svg';
 import { NOT_FOUND, URLS } from '@constants/routes';
 import CONSTANTS from '@constants/index';
 import FontIcon from '@components/styledComponents/FontIcon';
-
 import { requestProductsSearchResults } from '@store/searchResults';
 import toggleSidebar from '@store/sidebar/actionCreators';
 import { requestUserData } from '@store/userData';
 import { debounce } from '@utils/index';
-
 import SearchResultItem from '@components/SearchResultItem';
 import NavbarMenu from '@components/NavbarMenu';
 import SearchBar from '@components/SearchBar';

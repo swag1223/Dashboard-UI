@@ -17,7 +17,10 @@ const CustomTable = (props) => {
   const { headers, rowsData } = props;
 
   return (
-    <StyledTableContainer component={Paper} elevation={0}>
+    <StyledTableContainer
+      component={Paper}
+      elevation={0}
+      className='custom-scrollbar custom-scrollbar-color'>
       <Table stickyHeader>
         <TableHead>
           <TableRow>
@@ -49,8 +52,13 @@ const CustomTable = (props) => {
 
 // PROPTYPES
 CustomTable.propTypes = {
-  headers: PropTypes.arrayOf(PropTypes.shape({})),
-  rowsData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape({}))),
+  headers: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string,
+      label: PropTypes.string,
+    })
+  ),
+  rowsData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object.isRequired)),
 };
 
 CustomTable.defaultProps = {

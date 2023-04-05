@@ -1,5 +1,5 @@
 import { LOAD_TOP_PRODUCTS_DATA } from '@constants/actionTypes';
-import TopProducts from '@mockData/products';
+import products from '@mockData/products';
 
 /**
  * Returns an action object to request TOP PRODUCTS DATA from the products' mock data,
@@ -8,7 +8,7 @@ import TopProducts from '@mockData/products';
 const requestTopProductsData = () => {
   return {
     type: LOAD_TOP_PRODUCTS_DATA,
-    payload: TopProducts,
+    payload: products,
   };
 };
 

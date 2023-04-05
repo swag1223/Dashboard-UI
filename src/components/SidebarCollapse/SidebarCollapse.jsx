@@ -1,8 +1,7 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { Collapse, List, ListItemText, useTheme } from '@mui/material';
-
-import PropTypes from 'prop-types';
 
 import FontIcon from '@components/styledComponents/FontIcon';
 import SidebarListItem, {

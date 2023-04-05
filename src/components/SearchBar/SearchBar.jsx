@@ -1,7 +1,7 @@
+import PropTypes from 'prop-types';
+
 import { InputAdornment, useTheme } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
-
-import PropTypes from 'prop-types';
 
 import FontIcon from '@components/styledComponents/FontIcon';
 

@@ -5,7 +5,7 @@ import Thomas from '@assets/images/thomas.png';
 import Lana from '@assets/images/lana.png';
 import Karen from '@assets/images/karen.png';
 
-export default [
+const customersData = [
   {
     id: 1,
     name: 'Neil Sims',
@@ -49,3 +49,5 @@ export default [
     amount: 1367,
   },
 ];
+
+export default customersData;

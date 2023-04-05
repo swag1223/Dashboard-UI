@@ -15,8 +15,8 @@ const StyledTopProductsContainer = styled(Box, {
     },
     isTablet,
   }) => ({
-    padding: isTablet ? spacing(4) : spacing(6),
-    width: isTablet ? '100%' : '65%',
+    padding: isTablet ? spacing(4) : spacing(10, 5),
+    width: isTablet ? '100%' : '70%',
     backgroundColor: white,
     display: 'flex',
     flexDirection: 'column',

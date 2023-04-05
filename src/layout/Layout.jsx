@@ -12,7 +12,7 @@ const Layout = () => {
   const isErrorPage = !Object.values(URLS).includes(currentRoute);
 
   return (
-    <Box sx={{ maxWidth: '1300px', margin: '0 auto' }}>
+    <Box sx={{ maxWidth: '1600px', margin: '0 auto' }}>
       <Navbar />
       <Box display='flex'>
         {!isErrorPage && <Sidebar />}

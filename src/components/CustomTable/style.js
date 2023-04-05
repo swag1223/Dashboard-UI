@@ -14,7 +14,7 @@ const StyledTableContainer = styled(TableContainer)(
       typography: { pxToRem },
     },
   }) => ({
-    maxWidth: pxToRem(CONSTANTS.TABLE_MAXWIDTH),
+    maxWidth: '100%',
     maxHeight: pxToRem(CONSTANTS.TABLE_MAXHEIGHT),
   })
 );

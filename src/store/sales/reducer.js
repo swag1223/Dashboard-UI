@@ -4,6 +4,14 @@ const initialState = {
   salesData: [],
 };
 
+/**
+
+@function salesDataReducer
+@description Reducer function for managing state related to salesData.
+@param {State} state - The current state
+@param {Action} action - The action object
+@returns {State} The new state
+*/
 const salesDataReducer = (state = initialState, action) => {
   const { type, payload } = action;
 

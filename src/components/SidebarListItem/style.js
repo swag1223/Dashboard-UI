@@ -28,7 +28,7 @@ const StyledSidebarListItemButton = styled(ListItemButton)(
       borderRadius: pxToRem(12),
       display: 'flex',
       gap: pxToRem(18),
-      margin: spacing(1, 2),
+      margin: spacing(2),
       padding: spacing(0.5, 2),
     };
   }

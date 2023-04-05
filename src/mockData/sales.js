@@ -1,4 +1,4 @@
-export default [
+const salesData = [
   {
     datetime: '2023-04-1',
     sales: 82,
@@ -28,3 +28,5 @@ export default [
     sales: 150,
   },
 ];
+
+export default salesData;
