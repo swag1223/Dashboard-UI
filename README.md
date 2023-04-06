@@ -109,27 +109,16 @@ Now, we’ll click Authorize. Now that we’re authorized, we can follow the com
 
 3\. Command Line Prompts
 
-```
-In the console, it says that “This folder isn’t linked to a site yet. What would you like to do?” It wants to know if we want to link this directory to an existing site or create and configure a new site. Since this is a new site, we’ll select Create & configure a new site.
-```
+a\. `In the console, it says that “This folder isn’t linked to a site yet. What would you like to do?” It wants to know if we want to link this directory to an existing site or create and configure a new site. Since this is a new site, we’ll select Create & configure a new site.`
 
-```
-It gives us the option to give our site a name. I’ll type portfolio on netlify (You can type any available name which you like).
-```
+b\. `It gives us the option to give our site a name. I’ll type portfolio on netlify (You can type any available name which you like).`
 
-```
-Now, as deploy path, we need to specify our project's dist directory which contains the assets for deployment. So, we will type build there and press enter.
-```
+c\. `Now, as deploy path, we need to specify our project's dist directory which contains the assets for deployment. So, we will type build there and press enter.`
 
-```
-our site will get created and will be deployed to a draft URL first, which we can view by copying and pasting the URL in the browser.
-```
+d\. `our site will get created and will be deployed to a draft URL first, which we can view by copying and pasting the URL in the browser.`
 
-```
-back in the console, it says “If everything looks good on your draft URL, take it to live with the --prod flag”.
-
-So to make our app live, we’ll run the command shown on the command line: "netlify deploy --prod"
-```
+e\. `back in the console, it says “If everything looks good on your draft URL, take it to live with the --prod flag”.
+So to make our app live, we’ll run the command shown on the command line: "netlify deploy --prod"`
 
 4\. If you’re publishing an app that uses a router like React Router you’ll need to configure redirects and rewrite rules for your URLs
 
