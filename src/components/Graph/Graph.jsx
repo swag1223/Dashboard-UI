@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-
-import { useTheme } from '@mui/material';
 import {
   LineChart,
   Line,
@@ -11,6 +9,8 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
+
+import { useTheme } from '@mui/material';
 
 import CustomTooltip from '@components/CustomTooltip';
 import CONSTANTS from '@constants/index';

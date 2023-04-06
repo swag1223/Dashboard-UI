@@ -1,20 +1,12 @@
 import { createTheme } from '@mui/material';
 
-import { COLORS, FONT_WEIGHTS } from '@constants/theme';
+import { BREAKPOINTS, COLORS, FONT_WEIGHTS } from '@constants/theme';
 import fonts from './font';
 import ellipsis from './mixins';
 
 const { GRAY, RED, GREEN, BLUE } = COLORS;
 const theme = createTheme({
-  breakpoints: {
-    values: {
-      xs: 320,
-      sm: 768,
-      md: 1024,
-      lg: 1440,
-      xl: 1920,
-    },
-  },
+  breakpoints: BREAKPOINTS,
   palette: {
     primary: {
       main: GREEN[500],
