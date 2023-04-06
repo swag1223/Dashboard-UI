@@ -119,9 +119,9 @@ const Navbar = () => {
   const handleInputChange = (e, newValue, reason) => {
     setInputValue(newValue);
     if (reason === 'clear') {
-      getSearchResults(newValue);
+      getSearchResults(newValue.trim());
     } else {
-      debouncedGetSearchResults(newValue);
+      debouncedGetSearchResults(newValue.trim());
     }
   };
 

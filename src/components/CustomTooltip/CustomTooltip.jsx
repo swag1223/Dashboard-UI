@@ -27,8 +27,8 @@ const CustomTooltip = ({
   plottedValue,
 }) => {
   if (customActive && payload) {
-    return (
-      <StyledTooltipContainer>
+    return payload.map((point, index) => (
+      <StyledTooltipContainer key={index}>
         <Typography variant='body3' color='secondary.main'>
           {labelFormatter(label)}
         </Typography>
@@ -37,23 +37,17 @@ const CustomTooltip = ({
           <Typography variant='body1' color='secondary.main'>
             {plottedValue}:
           </Typography>
-          <Typography variant='body1'>
-            {valueFormatter(payload[0].value)}
-          </Typography>
+          <Typography variant='body1'>{valueFormatter(point.value)}</Typography>
         </StyledTooltipSalesIndicatorWrapper>
       </StyledTooltipContainer>
-    );
+    ));
   }
   return null;
 };
 
 CustomTooltip.propTypes = {
   customActive: PropTypes.bool.isRequired,
-  payload: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.number,
-    })
-  ),
+  payload: PropTypes.arrayOf(PropTypes.object.isRequired),
   label: PropTypes.string,
   color: PropTypes.string,
   labelFormatter: PropTypes.func,

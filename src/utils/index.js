@@ -29,4 +29,14 @@ const dateFormatter = (datetimestamp) => {
   return `${date} ${month} ${year}`;
 };
 
-export { debounce, dateFormatter };
+/**
+ * A custom comparator to sort the data on the basis on date
+ * creates a new sorted array based on the input  data array.
+ * @function
+ * @param {Array<Object>} arr - An array of  data objects.
+ * @returns {Array<Object>} A new sorted array of  data objects.
+ */
+const sortData = (arr) =>
+  [...arr].sort((a, b) => new Date(a.datetime) - new Date(b.datetime));
+
+export { debounce, dateFormatter, sortData };

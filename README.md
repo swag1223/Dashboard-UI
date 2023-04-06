@@ -91,8 +91,53 @@ define in both `vite.config.js` and in `jsconfig.json` for intellisense.
 
 ## Steps To Deploy:
 
-can follow this blog:
+1\. Install netlify cli using following command:
 
 ```
-https://www.freecodecamp.org/news/how-to-deploy-a-react-application-to-netlify-363b8a98a985/
+yarn add global netlify-cli
 ```
+
+2\. To deploy the application we have to make sure that we’re in the project folder and then we will run this command:
+
+```
+netlify deploy
+```
+
+We might get a pop-up window which will ask us to log in with Netlify and grant access to the Netlify CLI.
+
+Now, we’ll click Authorize. Now that we’re authorized, we can follow the command line prompts to deploy the app.
+
+3\. Command Line Prompts
+
+```
+In the console, it says that “This folder isn’t linked to a site yet. What would you like to do?” It wants to know if we want to link this directory to an existing site or create and configure a new site. Since this is a new site, we’ll select Create & configure a new site.
+```
+
+```
+It gives us the option to give our site a name. I’ll type portfolio on netlify (You can type any available name which you like).
+```
+
+```
+Now, as deploy path, we need to specify our project's dist directory which contains the assets for deployment. So, we will type build there and press enter.
+```
+
+```
+our site will get created and will be deployed to a draft URL first, which we can view by copying and pasting the URL in the browser.
+```
+
+```
+back in the console, it says “If everything looks good on your draft URL, take it to live with the --prod flag”.
+
+So to make our app live, we’ll run the command shown on the command line: "netlify deploy --prod"
+```
+
+4\. If you’re publishing an app that uses a router like React Router you’ll need to configure redirects and rewrite rules for your URLs
+
+`add a file inside the dist folder of our app named _redirects. Inside the file, we need to include the following rewrite rule.
+`
+
+```
+/*    /index.html  200
+```
+
+This rewrite rule is going to serve index.html file instead of giving a 404, no matter what URL the browser requests.

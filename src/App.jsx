@@ -4,10 +4,11 @@ import { RouterProvider } from 'react-router-dom';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 
 import { ViewportContextProvider } from '@context/index';
-import store from '@store';
-import theme from '@theme';
-import router from '@routes/routerconfig';
+
 import '@styles/main.scss';
+import router from '@routes/routerconfig';
+import store from '@store/index';
+import theme from '@theme/index';
 
 const App = () => {
   return (
